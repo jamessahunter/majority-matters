@@ -1,8 +1,8 @@
 const router = require('express').Router();
-
 const { Answer } = require('../../models');
+const { withAuth } = require('../../utils/auth');
 
-router.get('/:id',async (req,res)=>{
+router.get('/:id', withAuth, async (req,res)=>{
     try {
         const dbAnswerData = await Answer.findAll({
             where: {
@@ -22,7 +22,7 @@ router.get('/:id',async (req,res)=>{
 
 
 
-router.put('/:id',async (req,res)=>{
+router.put('/:id', withAuth, async (req,res)=>{
     console.log(req.body.passArr);
     for(let i=0; i<req.body.passArr.length; i++){
         Answer.update(req.body.passArr[i],{
