@@ -600,6 +600,7 @@ const answerdata =[
         answers: 'Cyrus the Great',
         question_id: 15,
         total: 0,
+        total: 0,
     },
 ]
 
