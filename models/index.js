@@ -2,6 +2,7 @@ const User = require('./User');
 const Question = require('./Question');
 const Answer = require('./Answer');
 const Rank = require('./Rank');
+const UserAnswer = require('./UserAnswer');
 // const AnswerRank = require('./AnswerRank');
 
 Question.hasMany(Answer,{
@@ -33,4 +34,4 @@ Rank.belongsTo(Answer,{
 // })
 
 //module.exports={User, Question, Answer, Rank, AnswerRank};
-module.exports={User, Question, Answer, Rank};
+module.exports={User, Question, Answer, Rank, UserAnswer};

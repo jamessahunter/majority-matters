@@ -12,7 +12,7 @@ router.get('/:id', withAuth, async (req,res)=>{
             });
             const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
 
-            console.log(answers);
+            // console.log(answers);
             res.send(answers);
     }catch{
         console.log(err);
@@ -23,7 +23,7 @@ router.get('/:id', withAuth, async (req,res)=>{
 
 
 router.put('/:id', withAuth, async (req,res)=>{
-    console.log(req.body.passArr);
+    // console.log(req.body.passArr);
     for(let i=0; i<req.body.passArr.length; i++){
         Answer.update(req.body.passArr[i],{
             where:{
