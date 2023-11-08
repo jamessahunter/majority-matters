@@ -2,6 +2,7 @@ const User = require('./User');
 const Question = require('./Question');
 const Answer = require('./Answer');
 const Rank = require('./Rank');
+const UserAnswer = require('./UserAnswer');
 // const AnswerRank = require('./AnswerRank');
 const Genre = require('./Genre');
 
@@ -49,4 +50,4 @@ Question.belongsTo(Genre, {
 });
 
 //module.exports={User, Question, Answer, Rank, AnswerRank};
-module.exports={User, Question, Answer, Rank, Genre};
+module.exports={User, Question, Answer, Rank, Genre, UserAnswer};

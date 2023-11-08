@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../../models/User");
+const { User, UserAnswer } = require("../../models");
 
 //create a new user
 router.post("/", async (req, res) => {
@@ -68,5 +68,26 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
+
+router.post('/answer/:id', async (req, res)=>{
+
+  try{
+    console.log(req.body)
+    const ansArr=[];
+    for(let i=0;i<req.body.arr.length;i++){
+      const dbUserAnswer = await UserAnswer.create({
+        answer_id: req.body.arr[i],
+        question_id: req.body.id,
+      })
+      ansArr.push(dbUserAnswer)
+    }
+    res.status(200).json(ansArr);
+  }catch(err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 
 module.exports = router;
