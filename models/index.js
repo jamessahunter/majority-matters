@@ -32,4 +32,5 @@ Rank.belongsTo(Answer,{
 //     }
 // })
 
-module.exports={User, Question, Answer, Rank, AnswerRank};
+//module.exports={User, Question, Answer, Rank, AnswerRank};
+module.exports={User, Question, Answer, Rank};
