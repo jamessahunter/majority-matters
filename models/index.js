@@ -3,6 +3,7 @@ const Question = require('./Question');
 const Answer = require('./Answer');
 const Rank = require('./Rank');
 // const AnswerRank = require('./AnswerRank');
+const Genre = require('./Genre');
 
 Question.hasMany(Answer,{
     foreignKey: 'question_id',
@@ -32,5 +33,20 @@ Rank.belongsTo(Answer,{
 //     }
 // })
 
+//Question belongs to a Genre
+// Question.belongsTo(Genre, {
+//     foreignKey: 'genre_id',
+// });
+
+Genre.hasMany(Question, {
+    foreignKey: 'genre_id',
+});
+
+
+//Each Question has 1 Genre
+Question.belongsTo(Genre, {
+    foreignKey: 'genre_id',
+});
+
 //module.exports={User, Question, Answer, Rank, AnswerRank};
-module.exports={User, Question, Answer, Rank};
+module.exports={User, Question, Answer, Rank, Genre};
