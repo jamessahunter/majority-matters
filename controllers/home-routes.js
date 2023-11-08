@@ -20,7 +20,7 @@ router.get('/login', areAuth, (req, res) => {
     res.render('login');
   });
   
-router.get('/genre/question/:id', async( req,res)=>{
+router.get('/genre/question/:id', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findByPk(req.params.id);
     const question = dbQuestionData.get({plain:true});
