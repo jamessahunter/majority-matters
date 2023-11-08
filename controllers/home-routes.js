@@ -5,9 +5,6 @@ const {withAuth, areAuth } = require('../utils/auth');
 
 router.get('/', async (req,res)=> {
   try {
-    console.log('userid in sess :', req.session.userId, req.session.loggedIn);
-    // const dbUserData = await User.findByPk(req.session.userId);
-    // const userData = dbUserData.get({ plain: true });
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
     });
