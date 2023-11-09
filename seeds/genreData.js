@@ -2,7 +2,7 @@ const Genre = require('../models/Genre');
 
 const genreData = [
     {
-        name: 'Food'
+        name: 'Food',
     },
     {
         name: 'Sports'
