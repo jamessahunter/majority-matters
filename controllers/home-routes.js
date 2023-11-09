@@ -81,7 +81,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     }
     console.log(correct);
     console.log(score);
-    res.render('scorepage',{score})
+    res.render('scorepage', {score})
 })
 
   module.exports = router;
