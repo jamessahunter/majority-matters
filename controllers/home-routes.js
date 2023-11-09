@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Question, Answer, UserAnswer } = require('../models');
+const { Question, Answer, UserAnswer, Genre } = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
@@ -20,25 +20,30 @@ router.get('/login', areAuth, (req, res) => {
     res.render('login');
   });
   
-router.get('/genre/:genreId/question/:questionId', withAuth,  async( req,res)=>{
+router.get('/genre/:genreId', withAuth,  async( req,res)=>{
   try{
-    const dbQuestionData = await Question.findOne({
+    const dbQuestionData = await Question.findAll({
       where:{
-        id: req.params.questionId,
         genre_id: req.params.genreId,
       }
     });
-    const question = dbQuestionData.get({plain:true});
+    const questions = dbQuestionData.map((question)=>question.get({plain:true}));
+    console.log(questions);
+    let randomNumber = Math.floor(Math.random() * questions.length) ;
+    console.log(randomNumber);
+    console.log(questions[randomNumber].id);
+
     const dbAnswerData = await Answer.findAll({
     where: {
-      question_id: req.params.id,
+      question_id: questions[randomNumber].id,
     }
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
     console.log("answers for page")
     console.log(answers);
+    const question=questions[randomNumber].question;
     res.render('question', {question, answers});
-  } catch{
+  } catch(err){
     console.log(err);
     res.status(500).json(err);
   }
