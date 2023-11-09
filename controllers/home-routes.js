@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 
 const { Question, Answer, UserAnswer, Genre } = require('../models');
 const { User } = require('../models');
@@ -64,12 +65,11 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
-    console.log(answers);
-    console.log(userAnswers);
+    //console.log("userAnswers",userAnswers);
     const correct=[];
 
     answers.sort((a,b)=>a.total-b.total);
-    console.log(answers);
+    //console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       if(answers[i].id==userAnswers[i].answer_id){
@@ -79,10 +79,69 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
-    console.log(correct);
-    console.log(score);
-    res.render('scorepage', {score})
+    // sort answer from most popular to least popular
+    answers.sort((a,b)=>b.total-a.total);
+
+    //get user score from user model
+    const storedUserScore = await getUserScore(req.session.userId);
+    console.log("storedUserScore ", storedUserScore);
+
+    // update users score if its null or more than saved score.
+    if ( !storedUserScore || storedUserScore < score) {
+      await saveUserScore(req.session.userId, score);
+    }
+    console.log(' Updated score', await getUserScore(req.session.userId));
+
+    //get high scores and display it on scores page
+    try {
+      const dbHighScores = await User.findAll({
+        attributes: ['username','high_score'],
+        where: {
+          high_score: {
+            [Op.not]: null,
+          }
+        }
+      });
+      const highScores = dbHighScores.map(score => score.get({plain: true}));
+      console.log('*************** HIGH SCORES ********');
+      console.log(highScores);
+      console.log('*************** HIGH SCORES ********');
+
+      res.render('scorepage', {score, answers, highScores})
+    } catch(error) {
+      console.log("error : ", error);
+    }
 })
+
+
+//get User score
+const getUserScore = async (userId) => {
+  if(userId) {
+    try {
+      const dbUserScore = await User.findByPk(userId);
+      const userScore = dbUserScore.get({plain: true});
+      console.log("user score from DB : ", userScore.high_score);
+      return userScore.high_score;
+     } catch(error){
+      console.log(error);
+     }
+  }
+
+};
+//save a users score
+const saveUserScore = async (userId, score) => {
+  try {
+    if(userId && score )  {
+      const updatedUser = await User.update(
+        { high_score: score},
+        { where: { id: userId}}
+      );
+      console.log("updatedUser : ", updatedUser);
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
 
   module.exports = router;
   
