@@ -65,7 +65,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
-    //console.log("userAnswers",userAnswers);
     const correct=[];
 
     answers.sort((a,b)=>a.total-b.total);
@@ -82,17 +81,16 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     // sort answer from most popular to least popular
     answers.sort((a,b)=>b.total-a.total);
 
+    //get the question title to display on score page !!
+    const questionTitle = await getQuestionText(req.params.id);
     //get user score from user model
     const storedUserScore = await getUserScore(req.session.userId);
-    console.log("storedUserScore ", storedUserScore);
+    //console.log("storedUserScore ", storedUserScore);
 
     // update users score if its null or more than saved score.
     if ( !storedUserScore || storedUserScore < score) {
       await saveUserScore(req.session.userId, score);
     }
-    console.log(' Updated score', await getUserScore(req.session.userId));
-
-    //get high scores and display it on scores page
     try {
       const dbHighScores = await User.findAll({
         attributes: ['username','high_score'],
@@ -103,11 +101,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         }
       });
       const highScores = dbHighScores.map(score => score.get({plain: true}));
-      console.log('*************** HIGH SCORES ********');
-      console.log(highScores);
-      console.log('*************** HIGH SCORES ********');
 
-      res.render('scorepage', {score, answers, highScores})
+      res.render('scorepage', {score, questionTitle, answers, highScores})
     } catch(error) {
       console.log("error : ", error);
     }
@@ -120,7 +115,7 @@ const getUserScore = async (userId) => {
     try {
       const dbUserScore = await User.findByPk(userId);
       const userScore = dbUserScore.get({plain: true});
-      console.log("user score from DB : ", userScore.high_score);
+      //console.log("user score from DB : ", userScore.high_score);
       return userScore.high_score;
      } catch(error){
       console.log(error);
@@ -136,7 +131,21 @@ const saveUserScore = async (userId, score) => {
         { high_score: score},
         { where: { id: userId}}
       );
-      console.log("updatedUser : ", updatedUser);
+      //console.log("updatedUser : ", updatedUser);
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+//save a users score
+const getQuestionText = async (questionId) => {
+  try {
+    if(questionId )  {
+      const questionDb = await Question.findByPk(questionId);
+      const  question = questionDb.get({plain: true});
+      console.log("Question title:  : ", question.question);
+      return question.question;
     }
   } catch(error){
    console.log(error);
