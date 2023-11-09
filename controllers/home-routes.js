@@ -97,25 +97,37 @@ router.post('/room/:roomCode',async (req,res)=>{
       }
     })
     console.log(exists);
+    let dbTeamData;
     if(exists===null){
       console.log('**********create**********')
      dbRoomData = await Room.create({
       room_code: roomCode,
     })
      room = dbRoomData.get({plain:true})
+
+     dbTeamData=[];
+     for(let i=0; i<2;i++){
+       dbTeamData[i]= await Team.create({
+         number: i+1,
+         room_id: room.id,
+       })
+     }
     }else{
        room = exists.get({plain:true})
+      dbTeamData= await Team.findAll({
+        where: {
+          room_id: room.id,
+        }
+      })
     }
     console.log(room);
 
-    for(let i=0; i<2;i++){
-      await Team.create({
-        number: i+1,
-        room_id: room.id,
-      })
-    }
+
+    const teams=dbTeamData.map((team)=>team.get({plain:true}));
+    console.log(teams)
     const randomNum = Math.floor(Math.random() * 2) + 1;
-    User.update({team_id: randomNum},{
+
+    await User.update({team_id: teams[randomNum].id},{
       where:{
         id:req.session.userId,
       }
@@ -136,20 +148,35 @@ router.get('/room/:roomCode', async (req,res)=>{
     }
   })
   const room = dbRoomData.get({plain:true})
-  const dbteamData = await Team.findAll({
+  const dbTeamData = await Team.findAll({
     where: {
       room_id: room.id,
     }
   })
   const teams=dbTeamData.map((team)=>team.get({plain:true}));
   //getting all users from teams and adding sending to web page
+  let username;
+  const usernames=[]
   for(let i=0;i<teams.length;i++){
+    console.log(teams);
+    let dbUserData= await User.findAll({
+      where: {
+        team_id: teams[i].id,
+      }
+    })
 
+    if(dbUserData[0]!==undefined){
+      // console.log('********************')
+      // console.log(dbUserData)
+      // console.log(dbUserData[0])
+      username = dbUserData.map((user)=>user.get({plain:true}));
+      console.log(username);
+      usernames.push(username);
+    }
   }
-  dbUserData = await User.findByPk(req.session.userId)
-  username = dbUserData.get({plain:true});
-  console.log(username);
-  res.render('multiplayer',{roomCode,username});
+  console.log('usernames')
+  console.log(usernames[0]);
+  res.render('multiplayer',{roomCode,usernames: usernames[0]});
 })
 
   module.exports = router;

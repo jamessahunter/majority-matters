@@ -31,7 +31,7 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    team_number:{
+    team_id:{
       type: DataTypes.INTEGER,
       references:{
         model: 'team',
