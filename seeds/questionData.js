@@ -2,68 +2,68 @@ const { Question } = require("../models");
 
 const questiondata=[
     {
-        genre: 'food',
-        question: 'Which food is the best?'
+        question: 'Which food is the best?',
+        genre_id: 1, //Food
     },
     {
-        genre: 'food',
-        question: 'Which food is the worst?'
+        question: 'Which food is the worst?',
+        genre_id: 1, //Food
     },
     {
-        genre: 'food',
-        question: 'What is the best comfort food?'
+        question: 'What is the best comfort food?',
+        genre_id: 1, //Food
     },
     {
-        genre: 'movies',
-        question: 'What is the best movie franchise?'
+        question: 'What is the best movie franchise?',
+        genre_id: 7, //Movies
     },
     {
-        genre: 'movies',
-        question: 'Who is the most popular character?'
+        question: 'Who is the most popular character?',
+        genre_id: 7, //Movies
     },
     {
-        genre: 'movies',
-        question: 'Which movie made the most money?'
+        question: 'Which movie made the most money?',
+        genre_id: 7, //Movies
     },
     {
-        genre: 'sports',
-        question: 'What is the most popular sport in the world?'
+        question: 'What is the most popular sport in the world?',
+        genre_id: 2, //Sport
     },
     {
-        genre: 'sports',
-        question: 'Who is the most popular athlete?'
+        question: 'Who is the most popular athlete?',
+        genre_id: 2, //Sport
     },
     {
-        genre: 'sports',
-        question: 'Who is the most popular athlete?'
+        question: 'Who is the most popular athlete?',
+        genre_id: 2, //Sport
     },
     {
-        genre: 'sports',
-        question: 'What is the most popular sports team?'
+        question: 'What is the most popular sports team?',
+        genre_id: 2, //Sport
     },
     {
-        genre: 'music',
-        question: 'Whos the most popular artist?'
+        question: 'Whos the most popular artist?',
+        genre_id: 8, //Sport
     },
     {
-        genre: 'music',
-        question: 'What is the most popular song of all time?'
+        question: 'What is the most popular song of all time?',
+        genre_id: 8, //Sport
     },
     {
-        genre: 'music',
-        question: 'What is the most popular band?'
+        question: 'What is the most popular band?',
+        genre_id: 8, //Sport
     },
     {
-        genre: 'history',
-        question: 'Who is the most famous historical figure?'
+        question: 'Who is the most famous historical figure?',
+        genre_id: 3, //History
     },
     {
-        genre: 'history',
-        question: 'What is the most fascinating historical period?'
+        question: 'What is the most fascinating historical period?',
+        genre_id: 3, //History
     },
     {
-        genre: 'history',
-        question: 'Who is the most interesting ancient historical figure?'
+        question: 'Who is the most interesting ancient historical figure?',
+        genre_id: 3, //History
     },
     {
         genre: 'video-games',
