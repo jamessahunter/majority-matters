@@ -31,7 +31,7 @@ const answerHandler= async()=>{
         method: 'GET',
     })
     const data = await getResponse.json();
-    const passArr=[];
+
     arr.forEach((num, index) => {
         const foundIndex = data.findIndex(item => item.id === num);
         if (foundIndex !== -1) {
@@ -39,13 +39,10 @@ const answerHandler= async()=>{
         }
     });
     
-    for(let i=0; i<arr.length;i++){
-        const obj={total:`${data[i].total}`}
-        passArr[i]=obj;
-    }
+
     const updateResponse = await fetch(`/api/answer/${id}`,{
         method: 'PUT',
-        body: JSON.stringify({passArr}),
+        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
     })
     // console.log(updateResponse);
