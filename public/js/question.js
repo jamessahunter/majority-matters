@@ -35,7 +35,7 @@ const answerHandler= async()=>{
     arr.forEach((num, index) => {
         const foundIndex = data.findIndex(item => item.id === num);
         if (foundIndex !== -1) {
-          data[foundIndex].total += (10 - index * 2);
+          data[foundIndex].total += ((10 - index) * 2);
         }
     });
     
