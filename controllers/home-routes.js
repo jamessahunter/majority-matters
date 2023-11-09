@@ -42,7 +42,8 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     console.log("answers for page")
     console.log(answers);
     const question=questions[randomNumber].question;
-    res.render('question', {question, answers});
+    const id=questions[randomNumber].id;
+    res.render('question', {question, answers, id});
   } catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -60,11 +61,26 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         question_id: req.params.id,
     }
     });
-    console.log(dbAnswerData);
-    console.log(dbUserAnswerData);
-    // for(let i=0; i<dbAnswerData.length;i++){
-    //   if(dbUserAnswerData)
-    // }
+    const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
+    const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
+    console.log(answers);
+    console.log(userAnswers);
+    const correct=[];
+
+    answers.sort((a,b)=>a.total-b.total);
+    console.log(answers);
+    let score=0;
+    for(let i=0; i<answers.length;i++){
+      if(answers[i].id==userAnswers[i].answer_id){
+        correct[i]=true;
+        score +=10;
+      }else{
+        correct[i]=false;
+      }
+    }
+    console.log(correct);
+    console.log(score);
+    res.render('scorepage',{score})
 })
 
   module.exports = router;

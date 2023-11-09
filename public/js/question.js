@@ -12,20 +12,19 @@ const answerHandler= async()=>{
         arr.push(parseInt(answerId));
     }    
     // console.log(typeof arr[0]);
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length-1
-      ];
-
+    const h2Element = document.querySelector('h2');
+    const id = h2Element.getAttribute('data-qID');
+    console.log(id);
     const createResponse = await fetch(`/api/users/answer/${id}`,{
         method: 'POST',
         body: JSON.stringify({arr, id}),
         headers: { 'Content-Type': 'application/json' },
     });
-    // if(createResponse.ok){
-    //     console.log('Added');
-    // }else{
-    //     alert('Failed to add user answers');
-    // }
+    if(createResponse.ok){
+        console.log('Added');
+    }else{
+        alert('Failed to add user answers');
+    }
 
     
     const getResponse = await fetch(`/api/answer/${id}`,{
@@ -51,7 +50,7 @@ const answerHandler= async()=>{
     })
     // console.log(updateResponse);
     if (updateResponse.ok) {
-        // document.location.replace('/dashboard');
+        const scoreResponse = await fetch(`/scores/${id}`)
       } else {
         alert('Failed to Update.');
       }
