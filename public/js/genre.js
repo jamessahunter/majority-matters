@@ -1,13 +1,25 @@
-const buttons = document.querySelectorAll("button");
-  
-buttons.forEach(function(button) {
-    button.addEventListener("click", function(event) {
+const multiHandler= async()=> {
         
-        const data = event.target.getAttribute('data-genre');
-  
-        console.log(data);
+    let roomCode='';
+    for(let i=0;i<4;i++){
+    let randomIndex = Math.floor(Math.random() * 26);
 
-        
-        // window.location.href = '/question'
+    // Convert the random number to a letter
+    let randomLetter = String.fromCharCode(65 + randomIndex);
+    roomCode=roomCode+randomLetter;
+    }
+    console.log(roomCode);
+
+    const response = await fetch(`/room/${roomCode}`,{
+        method: 'POST',
+        body: JSON.stringify({roomCode}),
+        headers: { 'Content-Type': 'application/json' },
     });
-});
+    if (response.ok) {
+        document.location.replace(`/room/${roomCode}`)
+      } else {
+        alert('Failed to Update.');
+      }
+};
+
+document.querySelector('#multiplayer').addEventListener('click',multiHandler)

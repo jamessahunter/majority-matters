@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Question, Answer, UserAnswer, Genre } = require('../models');
+const { Question, Answer, UserAnswer, Genre, Room, Team} = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
@@ -82,6 +82,44 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     console.log(correct);
     console.log(score);
     res.render('scorepage', {score})
+})
+
+
+
+router.post('/room/:roomCode',async (req,res)=>{
+  try{
+    const roomCode = req.params.roomCode;
+    console.log(roomCode);
+    const dbRoomData = await Room.create({
+      room_code: roomCode,
+    })
+    const room = dbRoomData.get({plain:true})
+    for(let i=0; i<2;i++){
+      await Team.create({
+        number: i+1,
+        room_id: room.id,
+      })
+    }
+    const randomNum = Math.floor(Math.random() * 2) + 1;
+    User.update({team_id: randomNum},{
+      where:{
+        id:req.session.userId,
+      }
+    })
+    res.status(200).json('room created');
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+} )
+
+
+router.get('/room/:roomCode', async (req,res)=>{
+  const roomCode = req.params.roomCode;
+  dbUserData = await User.findByPk(req.session.userId)
+  username = dbUserData.get({plain:true});
+  console.log(username);
+  res.render('multiplayer',{roomCode,username});
 })
 
   module.exports = router;

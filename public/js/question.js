@@ -49,7 +49,6 @@ const answerHandler= async()=>{
         headers: { 'Content-Type': 'application/json' },
     })
     // console.log(updateResponse);
-    console.log(id);
     if (updateResponse.ok) {
         document.location.replace(`/scores/${id}`)
       } else {

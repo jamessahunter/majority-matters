@@ -30,6 +30,13 @@ User.init(
     high_score: {
       type: DataTypes.INTEGER,
       allowNull: true,
+    },
+    team_number:{
+      type: DataTypes.INTEGER,
+      references:{
+        model: 'team',
+        key: 'id'
+      }
     }
   },
   {
