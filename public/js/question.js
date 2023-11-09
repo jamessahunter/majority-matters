@@ -43,14 +43,17 @@ const answerHandler= async()=>{
         const obj={total:`${data[i].total}`}
         passArr[i]=obj;
     }
+    console.log(arr);
+    console.log(passArr);
+
     const updateResponse = await fetch(`/api/answer/${id}`,{
         method: 'PUT',
-        body: JSON.stringify({passArr}),
+        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
     })
     // console.log(updateResponse);
     if (updateResponse.ok) {
-        document.location.replace(`/scores/${id}`)
+        // document.location.replace(`/scores/${id}`)
       } else {
         alert('Failed to Update.');
       }

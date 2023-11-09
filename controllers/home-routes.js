@@ -89,11 +89,25 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
 router.post('/room/:roomCode',async (req,res)=>{
   try{
     const roomCode = req.params.roomCode;
-    console.log(roomCode);
-    const dbRoomData = await Room.create({
+    console.log('************ room code '+ roomCode);
+    let room
+    let exists= await Room.findOne({
+      where: {
+        room_code: roomCode,
+      }
+    })
+    console.log(exists);
+    if(exists===null){
+      console.log('**********create**********')
+     dbRoomData = await Room.create({
       room_code: roomCode,
     })
-    const room = dbRoomData.get({plain:true})
+     room = dbRoomData.get({plain:true})
+    }else{
+       room = exists.get({plain:true})
+    }
+    console.log(room);
+
     for(let i=0; i<2;i++){
       await Team.create({
         number: i+1,
@@ -116,6 +130,22 @@ router.post('/room/:roomCode',async (req,res)=>{
 
 router.get('/room/:roomCode', async (req,res)=>{
   const roomCode = req.params.roomCode;
+  const dbRoomData = await Room.findOne({
+    where: {
+      room_code: roomCode,
+    }
+  })
+  const room = dbRoomData.get({plain:true})
+  const dbteamData = await Team.findAll({
+    where: {
+      room_id: room.id,
+    }
+  })
+  const teams=dbTeamData.map((team)=>team.get({plain:true}));
+  //getting all users from teams and adding sending to web page
+  for(let i=0;i<teams.length;i++){
+
+  }
   dbUserData = await User.findByPk(req.session.userId)
   username = dbUserData.get({plain:true});
   console.log(username);

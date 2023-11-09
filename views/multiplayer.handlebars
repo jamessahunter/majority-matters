@@ -1,2 +1,29 @@
 <h1>{{roomCode}}</h1>
 <h2>{{username.username}}</h2>
+<h3>{{username.team_id}}</h3>
+{{#if (isOdd username.team_id)}}
+  <ul id="list1" class="sortable-list">
+    <li>{{username.username}}</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+    <ul id="list2" class="sortable-list">
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+  </ul>
+{{else}}
+  <ul id="list1" class="sortable-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+    <ul id="list2" class="sortable-list">
+    <li>{{username.username}}</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+{{/if}}
+
+<button id="start" class="btn btn-primary">Start Game</button>
+
+<script src="/js/multiplayer.js"></script>
