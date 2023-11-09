@@ -27,6 +27,10 @@ User.init(
         len: [6],
       },
     },
+    high_score: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }
   },
   {
     hooks: {
