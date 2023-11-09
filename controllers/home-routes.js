@@ -4,7 +4,7 @@ const { Question, Answer, UserAnswer, Genre } = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
-router.get('/', async (req,res)=> {
+router.get('/', withAuth, async (req,res)=> {
   try {
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
