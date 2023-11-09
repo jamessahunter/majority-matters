@@ -673,6 +673,293 @@ const rankdata =[
         total: 0,
         answer_id: 168
     },
+    {
+        total: 0,
+        answer_id: 169
+    },
+    {
+        total: 0,
+        answer_id: 170
+    },
+    {
+        total: 0,
+        answer_id: 171
+    },
+    {
+        total: 0,
+        answer_id: 172
+    },
+    {
+        total: 0,
+        answer_id: 173
+    },
+    {
+        total: 0,
+        answer_id: 174
+    },
+    {
+        total: 0,
+        answer_id: 175
+    },
+    {
+        total: 0,
+        answer_id: 176
+    },
+    {
+        total: 0,
+        answer_id: 177
+    },
+    {
+        total: 0,
+        answer_id: 178
+    },
+    {
+        total: 0,
+        answer_id: 179
+    },
+    {
+        total: 0,
+        answer_id: 180
+    },
+    {
+        total: 0,
+        answer_id: 181
+    },
+    {
+        total: 0,
+        answer_id: 182
+    },
+    {
+        total: 0,
+        answer_id: 183
+    },
+    {
+        total: 0,
+        answer_id: 184
+    },
+    {
+        total: 0,
+        answer_id: 185
+    },
+    {
+        total: 0,
+        answer_id: 186
+    },
+    {
+        total: 0,
+        answer_id: 187
+    },
+    {
+        total: 0,
+        answer_id: 188
+    },
+    {
+        total: 0,
+        answer_id: 189
+    },
+    {
+        total: 0,
+        answer_id: 190
+    },
+    {
+        total: 0,
+        answer_id: 191
+    },
+    {
+        total: 0,
+        answer_id: 192
+    },
+    {
+        total: 0,
+        answer_id: 193
+    },
+    {
+        total: 0,
+        answer_id: 194
+    },
+    {
+        total: 0,
+        answer_id: 195
+    },
+    {
+        total: 0,
+        answer_id: 196
+    },
+    {
+        total: 0,
+        answer_id: 197
+    },
+    {
+        total: 0,
+        answer_id: 198
+    },{
+        total: 0,
+        answer_id: 199
+    },
+    {
+        total: 0,
+        answer_id: 200
+    },
+    {
+        total: 0,
+        answer_id: 201
+    },
+    {
+        total: 0,
+        answer_id: 202
+    },
+    {
+        total: 0,
+        answer_id: 203
+    },
+    {
+        total: 0,
+        answer_id: 204
+    },
+    {
+        total: 0,
+        answer_id: 205
+    },
+    {
+        total: 0,
+        answer_id: 206
+    },
+    {
+        total: 0,
+        answer_id: 207
+    },
+    {
+        total: 0,
+        answer_id: 208
+    },
+    {
+        total: 0,
+        answer_id: 209
+    },
+    {
+        total: 0,
+        answer_id: 210
+    },
+    {
+        total: 0,
+        answer_id: 211
+    },
+    {
+        total: 0,
+        answer_id: 212
+    },
+    {
+        total: 0,
+        answer_id: 213
+    },
+    {
+        total: 0,
+        answer_id: 214
+    },
+    {
+        total: 0,
+        answer_id: 215
+    },
+    {
+        total: 0,
+        answer_id: 216
+    },
+    {
+        total: 0,
+        answer_id: 217
+    },
+    {
+        total: 0,
+        answer_id: 218
+    },
+    {
+        total: 0,
+        answer_id: 219
+    },
+    {
+        total: 0,
+        answer_id: 220
+    },
+    {
+        total: 0,
+        answer_id: 221
+    },
+    {
+        total: 0,
+        answer_id: 222
+    },
+    {
+        total: 0,
+        answer_id: 223
+    },
+    {
+        total: 0,
+        answer_id: 224
+    },
+    {
+        total: 0,
+        answer_id: 225
+    },
+    {
+        total: 0,
+        answer_id: 226
+    },
+    {
+        total: 0,
+        answer_id: 227
+    },
+    {
+        total: 0,
+        answer_id: 228
+    },
+    {
+        total: 0,
+        answer_id: 229
+    },
+    {
+        total: 0,
+        answer_id: 230
+    },
+    {
+        total: 0,
+        answer_id: 231
+    },
+    {
+        total: 0,
+        answer_id: 232
+    },
+    {
+        total: 0,
+        answer_id: 233
+    },
+    {
+        total: 0,
+        answer_id: 234
+    },
+    {
+        total: 0,
+        answer_id: 235
+    },
+    {
+        total: 0,
+        answer_id: 236
+    },
+    {
+        total: 0,
+        answer_id: 237
+    },
+    {
+        total: 0,
+        answer_id: 238
+    },
+    {
+        total: 0,
+        answer_id: 239
+    },
+    {
+        total: 0,
+        answer_id: 240
+    },
 ]
 
 const seedRank = () => Rank.bulkCreate(rankdata);

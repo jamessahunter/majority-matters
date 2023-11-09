@@ -14,7 +14,7 @@ const genreData = [
         name: 'Video Games'
     },
     {
-        name: 'Entertainment'
+        name: 'Books'
     },
     {
         name: 'Fantasy'

@@ -841,6 +841,366 @@ const answerdata =[
         question_id: 21,
         total: 0,
     },
+    {
+        answers: 'Harry Potter by J.K. Rowling',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'The Lord of the Rings by J.R.R. Tolkien',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'A Song of Ice and Fire (Game of Thrones) by George R.R. Martin',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'Percy Jackson & The Olympians by Rick Riordan',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'The Hunger Games by Suzanne Collins',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: "Twilight by Stephenie Meyer",
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'RaciThe Chronicles of Narnia by C.S. Lewis',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: 'The Wheel of Time by Robert Jordan and Brandon Sanderson',
+        question_id: 22,
+        total: 0,
+    },
+    {
+        answers: '"To Kill a Mockingbird" by Harper Lee',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"1984" by George Orwell',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"Pride and Prejudice" by Jane Austen',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"The Great Gatsby" by F. Scott Fitzgerald',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"The Catcher in the Rye" by J.D. Salinger',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"Moby-Dick" by Herman Melville',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"The Lord of the Rings" by J.R.R. Tolkien',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"One Hundred Years of Solitude" by Gabriel García Márquez',
+        question_id: 23,
+        total: 0,
+    },
+    {
+        answers: '"A Brief History of Time" by Stephen Hawking',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"Sapiens: A Brief History of Humankind" by Yuval Noah Harari',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"Educated" by Tara Westover',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"The Selfish Gene" by Richard Dawkins',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"Thinking, Fast and Slow" by Daniel Kahneman',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"Outliers: The Story of Success" by Malcolm Gladwell',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"The Elements of Style" by William Strunk Jr. and E.B. White',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: '"The Art of War" by Sun Tzu',
+        question_id: 24,
+        total: 0,
+    },
+    {
+        answers: 'Superman',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'Spider-man',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'Batman',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'Wonder Woman',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'Iron Man',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'The Hulk',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'Captain America',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'The Flash',
+        question_id: 25,
+        total: 0,
+    },
+    {
+        answers: 'The Joker',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Lex Luthor',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Magneto',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Green Goblin',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Doctor Doom',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Catwoman',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Loki',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Harley Quinn',
+        question_id: 26,
+        total: 0,
+    },
+    {
+        answers: 'Robin (Dick Grayson)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Bucky Barnes',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Kid Flash (Wally West)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Speedy (Roy Harper)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Aqualad (Garth)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Wonder Gir (Donna Troy)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Hawkeye (Kate Bishop)',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Miss Martian',
+        question_id: 27,
+        total: 0,
+    },
+    {
+        answers: 'Elves',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Dwarves',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Orcs',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Hobbits',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Giants',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Fairies',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Goblins',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Trolls',
+        question_id: 28,
+        total: 0,
+    },
+    {
+        answers: 'Rogue/Theif',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Cleric/Priest',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Warrior/Knight',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Wizard/Mage',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Ranger',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Druid',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Barbarian',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Necromancer',
+        question_id: 29,
+        total: 0,
+    },
+    {
+        answers: 'Taverns',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Castles',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Dungeons',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Mystical Forests',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Magical Cities',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Ruins',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Giant Libraries',
+        question_id: 30,
+        total: 0,
+    },
+    {
+        answers: 'Abyssal Realms/Underwolrds',
+        question_id: 30,
+        total: 0,
+    },
 ]
 
 const seedAnswer = () => Answer.bulkCreate(answerdata);
