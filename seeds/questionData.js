@@ -65,6 +65,30 @@ const questiondata=[
         genre: 'history',
         question: 'Who is the most interesting ancient historical figure?'
     },
+    {
+        genre: 'video-games',
+        question: 'What is the most popular video game?'
+    },
+    {
+        genre: 'video-games',
+        question: 'Which video game character is the most iconic?'
+    },
+    {
+        genre: 'video-games',
+        question: 'What is the most popular video game genre?'
+    },
+    {
+        genre: 'memes',
+        question: 'Which of these is the funniest?'
+    },
+    {
+        genre: 'memes',
+        question: 'Which of these is the most iconic?'
+    },
+    {
+        genre: 'memes',
+        question: 'Which of these memes is the best?'
+    },
 ]
 
 const seedQuestion = () => Question.bulkCreate(questiondata);

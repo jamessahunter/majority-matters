@@ -481,6 +481,198 @@ const rankdata =[
         total: 0,
         answer_id: 120
     },
+    {
+        total: 0,
+        answer_id: 121
+    },
+    {
+        total: 0,
+        answer_id: 122
+    },
+    {
+        total: 0,
+        answer_id: 123
+    },
+    {
+        total: 0,
+        answer_id: 124
+    },
+    {
+        total: 0,
+        answer_id: 125
+    },
+    {
+        total: 0,
+        answer_id: 126
+    },
+    {
+        total: 0,
+        answer_id: 127
+    },
+    {
+        total: 0,
+        answer_id: 128
+    },
+    {
+        total: 0,
+        answer_id: 129
+    },
+    {
+        total: 0,
+        answer_id: 130
+    },
+    {
+        total: 0,
+        answer_id: 131
+    },
+    {
+        total: 0,
+        answer_id: 132
+    },
+    {
+        total: 0,
+        answer_id: 133
+    },
+    {
+        total: 0,
+        answer_id: 134
+    },
+    {
+        total: 0,
+        answer_id: 135
+    },
+    {
+        total: 0,
+        answer_id: 136
+    },
+    {
+        total: 0,
+        answer_id: 137
+    },
+    {
+        total: 0,
+        answer_id: 138
+    },
+    {
+        total: 0,
+        answer_id: 139
+    },
+    {
+        total: 0,
+        answer_id: 140
+    },
+    {
+        total: 0,
+        answer_id: 141
+    },
+    {
+        total: 0,
+        answer_id: 142
+    },
+    {
+        total: 0,
+        answer_id: 143
+    },
+    {
+        total: 0,
+        answer_id: 144
+    },
+    {
+        total: 0,
+        answer_id: 145
+    },
+    {
+        total: 0,
+        answer_id: 146
+    },
+    {
+        total: 0,
+        answer_id: 147
+    },
+    {
+        total: 0,
+        answer_id: 148
+    },
+    {
+        total: 0,
+        answer_id: 149
+    },
+    {
+        total: 0,
+        answer_id: 150
+    },
+    {
+        total: 0,
+        answer_id: 151
+    },
+    {
+        total: 0,
+        answer_id: 152
+    },
+    {
+        total: 0,
+        answer_id: 153
+    },
+    {
+        total: 0,
+        answer_id: 154
+    },
+    {
+        total: 0,
+        answer_id: 155
+    },
+    {
+        total: 0,
+        answer_id: 156
+    },
+    {
+        total: 0,
+        answer_id: 157
+    },
+    {
+        total: 0,
+        answer_id: 158
+    },
+    {
+        total: 0,
+        answer_id: 159
+    },
+    {
+        total: 0,
+        answer_id: 160
+    },
+    {
+        total: 0,
+        answer_id: 161
+    },
+    {
+        total: 0,
+        answer_id: 162
+    },
+    {
+        total: 0,
+        answer_id: 163
+    },
+    {
+        total: 0,
+        answer_id: 164
+    },
+    {
+        total: 0,
+        answer_id: 165
+    },
+    {
+        total: 0,
+        answer_id: 166
+    },
+    {
+        total: 0,
+        answer_id: 167
+    },
+    {
+        total: 0,
+        answer_id: 168
+    },
 ]
 
 const seedRank = () => Rank.bulkCreate(rankdata);

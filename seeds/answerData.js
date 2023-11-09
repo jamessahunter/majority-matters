@@ -600,6 +600,245 @@ const answerdata =[
         answers: 'Cyrus the Great',
         question_id: 15,
         total: 0,
+    },
+    {
+        answers: 'GTA V',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'Tetris',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'Fortnite',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'World of Warcraft',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'ROBLOX',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: "Minecraft",
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'League of Legends',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'Counter Strike Global Offensive (CSGO)',
+        question_id: 16,
+        total: 0,
+    },
+    {
+        answers: 'Sonic',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Master Chief',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Pikachu',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Pac-Man',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Mario',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: "Kratos",
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Lara Croft',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'Solid Snake',
+        question_id: 17,
+        total: 0,
+    },
+    {
+        answers: 'First Person Shooter (FPS)',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Sandbox',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Simulator',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Role-Playing Game (RPG)',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Platformer',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: "Sports",
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Racing',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'Music/Rhythm',
+        question_id: 18,
+        total: 0,
+    },
+    {
+        answers: 'href: https://www.essence.com/wp-content/uploads/2017/08/1502976493/Nick%20Young.png',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://www.thesun.co.uk/wp-content/uploads/2022/02/NINTCHDBPICT000713859128.jpg',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://img.buzzfeed.com/buzzfeed-static/static/2019-01/23/13/asset/buzzfeed-prod-web-06/sub-buzz-31148-1548266852-1.jpg?crop=700%3A700%3B0%2C0&downsize=900:*&output-format=auto&output-quality=auto',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://media.tenor.com/B9OjyPMq5pIAAAAC/fine-this-is-fine.gif',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.kym-cdn.com/entries/icons/original/000/031/307/cover3.jpg',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: "href: https://i.pinimg.com/1200x/cc/d5/80/ccd580ea975540405b5ac61984bd1270.jpg",
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2021/05/01/2599381-1659551831.jpg?itok=NaWxa9NI',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.insider.com/5df773d8fd9db276fe0a6c55?width=1136&format=jpeg',
+        question_id: 19,
+        total: 0,
+    },
+    {
+        answers: 'href: https://rebelscumradio.com/wp-content/uploads/2015/05/aliens.jpg',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://www.alphr.com/wp-content/uploads/2022/10/kids.png',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://thelankamirror.com/wp-content/uploads/2021/01/8.jpg',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://focus.independent.ie/thumbor/DxTNN272gaAM7C72jfcbCC_pxZg=/0x24:4500x2506/960x640/prod-mh-ireland/ae924216-c200-11ed-8f2f-0210609a3fe2',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.chzbgr.com/full/7315659776/hD86F8573/homeschooled-bullied-by-classmates',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: "href: https://1.bp.blogspot.com/-tbroPvwIFgY/TuLQQs7yjcI/AAAAAAACkgI/KoZrEI4kHz4/s1600/best-memes-2011-01.jpg",
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://pyxis.nymag.com/v1/imgs/d6a/dc7/4a5001b7beea096457f480c8808572428b-09-roll-safe.rsquare.w400.jpg',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif',
+        question_id: 20,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.pinimg.com/736x/5b/e3/2b/5be32be69546bb2c01902bc68d07108b.jpg',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.pinimg.com/736x/af/3d/9e/af3d9ebf5e9972e764361922a66fec5c.jpg',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.chzbgr.com/full/9791207680/h9B2AD1B2/person-my-exact-facial-expression-react-someones-post-with-lol',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://cdn.ebaumsworld.com/mediaFiles/picture/1044414/86514490.jpg',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://static.demilked.com/wp-content/uploads/2023/01/funny-posts-memeingless-life-2.jpeg',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: "href: https://i.pinimg.com/736x/8d/05/b1/8d05b17bdde7a26b474cea56130c356b.jpg",
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://i.pinimg.com/736x/3d/12/fc/3d12fcff4a27f379d0a2d39c5deae6f5.jpg',
+        question_id: 21,
+        total: 0,
+    },
+    {
+        answers: 'href: https://images.dwell.com/photos/6158709506073653248/6164175565424214016/large.jpg',
+        question_id: 21,
         total: 0,
     },
 ]
