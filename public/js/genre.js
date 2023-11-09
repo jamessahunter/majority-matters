@@ -7,6 +7,7 @@ buttons.forEach(function(button) {
   
         console.log(data);
 
+        
         // window.location.href = '/question'
     });
 });
