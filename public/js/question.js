@@ -49,8 +49,9 @@ const answerHandler= async()=>{
         headers: { 'Content-Type': 'application/json' },
     })
     // console.log(updateResponse);
+    console.log(id);
     if (updateResponse.ok) {
-        const scoreResponse = await fetch(`/scores/${id}`)
+        document.location.replace(`/scores/${id}`)
       } else {
         alert('Failed to Update.');
       }

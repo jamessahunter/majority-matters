@@ -42,8 +42,9 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     console.log("answers for page")
     console.log(answers);
     const question=questions[randomNumber].question;
+    const genreId = req.params.genreId
     const id=questions[randomNumber].id;
-    res.render('question', {question, answers, id});
+    res.render('question', {question, answers, id, genreId});
   } catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -80,7 +81,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     }
     console.log(correct);
     console.log(score);
-    res.render('scorepage',{score})
+    res.render('scorepage', {score})
 })
 
   module.exports = router;
