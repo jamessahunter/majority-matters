@@ -6,6 +6,10 @@
     font-family: fantasy;
 }
 
+.bg-1 #height, .bg-2 #height, .bg-3 #height, .bg-4 #height, .bg-5 #height, .bg-6 #height, .bg-7 #height, .bg-8 #height, .bg-10 #height {
+    height: 90vh;
+}
+
 .bg-2, .bg-4 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
