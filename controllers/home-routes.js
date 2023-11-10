@@ -45,7 +45,13 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     const question=questions[randomNumber].question;
     const genreId = req.params.genreId
     const id=questions[randomNumber].id;
-    res.render('question', {question, answers, id, genreId});
+
+    //get genre text and use that to display meme images 
+    const genreText = await getQuestionGenreText(genreId);
+    const isGenreMemes = genreText === 'Memes';
+    console.log("isGenreMemes : ", isGenreMemes);
+
+    res.render('question', {question, answers, id, genreId, isGenreMemes});
   } catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -67,7 +73,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
 
-    answers.sort((a,b)=>a.total-b.total);
+    answers.sort((a,b)=>b.total-a.total);
     //console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
@@ -79,7 +85,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       }
     }
     // sort answer from most popular to least popular
-    answers.sort((a,b)=>b.total-a.total);
+    // answers.sort((a,b)=>b.total-a.total);
 
     //get the question title to display on score page !!
     const questionTitle = await getQuestionText(req.params.id);
@@ -144,8 +150,22 @@ const getQuestionText = async (questionId) => {
     if(questionId )  {
       const questionDb = await Question.findByPk(questionId);
       const  question = questionDb.get({plain: true});
-      console.log("Question title:  : ", question.question);
+      //console.log("Question title:  : ", question.question);
       return question.question;
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+//save a users score
+const getQuestionGenreText = async (genreId) => {
+  try {
+    if(genreId )  {
+      const genreDb = await Genre.findByPk(genreId);
+      const  genreText = genreDb.get({plain: true});
+      console.log("genre Text :: ", genreText.name);
+      return genreText.name;
     }
   } catch(error){
    console.log(error);
