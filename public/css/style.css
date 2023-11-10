@@ -59,6 +59,10 @@ padding: 1rem;
     color: #f8f8f8;
 }
 
+.bg-4 h2 {
+    color: #f8f8f8;
+}
+
 .bg-10 button {
     background-color: rgb(255, 204, 0);
     border-color: rgb(255, 234, 0);
