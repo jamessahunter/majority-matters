@@ -2,8 +2,41 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.bg-1, .bg-10, .bg-7, .bg-9 {
+.bg-1, .bg-10, .bg-7, #movies, .bg-9 {
     font-family: fantasy;
+}
+
+#memes {
+    background-image: url('../images/memes-btn.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+#movies {
+    background-image: url('../images/movies-btn.jpg');
+    background-size: 400px;
+    color: yellow;
+    background-position: right center;
+}
+
+#books {
+    background-color: #cdbca4;
+}
+
+#history {
+    background-color: #4f3811;
+}
+
+#video-games {
+    background-color: #00c73c;
+}
+
+#genre-btns button {
+    border-color: #000000;
+}
+
+#movies {
+    background-color: rgb(81, 39, 81);
 }
 
 .bg-1 #height, .bg-2 #height, .bg-3 #height, .bg-4 #height, .bg-5 #height, .bg-6 #height, .bg-7 #height, .bg-8 #height, .bg-10 #height {
@@ -113,6 +146,10 @@ padding: 1rem;
 }
 
 .bg-7 h2 {
+    color: rgb(255, 255, 255)
+}
+
+.bg-8 h2 {
     color: rgb(255, 255, 255)
 }
 
