@@ -60,13 +60,24 @@ const answerHandler= async()=>{
     for (let i = 0; i < listItems2.length; i++) {
         listItem2[i]=(listItems2[i].textContent);
     }
-    
+    if(listItem1.length+listItem2.length<4){
+      alert("Must have atleast 4 players");
+    }
     if(listItem1.length-listItem2.length>1 || listItem1.length-listItem2.length<-1){
         alert('Teams must be similar size');
         return;
     }
     console.log(listItem1)
     console.log(listItem2)
+
+    const code = window.location.toString().split('/')[
+      window.location.toString().split('/').length-1
+    ];
+    const updateResponse = await fetch(`/api/users/${code}`,{
+      method: 'PUT',
+      body: JSON.stringify([listItem1,listItem2]),
+      headers: { 'Content-Type': 'application/json' },
+  })
 }
 
 document

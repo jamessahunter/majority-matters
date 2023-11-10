@@ -125,7 +125,7 @@ router.post('/room/:roomCode',async (req,res)=>{
 
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
     console.log(teams)
-    const randomNum = Math.floor(Math.random() * 2) + 1;
+    const randomNum = Math.floor(Math.random() * 2);
 
     await User.update({team_id: teams[randomNum].id},{
       where:{
