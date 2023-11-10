@@ -164,7 +164,6 @@ const getQuestionGenreText = async (genreId) => {
     if(genreId )  {
       const genreDb = await Genre.findByPk(genreId);
       const  genreText = genreDb.get({plain: true});
-      console.log("genre Text :: ", genreText.name);
       return genreText.name;
     }
   } catch(error){
