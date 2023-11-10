@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, UserAnswer } = require("../../models");
+const { User, UserAnswer, Room, Team } = require("../../models");
 
 //create a new user
 router.post("/", async (req, res) => {
@@ -7,6 +7,7 @@ router.post("/", async (req, res) => {
     const dbUserData = await User.create({
       username: req.body.username,
       password: req.body.password,
+      high_score: null,
     });
 
     req.session.save(() => {
@@ -84,6 +85,104 @@ router.post('/answer/:id', async (req, res)=>{
     }
     res.status(200).json(ansArr);
   }catch(err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+
+router.get('/', async (req,res)=>{
+  console.log(req.session.userId)
+  res.status(200).json(req.session.userId)
+})
+
+router.put('/:roomCode', async (req,res)=>{
+  console.log('***************************' +JSON.stringify(req.body));
+  console.log('***************************' +JSON.stringify(req.body[1]));
+
+  try{
+    const roomCode = req.params.roomCode;
+    console.log('************ room code '+ roomCode);
+    const dbRoomData= await Room.findOne({
+      where: {
+        room_code: roomCode,
+      }
+    })
+    const room = dbRoomData.get({plain:true})
+    const dbTeamData = await Team.findAll({
+      where: {
+        room_id: room.id,
+      }
+    })
+    const teams=dbTeamData.map((team)=>team.get({plain:true}));
+    console.log(teams);
+    let username;
+  let usernames=[];
+  for(let i=0;i<teams.length;i++){
+    // console.log(teams);
+    let dbUserData= await User.findAll({
+      where: {
+        team_id: teams[i].id,
+      }
+    }),
+      username = dbUserData.map((user)=>user.get({plain:true}));
+      // console.log(username);
+      usernames.push(username);
+  }
+  console.log('*********************** usernames');
+  console.log(usernames)
+  console.log(JSON.stringify(req.body));
+  // console.log(usernames[1])
+
+
+    for (let i = 0; i < usernames[0].length; i++) {
+      const username = usernames[0][i].username;
+      
+      for (let j = 0; j < req.body.length; j++) {
+        if (req.body[j].includes(username)) {
+          console.log('match');
+          if(j===0){
+            console.log(req.body[j]);
+            await User.update({team_id: teams[0].id},{
+              where:{
+                id:usernames[0][i].id,
+              }
+            })
+          }else{
+            await User.update({team_id: teams[1].id},{
+              where:{
+                id:usernames[0][i].id,
+              }
+            })
+          }
+        }
+      }
+    }
+    for (let i = 0; i < usernames[1].length; i++) {
+      const username = usernames[1][i].username;
+      
+      for (let j = 0; j < req.body.length; j++) {
+        if (req.body[j].includes(username)) {
+          console.log('match');
+          if(j===0){
+            await User.update({team_id: teams[0].id},{
+              where:{
+                id:usernames[1][i].id,
+              }
+            })
+          }else{
+            await User.update({team_id: teams[1].id},{
+              where:{
+                id:usernames[1][i].id,
+              }
+            })
+          }
+        }
+      }
+    }
+    res.status(200).json('Teams updated');
+
+  }catch(err){
     console.log(err);
     res.status(500).json(err);
   }

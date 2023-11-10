@@ -1,0 +1,20 @@
+<h1>{{roomCode}}</h1>
+<div id="usernames">
+  <ul id="list1" class="sortable-list">
+    {{#each usernames}}
+        {{>username-odd-details}}
+    {{/each}}
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+    <ul id="list2" class="sortable-list">
+    {{#each usernames}}
+        {{>username-even-details}}
+    {{/each}}
+    <li>Item 5</li>
+    <li>Item 6</li>
+    </ul>
+</div>
+<button id="start" class="btn btn-primary">Start Game</button>
+
+<script type="module" src="/js/multiplayer.js"></script>
