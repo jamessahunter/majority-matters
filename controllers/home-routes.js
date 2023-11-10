@@ -156,7 +156,7 @@ router.get('/room/:roomCode', async (req,res)=>{
   const teams=dbTeamData.map((team)=>team.get({plain:true}));
   //getting all users from teams and adding sending to web page
   let username;
-  const usernames=[]
+  let usernames=[]
   for(let i=0;i<teams.length;i++){
     console.log(teams);
     let dbUserData= await User.findAll({
@@ -174,9 +174,11 @@ router.get('/room/:roomCode', async (req,res)=>{
       usernames.push(username);
     }
   }
-  console.log('usernames')
-  console.log(usernames[0]);
-  res.render('multiplayer',{roomCode,usernames: usernames[0]});
+  console.log('usernames');
+  console.log(usernames);
+  usernames=usernames.flat();
+  console.log(usernames);
+  res.render('multiplayer',{roomCode,usernames});
 })
 
   module.exports = router;

@@ -69,4 +69,10 @@ io.on('connection', (socket) => {
     io.emit('user joined', `${username} has joined`);
     // Handle Socket.IO events here
   });
+
+    // Handle button press event
+    socket.on('relocateUsers', () => {
+      // Emit a custom event to all connected clients
+      io.emit('usersRelocated');
+    });
 });

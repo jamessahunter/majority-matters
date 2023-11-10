@@ -180,7 +180,7 @@ router.put('/:roomCode', async (req,res)=>{
         }
       }
     }
-
+    res.status(200).json('Teams updated');
 
   }catch(err){
     console.log(err);

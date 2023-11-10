@@ -78,7 +78,15 @@ const answerHandler= async()=>{
       body: JSON.stringify([listItem1,listItem2]),
       headers: { 'Content-Type': 'application/json' },
   })
+  if(updateResponse.ok){
+    socket.emit('relocateUsers');
+  }
 }
+
+socket.on('usersRelocated', () => {
+  // Redirect to a different page
+  window.location.href = '/genre/1';
+});
 
 document
 .querySelector('.btn')

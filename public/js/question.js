@@ -53,7 +53,7 @@ const answerHandler= async()=>{
     })
     // console.log(updateResponse);
     if (updateResponse.ok) {
-        // document.location.replace(`/scores/${id}`)
+        document.location.replace(`/scores/${id}`)
       } else {
         alert('Failed to Update.');
       }
