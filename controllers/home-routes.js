@@ -43,15 +43,13 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     console.log("answers for page")
     console.log(answers);
     const question=questions[randomNumber].question;
-    const genreId = req.params.genreId
+    const genreId = req.params.genreId;
     const id=questions[randomNumber].id;
 
     //get genre text and use that to display meme images 
-    const genreText = await getQuestionGenreText(genreId);
-    const isGenreMemes = genreText === 'Memes';
-    console.log("isGenreMemes : ", isGenreMemes);
-
-    res.render('question', {question, answers, id, genreId, isGenreMemes});
+    const isGenreMemes = await isGenreMeme(genreId);
+    const loggedIn = req.session.loggedIn;
+    res.render('question', {question, answers, id, genreId, isGenreMemes, loggedIn});
   } catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -107,8 +105,10 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         }
       });
       const highScores = dbHighScores.map(score => score.get({plain: true}));
-
-      res.render('scorepage', {score, questionTitle, answers, highScores})
+      const isGenreMemes = await isQuestionMeme(req.params.id);
+      console.log("isGenreMemes : ", isGenreMemes);
+      const loggedIn = req.session.loggedIn;
+      res.render('scorepage', {score, questionTitle, answers, highScores, isGenreMemes, loggedIn})
     } catch(error) {
       console.log("error : ", error);
     }
@@ -159,12 +159,27 @@ const getQuestionText = async (questionId) => {
 };
 
 //save a users score
-const getQuestionGenreText = async (genreId) => {
+const isGenreMeme = async (genreId) => {
   try {
     if(genreId )  {
       const genreDb = await Genre.findByPk(genreId);
-      const  genreText = genreDb.get({plain: true});
-      return genreText.name;
+      const  genre = genreDb.get({plain: true});
+      const isGenreMemes = genre.name === 'Memes';
+      return isGenreMemes;
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+const isQuestionMeme = async (questionId) => {
+    try {
+    if(questionId )  {
+      const questionDb = await Question.findByPk(questionId);
+      const  question = questionDb.get({plain: true});
+      if(question) {
+        return isGenreMeme(question.genre_id);
+      }
     }
   } catch(error){
    console.log(error);
