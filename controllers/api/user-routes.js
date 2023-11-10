@@ -91,4 +91,9 @@ router.post('/answer/:id', async (req, res)=>{
 })
 
 
+router.get('/', async (req,res)=>{
+  console.log(req.session.userId)
+  res.status(200).json(req.session.userId)
+})
+
 module.exports = router;

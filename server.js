@@ -7,11 +7,11 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
-const socketIO = require('socket.io')
+// const socketIO = require('socket.io')
 
 const app = express();
 const server = require('http').Server(app);
-const io = socketIO(server);
+// const io = socketIO(server);
 
 const PORT = process.env.PORT || 3001;
 
@@ -46,13 +46,27 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
-// Socket.IO code
+// // Socket.IO code
+// io.on('connection', (socket) => {
+//   console.log('A user connected Server');
+//   console.log(socket.handshake.headers.referer);
+//   socket.on('join',(username)=>{
+
+//     io.emit('user joined',`${username} has joined`)
+//   // Handle Socket.IO events here
+
+//   });
+// });
+
+
+const io = require('socket.io')(server);
+
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  console.log('A user connected Server');
+  console.log(socket.handshake.headers.referer);
 
-  // Handle Socket.IO events here
-
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
+  socket.on('join', (username) => {
+    io.emit('user joined', `${username} has joined`);
+    // Handle Socket.IO events here
   });
 });

@@ -1,21 +1,41 @@
-//  const module =require('/socket.io-client');
 
-const socket = io('http://localhost:3001');
+const socket = io();
+const userIds=[];
 
-// Listen for a 'userJoined' event from the server
-socket.on('userJoined', (connectedUsers) => {
-    console.log('A new user joined the page');
-    // Refresh the page
+socket.on('user joined', (message) => {
+  console.log(message);
+  userCheck();
+});
+
+function joinChat(username) {
+  socket.emit('join', username);
+}
+
+const username = 'JohnDoe';
+joinChat(username);
+
+async function userCheck(){
+  const getResponse = await fetch(`/api/users/`,{
+    method: 'GET',
+  })
+  const data = await getResponse.json();
+  let userIds = localStorage.getItem('userIds');
+  if (!userIds) {
+    userIds = [];
+  } else {
+    userIds = JSON.parse(userIds);
+  }
+
+  if (!userIds.includes(data)) {
+    userIds.push(data);
+    localStorage.setItem('userIds', JSON.stringify(userIds));
     location.reload();
-  });
-  
-  // Listen for a 'userLeft' event from the server
-  socket.on('userLeft', (connectedUsers) => {
-    console.log('A user left the page');
-  });
-  
-  // Send a 'joinPage' event to the server when the page loads
-  socket.emit('joinPage');
+  }
+  console.log(data);
+  console.log(userIds)
+
+  }
+
 
 
 let sortableLists = document.getElementsByClassName('sortable-list');
