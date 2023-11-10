@@ -54,6 +54,11 @@ padding: 1rem;
     background-size: cover;
 }
 
+.bg-10 h2 {
+    background-color: #007bff;
+    color: #f8f8f8;
+}
+
 .bg-10 button {
     background-color: rgb(255, 204, 0);
     border-color: rgb(255, 234, 0);
@@ -78,6 +83,7 @@ padding: 1rem;
     border-color: rgb(255, 106, 0);
     color: black
 }
+
 .bg-1 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
@@ -88,7 +94,7 @@ padding: 1rem;
 }
 
 .bg-7 {
-    background-image: url('../images/superhero.png');
+    background-image: url('../images/movies.png');
     background-size: cover;
 }
 
@@ -97,6 +103,11 @@ padding: 1rem;
     border-color: rgb(83, 83, 83);
     color: rgb(255, 255, 255)
 }
+
+.bg-7 h2 {
+    color: rgb(255, 255, 255)
+}
+
 .bg-7 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
@@ -115,6 +126,10 @@ padding: 1rem;
 .bg-2 {
     background-image: url('../images/sports.png');
     background-size: cover;
+}
+
+.bg-2 h2 {
+    background-color: #00c73c;
 }
 
 .bg-2 button {
