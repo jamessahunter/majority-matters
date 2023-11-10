@@ -7,8 +7,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
+const socketIO = require('socket.io')
 
 const app = express();
+const server = require('http').Server(app);
+const io = socketIO(server);
+
 const PORT = process.env.PORT || 3001;
 
 const sess = {
@@ -38,5 +42,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log('Now listening'));
+});
+
+
+// Socket.IO code
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Handle Socket.IO events here
+
+  socket.on('disconnect', () => {
+    console.log('A user disconnected');
+  });
 });

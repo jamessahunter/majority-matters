@@ -1,3 +1,23 @@
+//  const module =require('/socket.io-client');
+
+const socket = io('http://localhost:3001');
+
+// Listen for a 'userJoined' event from the server
+socket.on('userJoined', (connectedUsers) => {
+    console.log('A new user joined the page');
+    // Refresh the page
+    location.reload();
+  });
+  
+  // Listen for a 'userLeft' event from the server
+  socket.on('userLeft', (connectedUsers) => {
+    console.log('A user left the page');
+  });
+  
+  // Send a 'joinPage' event to the server when the page loads
+  socket.emit('joinPage');
+
+
 let sortableLists = document.getElementsByClassName('sortable-list');
 for (let i = 0; i < sortableLists.length; i++) {
   new Sortable(sortableLists[i], {
