@@ -1,28 +1,31 @@
 <div class="container m-2 col-3">
     <div class="row">
         <h1>High Scores</h1>
-        <p>{{username}}</p>
-        <p>{{username}}</p>
-        <p>{{username}}</p>
-        <p>{{username}}</p>
-        <p>{{username}}</p>
+        {{#each highScores as |score|}}
+            {{> display-high-score}}
+        {{/each}}
     </div>
 </div>
 
 <div class="position-absolute" style="bottom: 20px; right: 20px;">
-    <button>Replay</button>
+    <a href="/"><button type="button" class="btn btn-dark btn-lg">Play Again</button></a>
 </div>
 
 <div class="container m-2 col-4">
     <div class="row">
-        <h1>Rankings</h1>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-        <p>{{answers}}</p>
-    </div>
+        <h1>Score {{score}} </h1>
+        <h1>Question: {{questionTitle}}</h1>
+        <h1>Answers : </h1>
+        {{#if isGenreMemes}}
+        {{#each answers}}
+            {{>display-memes}}
+            <p> Total: {{total}}</p>
+            <br/><br/>
+        {{/each}}
+        {{else}}
+            {{#each answers as |answer|}}
+            {{> display-answer}}
+        {{/each}}
+        {{/if}}
+        </div>
 </div>

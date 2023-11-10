@@ -46,19 +46,6 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
-// // Socket.IO code
-// io.on('connection', (socket) => {
-//   console.log('A user connected Server');
-//   console.log(socket.handshake.headers.referer);
-//   socket.on('join',(username)=>{
-
-//     io.emit('user joined',`${username} has joined`)
-//   // Handle Socket.IO events here
-
-//   });
-// });
-
-
 const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {

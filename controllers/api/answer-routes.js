@@ -23,14 +23,11 @@ router.get('/:id', withAuth, async (req,res)=>{
 
 
 router.put('/:id', withAuth, async (req,res)=>{
-    console.log('***************************' +JSON.stringify(req.body));
-    console.log('***************************' +JSON.stringify(req.body[0].total));
-    console.log(req.params.id)
+    // console.log(JSON.stringify(req.body));
     for(let i=0; i<req.body.length; i++){
-        Answer.update({total:req.body[i].total},{
+        Answer.update({total: req.body[i].total},{
             where:{
-                // question_id: req.params.id,
-                id: req.body[i].id,
+                id: req.body[i].id
             }
         })
     }

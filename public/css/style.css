@@ -1,0 +1,265 @@
+.bg-5, .bg-6, .bg-8, .bg-3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.bg-1, .bg-10, .bg-7, #movies, .bg-9 {
+    font-family: fantasy;
+}
+
+#memes {
+    background-image: url('../images/memes-btn.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+#movies {
+    background-image: url('../images/movies-btn.jpg');
+    background-size: 400px;
+    color: yellow;
+    background-position: right center;
+}
+
+#books {
+    background-color: #cdbca4;
+}
+
+#history {
+    background-color: #4f3811;
+}
+
+#video-games {
+    background-color: #00c73c;
+}
+
+#genre-btns button {
+    border-color: #000000;
+}
+
+#movies {
+    background-color: rgb(81, 39, 81);
+}
+
+.bg-1 #height, .bg-2 #height, .bg-3 #height, .bg-4 #height, .bg-5 #height, .bg-6 #height, .bg-7 #height, .bg-8 #height, .bg-10 #height {
+    height: 90vh;
+}
+
+.bg-2, .bg-4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.bg-5 {
+    background-image: url('../images/book.png');
+    background-size: cover;
+}
+
+.bg-5 button {
+    background: linear-gradient(to right, rgb(43, 43, 43), rgb(0, 0, 0));
+    border-color: rgb(41, 41, 41);
+    color: rgb(214, 214, 214)
+}
+.bg-5 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: #cdbca4;
+      color: #000000;
+      border: 1px solid #6b5f4b;
+      border-radius: 0.25rem;
+}
+
+.bg-6 {
+    background-image: url('../images/fantasy.png');
+    background-size: cover;
+}
+
+.bg-6 button {
+    background-color: blue;
+    border-color: lightblue;
+    color: aliceblue;
+}
+
+.bg-6 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: #24cae4;
+      color: #fff;
+      border: 1px solid #007bff;
+      border-radius: 0.25rem;
+}
+
+.bg-10 {
+    background-image: url('../images/superhero.png');
+    background-size: cover;
+}
+
+.bg-10 h2 {
+    background-color: #007bff;
+    color: #f8f8f8;
+}
+
+.bg-4 h2 {
+    color: #f8f8f8;
+}
+
+.bg-10 button {
+    background-color: rgb(255, 204, 0);
+    border-color: rgb(255, 234, 0);
+    color: black
+}
+.bg-10 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(230, 3, 3);
+      color: #f8f8f8;
+      border: 1px solid #4f1211;
+      border-radius: 0.25rem;
+}
+
+.bg-1 {
+    background-image: url('../images/food.png');
+    background-size: cover;
+}
+
+.bg-1 button {
+    background-color: rgb(255, 157, 83);
+    border-color: rgb(255, 106, 0);
+    color: black
+}
+
+.bg-1 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(230, 79, 3);
+      color: #000000;
+      border: 1px solid #6e1816;
+      border-radius: 0.25rem;
+}
+
+.bg-7 {
+    background-image: url('../images/movies.png');
+    background-size: cover;
+}
+
+.bg-7 button {
+    background-color: rgb(50, 50, 50);
+    border-color: rgb(83, 83, 83);
+    color: rgb(255, 255, 255)
+}
+
+.bg-7 h2 {
+    color: rgb(255, 255, 255)
+}
+
+.bg-8 h2 {
+    color: rgb(255, 255, 255)
+}
+
+.bg-7 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(255, 230, 0);
+      color: #000000;
+      border: 1px solid #000000;
+      border-radius: 0.25rem;
+}
+
+.bg-9 button {
+    background-color: rgb(255, 0, 0);
+    border-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255)
+}
+
+.bg-2 {
+    background-image: url('../images/sports.png');
+    background-size: cover;
+}
+
+.bg-2 h2 {
+    background-color: #00c73c;
+}
+
+.bg-2 button {
+    background-color: rgb(245, 102, 0);
+    border-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0)
+}
+.bg-2 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(0, 205, 0);
+      color: #ffffff;
+      border: 1px solid rgb(0, 49, 12);
+      border-radius: 0.25rem;
+}
+
+.bg-8 {
+    background-image: url('../images/music.png');
+    background-size: cover;
+}
+
+.bg-8 button {
+    background-color: rgb(245, 0, 241);
+    border-color: rgb(127, 0, 186);
+    color: rgb(255, 255, 255)
+}
+.bg-8 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(0, 0, 0);
+      color: rgb(6, 241, 245);
+      border: 1px solid rgb(45, 45, 45);
+      border-radius: 0.25rem;
+}
+
+.bg-3 {
+    background-image: url('../images/history.png');
+    background-size: cover;
+}
+
+.bg-3 button {
+    background-color: rgb(255, 208, 0);
+    border-color: rgb(255, 149, 0);
+    color: black
+}
+.bg-3 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: #b5853e;
+      color: #000000;
+      border: 1px solid #4f3811;
+      border-radius: 0.25rem;
+}
+
+.bg-4 {
+    background-image: url('../images/games.png');
+    background-size: cover;
+}
+
+.bg-4 button {
+    background: linear-gradient(to right, rgb(255, 183, 0), rgb(114, 83, 22));
+    border-color: rgb(255, 183, 0);
+    color: rgb(255, 232, 201)
+}
+.bg-4 li{
+padding: 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgb(0, 230, 184);
+      color: rgb(0, 0, 0);
+      border: 1px solid #114f24;
+      border-radius: 0.25rem;
+}
+
+/* memes */
+.memes {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px rgba(39, 39, 39, 0.5);
+    display: block;
+}
+.memes div {
+    height: 300px;
+    width: auto;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

@@ -1,13 +1,22 @@
 <div class="bg-{{genreId}}">
-<h2 data-qID="{{id}}">{{question}}</h2>
-
-
-<ul id="items">
-{{#each answers}}
-    {{>answer-details}}
-{{/each}}
-</ul>
-
-<button class="btn btn-primary" type="button">Submit</button>
+    <div class="container-fluid d-flex align-items-center justify-content-center" id="height">
+        <div>
+            <h2 data-qID="{{id}}">{{question}}</h2>
+            <ul id="items" class="text-center list-unstyled">
+            {{#if isGenreMemes}}
+                {{#each answers}}
+                    {{>display-memes}}
+                {{/each}}
+            {{else}}
+                {{#each answers}}
+                    {{>answer-details}}
+                {{/each}}
+            {{/if}}
+            </ul>
+            <div class="text-center">
+                <button class="btn btn-primary" type="button">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="/js/question.js"></script>

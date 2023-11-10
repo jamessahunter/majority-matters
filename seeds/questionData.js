@@ -34,24 +34,20 @@ const questiondata=[
         genre_id: 2, //Sport
     },
     {
-        question: 'Who is the most popular athlete?',
-        genre_id: 2, //Sport
-    },
-    {
         question: 'What is the most popular sports team?',
         genre_id: 2, //Sport
     },
     {
         question: 'Whos the most popular artist?',
-        genre_id: 8, //Sport
+        genre_id: 8, //music
     },
     {
         question: 'What is the most popular song of all time?',
-        genre_id: 8, //Sport
+        genre_id: 8, //music
     },
     {
         question: 'What is the most popular band?',
-        genre_id: 8, //Sport
+        genre_id: 8, //mmusic
     },
     {
         question: 'Who is the most famous historical figure?',

@@ -1,10 +1,11 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 
 const { Question, Answer, UserAnswer, Genre, Room, Team} = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
-router.get('/', async (req,res)=> {
+router.get('/', withAuth, async (req,res)=> {
   try {
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
@@ -42,9 +43,13 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     console.log("answers for page")
     console.log(answers);
     const question=questions[randomNumber].question;
-    const genreId = req.params.genreId
+    const genreId = req.params.genreId;
     const id=questions[randomNumber].id;
-    res.render('question', {question, answers, id, genreId});
+
+    //get genre text and use that to display meme images 
+    const isGenreMemes = await isGenreMeme(genreId);
+    const loggedIn = req.session.loggedIn;
+    res.render('question', {question, answers, id, genreId, isGenreMemes, loggedIn});
   } catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -64,12 +69,10 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
-    console.log(answers);
-    console.log(userAnswers);
     const correct=[];
 
-    answers.sort((a,b)=>a.total-b.total);
-    console.log(answers);
+    answers.sort((a,b)=>b.total-a.total);
+    //console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       if(answers[i].id==userAnswers[i].answer_id){
@@ -79,9 +82,36 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
-    console.log(correct);
-    console.log(score);
-    res.render('scorepage', {score})
+    // sort answer from most popular to least popular
+    // answers.sort((a,b)=>b.total-a.total);
+
+    //get the question title to display on score page !!
+    const questionTitle = await getQuestionText(req.params.id);
+    //get user score from user model
+    const storedUserScore = await getUserScore(req.session.userId);
+    //console.log("storedUserScore ", storedUserScore);
+
+    // update users score if its null or more than saved score.
+    if ( !storedUserScore || storedUserScore < score) {
+      await saveUserScore(req.session.userId, score);
+    }
+    try {
+      const dbHighScores = await User.findAll({
+        attributes: ['username','high_score'],
+        where: {
+          high_score: {
+            [Op.not]: null,
+          }
+        }
+      });
+      const highScores = dbHighScores.map(score => score.get({plain: true}));
+      const isGenreMemes = await isQuestionMeme(req.params.id);
+      console.log("isGenreMemes : ", isGenreMemes);
+      const loggedIn = req.session.loggedIn;
+      res.render('scorepage', {score, questionTitle, answers, highScores, isGenreMemes, loggedIn})
+    } catch(error) {
+      console.log("error : ", error);
+    }
 })
 
 
@@ -180,6 +210,76 @@ router.get('/room/:roomCode', async (req,res)=>{
   console.log(usernames);
   res.render('multiplayer',{roomCode,usernames});
 })
+//get User score
+const getUserScore = async (userId) => {
+  if(userId) {
+    try {
+      const dbUserScore = await User.findByPk(userId);
+      const userScore = dbUserScore.get({plain: true});
+      //console.log("user score from DB : ", userScore.high_score);
+      return userScore.high_score;
+     } catch(error){
+      console.log(error);
+     }
+  }
+
+};
+//save a users score
+const saveUserScore = async (userId, score) => {
+  try {
+    if(userId && score )  {
+      const updatedUser = await User.update(
+        { high_score: score},
+        { where: { id: userId}}
+      );
+      //console.log("updatedUser : ", updatedUser);
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+//save a users score
+const getQuestionText = async (questionId) => {
+  try {
+    if(questionId )  {
+      const questionDb = await Question.findByPk(questionId);
+      const  question = questionDb.get({plain: true});
+      //console.log("Question title:  : ", question.question);
+      return question.question;
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+//save a users score
+const isGenreMeme = async (genreId) => {
+  try {
+    if(genreId )  {
+      const genreDb = await Genre.findByPk(genreId);
+      const  genre = genreDb.get({plain: true});
+      const isGenreMemes = genre.name === 'Memes';
+      return isGenreMemes;
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
+
+const isQuestionMeme = async (questionId) => {
+    try {
+    if(questionId )  {
+      const questionDb = await Question.findByPk(questionId);
+      const  question = questionDb.get({plain: true});
+      if(question) {
+        return isGenreMeme(question.genre_id);
+      }
+    }
+  } catch(error){
+   console.log(error);
+  }
+};
 
   module.exports = router;
   
