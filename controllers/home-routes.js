@@ -74,21 +74,32 @@ router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     res.json('created')
 });
 
-router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
+router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
+  // console.log(JSON.stringify(req.body.answers[0].answers));
+    await Answer.destroy({
+      where: {
+      question_id: req.params.qId,
+      },
+    })
+    res.json('destroyed')
+});
+
+router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
   try{
-    const dbQuestionData = await Question.findAll({
-      where:{
-        genre_id: 11,
-      }
-    });
-    const questions = dbQuestionData.map((question)=>question.get({plain:true}));
+    const dbQuestionData = await Question.findByPk(req.params.qId);
+    const questions = dbQuestionData.get({plain:true});
     console.log(questions);
-    console.log(questions[req.params.qId].id);
-
-    const question=questions[req.params.qId].question;
-    const genreId = req.params.genreId;
-
-    const id=questions[req.params.qId].id;
+    const question=questions.question;
+    const genreId = 11;
+    const dbAnswerData = await Answer.findAll({
+      where: {
+        question_id: req.params.qId,
+      }
+      });
+      const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
+      console.log("answers for page")
+      console.log(answers);
+    const id=req.params.qId;
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
     const loggedIn = req.session.loggedIn;

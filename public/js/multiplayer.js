@@ -124,13 +124,19 @@ socket.on('usersRelocated', async() => {
   }
   console.log(answers)
   randomNumber = Math.floor(Math.random() * 3) +30;
+
+  const deleteResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  })
+
   const createResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
     method: 'POST',
     body: JSON.stringify({answers}),
     headers: { 'Content-Type': 'application/json' },
   })
   // Redirect to a different page
-  // window.location.href = `/genre/11/${code}/${randomNumber}`;
+  window.location.href = `/genre/11/${randomNumber}`;
 });
 
 document
