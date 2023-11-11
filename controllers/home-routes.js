@@ -130,7 +130,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const correct=[];
     console.log('user answers')
     console.log(userAnswers);
-
+    console.log('unsorted');
+    console.log(answers);
     answers.sort((a,b)=>b.total-a.total);
     console.log("answers sorted leat to most popular",answers);
     let score=0;
@@ -144,7 +145,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     }
 
 
-
+    let team1;
+    let team2;
     if(genreId==11){
       console.log('****************');
       const dbUserData = await User.findByPk(req.session.userId);
@@ -154,8 +156,20 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
           id: user.team_id,
         }
         })
+      if(user.team_id%2===0){
+        dbTeam1data = await Team.findByPk(user.team_id-1);
+        dbTeam2data = await Team.findByPk(user.team_id);
+      } else {
+        dbTeam1data = await Team.findByPk(user.team_id);
+        dbTeam2data = await Team.findByPk(user.team_id+1);
+      }
+      team1 = dbTeam1data.get({plain:true});
+      team2 = dbTeam2data.get({plain:true});
+      console.log(team1);
+      console.log(team2);
     }
-
+    console.log(team1);
+    console.log(team2);
 
     // sort answer from most popular to least popular
     // answers.sort((a,b)=>b.total-a.total);
@@ -182,7 +196,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       const isGenreMemes = await isQuestionMeme(req.params.id);
       console.log("isGenreMemes : ", isGenreMemes);
       const loggedIn = req.session.loggedIn;
-      res.render('scorepage', {score: score, questionTitle: questionTitle, answers: answers, highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn})
+      res.render('scorepage', {score: score, questionTitle: questionTitle, answers: answers, 
+        highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn, team1, team2})
     } catch(error) {
       console.log("error : ", error);
     }
