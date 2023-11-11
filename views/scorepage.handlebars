@@ -13,7 +13,19 @@
 
 <div class="container m-2 col-4">
     <div class="row">
-        <h1>Score {{score}} </h1>
+        {{#if team1}}
+            {{#if (compare team1.score team2.score)}}
+            <h1> Team 1 Wins</h1>
+            <h2> Team 1 Score: {{team1.score}}</h2>
+            <h2> Team 2 score: {{team2.score}}</h2>
+            {{else}}
+            <h1> Team 2 Wins</h1>
+            <h2> Team 1 Score: {{team1.score}}</h2>
+            <h2> Team 2 Score: {{team2.score}}</h2>
+            {{/if}}
+        {{else}}
+        <h1>Score: {{score}} </h1>
+        {{/if}}
         <h1>Question: {{questionTitle}}</h1>
         <h1>Answers : </h1>
         {{#if isGenreMemes}}

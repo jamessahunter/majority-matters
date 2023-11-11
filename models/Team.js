@@ -15,6 +15,10 @@ Team.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    score:{
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
     room_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

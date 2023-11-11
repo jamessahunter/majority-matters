@@ -90,6 +90,16 @@ router.post('/answer/:id', async (req, res)=>{
   }
 })
 
+router.delete('/answer/:id', async (req,res)=>{
+    UserAnswer.destroy({
+      where: {
+        question_id: req.params.id,
+      }
+    })
+    res.json('deleted');
+})
+
+
 
 router.get('/', async (req,res)=>{
   console.log(req.session.userId)
