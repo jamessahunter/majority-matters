@@ -51,8 +51,15 @@ for (let i = 0; i < sortableLists.length; i++) {
 };
 
 let randomNumber = Math.floor(Math.random() * 3) +31;
+let qID;
+socket.on('getNum',(num)=>{
+  console.log('got num');
+  qID=num;
+})
+
 
 const answerHandler= async()=>{
+    socket.emit('passNum',(randomNumber));
     const sort1 =document.getElementById('list1');
     const sort2 =document.getElementById('list2');
     const listItems1 = sort1.getElementsByTagName('li')
@@ -144,7 +151,7 @@ const answerHandler= async()=>{
 }
   socket.on('usersRelocated', () => {
     console.log('relocating');
-  window.location.href = `/genre/11/${randomNumber}`;
+  window.location.href = `/genre/11/${qID}`;
 });
 
 document
