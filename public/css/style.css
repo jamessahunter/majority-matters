@@ -1,9 +1,26 @@
+#logo {
+    background-image: url("../images/logo.png");
+}
+
+#pick {
+    font-family: Impact, fantasy;
+    color: #000000;
+}
+
 .bg-5, .bg-6, .bg-8, .bg-3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .bg-1, .bg-10, .bg-7, #movies, .bg-9 {
     font-family: fantasy;
+}
+
+#home-background {
+    background-color: #37ddfe;
+    max-width: 90%;
+    margin: 0 auto;
+    border-color: #007bff;
+    border: 5px solid #007bff;
 }
 
 #memes {
@@ -14,6 +31,13 @@
 
 #superheroes {
     background-image: url('../images/superhero-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
+}
+
+#food {
+    background-image: url('../images/food-btn.png');
     background-size: 400px;
     background-position: right center;
     color: transparent;
@@ -32,10 +56,17 @@
     color: transparent;
 }
 
+#sports {
+    background-image: url('../images/sports-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
+}
+
 #movies {
     background-image: url('../images/movies-btn.jpg');
     background-size: 400px;
-    color: yellow;
+    color: transparent;
     background-position: right center;
 }
 
@@ -48,6 +79,13 @@
 
 #video-games {
     background-image: url('../images/games-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
+}
+
+#music {
+    background-image: url('../images/music-btn.jpg');
     background-size: 400px;
     background-position: right center;
     color: transparent;
@@ -128,10 +166,8 @@ padding: 1rem;
 .bg-10 h2 {
     background-color: #007bff;
     color: #f8f8f8;
-}
-
-.bg-4 h2 {
-    background-color: rgb(188, 237, 237);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .bg-10 button {
@@ -180,7 +216,10 @@ padding: 1rem;
 }
 
 .bg-7 h2 {
-    color: rgb(255, 255, 255)
+    background-color: #6e163f;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .bg-8 h2 {
@@ -202,13 +241,28 @@ padding: 1rem;
     color: rgb(255, 255, 255)
 }
 
+.bg-9 {
+    background-image: url('../images/memes.png');
+    background-size: 90px;
+}
+
+.bg-9 h2 {
+    background-color: #ff0000;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .bg-2 {
     background-image: url('../images/sports.png');
     background-size: cover;
 }
 
 .bg-2 h2 {
+    color: rgb(0, 0, 0);
     background-color: #00c73c;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .bg-2 button {
@@ -231,14 +285,14 @@ padding: 1rem;
 }
 
 .bg-8 button {
-    background-color: rgb(245, 0, 241);
-    border-color: rgb(127, 0, 186);
-    color: rgb(255, 255, 255)
+    background-color: rgb(102, 0, 245);
+    border-color: rgb(74, 0, 186);
+    color: rgb(252, 1, 252)
 }
 .bg-8 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
-      background-color: rgb(0, 0, 0);
+      background-color: rgb(53, 30, 76);
       color: rgb(6, 241, 245);
       border: 1px solid rgb(45, 45, 45);
       border-radius: 0.25rem;
@@ -250,16 +304,24 @@ padding: 1rem;
 }
 
 .bg-3 button {
-    background-color: rgb(255, 208, 0);
-    border-color: rgb(255, 149, 0);
-    color: black
+    background-color: rgb(126, 161, 124);
+    border-color: rgb(92, 132, 90);
+    color: rgb(255, 255, 255)
 }
+
+.bg-3 h2 {
+    background-color: rgb(244, 211, 166);
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .bg-3 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
-      background-color: #3e56b5;
-      color: #000000;
-      border: 1px solid #11164f;
+      background-color: #335832;
+      color: #ffffff;
+      border: 1px solid #114f1c;
       border-radius: 0.25rem;
 }
 
@@ -289,6 +351,7 @@ padding: 1rem;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 2px rgba(39, 39, 39, 0.5);
     display: block;
+    background-color: white;
 }
 .memes div {
     height: 300px;
