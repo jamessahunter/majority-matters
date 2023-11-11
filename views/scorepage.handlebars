@@ -16,14 +16,16 @@
         <h1>Score {{score}} </h1>
         <h1>Question: {{questionTitle}}</h1>
         <h1>Answers : </h1>
-        {{#each answers as |answer|}}
-            {{#if isGenreMemes}}
-                {{>display-memes}}
-                    <p> Total: {{total}}</p>
-                    <br/><br/>
-                {{else}}
-                    {{> display-answer}}
-            {{/if}}                    
-        {{/each}}
+        {{#if isGenreMemes}}
+            {{#each answers as |answer|}}
+                {{> display-memes}}
+                <p>Total: {{total}}</p>
+                <br/><br/>
+            {{/each}}
+        {{else}}
+            {{#each answers as |answer|}}
+                {{> display-answer}}
+            {{/each}}
+        {{/if}}                  
         </div>
 </div>
