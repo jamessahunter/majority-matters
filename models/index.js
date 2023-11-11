@@ -7,6 +7,7 @@ const UserAnswer = require('./UserAnswer');
 const Genre = require('./Genre');
 const Room = require('./Room');
 const Team = require('./Team');
+const People = require('./People');
 
 
 Question.hasMany(Answer,{
@@ -25,22 +26,6 @@ Rank.belongsTo(Answer,{
     foreignKey: 'answer_id',
 })
 
-// Answer.belongsToMany(Rank,{
-//     through: {
-//         model: AnswerRank
-//     }
-// })
-
-// Rank.belongsToMany(Answer,{
-//     through: {
-//         model: AnswerRank
-//     }
-// })
-
-//Question belongs to a Genre
-// Question.belongsTo(Genre, {
-//     foreignKey: 'genre_id',
-// });
 
 Genre.hasMany(Question, {
     foreignKey: 'genre_id',
@@ -69,4 +54,4 @@ User.belongsTo(Team,{
 })
 
 //module.exports={User, Question, Answer, Rank, AnswerRank};
-module.exports={User, Question, Answer, Rank, Genre, UserAnswer, Room, Team};
+module.exports={User, Question, Answer, Rank, Genre, UserAnswer, Room, Team, People};

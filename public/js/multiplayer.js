@@ -1,7 +1,9 @@
 
 const socket = io();
 const userIds=[];
-
+const code = window.location.toString().split('/')[
+  window.location.toString().split('/').length-1
+];
 socket.on('user joined', (message) => {
   console.log(message);
   userCheck();
@@ -70,9 +72,7 @@ const answerHandler= async()=>{
     console.log(listItem1)
     console.log(listItem2)
 
-    const code = window.location.toString().split('/')[
-      window.location.toString().split('/').length-1
-    ];
+
     const updateResponse = await fetch(`/api/users/${code}`,{
       method: 'PUT',
       body: JSON.stringify([listItem1,listItem2]),
@@ -85,7 +85,7 @@ const answerHandler= async()=>{
 
 socket.on('usersRelocated', () => {
   // Redirect to a different page
-  window.location.href = '/genre/1';
+  window.location.href = `/genre/11/${code}`;
 });
 
 document

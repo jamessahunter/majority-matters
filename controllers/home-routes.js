@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 
-const { Question, Answer, UserAnswer, Genre, Room, Team} = require('../models');
+const { Question, Answer, UserAnswer, Genre, Room, Team, People} = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
@@ -55,6 +55,97 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     res.status(500).json(err);
   }
 })
+
+router.get('/genre/11/:roomCode', withAuth,  async( req,res)=>{
+  try{
+    const dbQuestionData = await Question.findAll({
+      where:{
+        genre_id: 11,
+      }
+    });
+    const questions = dbQuestionData.map((question)=>question.get({plain:true}));
+    console.log(questions);
+    let randomNumber = Math.floor(Math.random() * questions.length) ;
+    console.log(randomNumber);
+    console.log(questions[randomNumber].id);
+
+    const roomCode = req.params.roomCode;
+    const dbRoomData = await Room.findOne({
+      where: {
+        room_code: roomCode,
+      }
+    })
+    const room = dbRoomData.get({plain:true})
+    const dbTeamData = await Team.findAll({
+      where: {
+        room_id: room.id,
+      }
+    })
+    const teams=dbTeamData.map((team)=>team.get({plain:true}));
+    //getting all users from teams and adding sending to web page
+    let username;
+    let usernames=[]
+    for(let i=0;i<teams.length;i++){
+      console.log(teams);
+      let dbUserData= await User.findAll({
+        where: {
+          team_id: teams[i].id,
+        }
+      })
+        username = dbUserData.map((user)=>user.get({plain:true}));
+        console.log(username);
+        usernames.push(username);
+  
+    }
+    console.log('usernames');
+    usernames=usernames.flat();
+    console.log(usernames);
+    console.log(usernames.length)
+    if(usernames.length<8){
+      let dbPeopleData = await People.findAll();
+      const people = dbPeopleData.map((person)=>person.get({plain:true}));
+      console.log(people);
+      console.log(8-usernames.length)
+      const length=usernames.length
+      for(i=0;i<8-length;i++){
+        // console.log(i);
+        randomNumber = Math.floor(Math.random() * people.length);
+        // console.log(randomNumber);
+        let temp=people[randomNumber];
+        console.log(usernames.includes(temp))
+        while(usernames.includes(temp)){
+          temp=people[randomNumber];
+          randomNumber = Math.floor(Math.random() * people.length);
+        }
+        usernames.push(temp);
+      }
+    }
+
+    const answers=usernames;
+
+    for(let i=0; i<answers.length;i++){
+      if(answers[i].username){
+        answers[i].answers=answers[i].username;
+      }else{
+        answers[i].answers=answers[i].name;
+      }
+    }
+    console.log(answers)
+    randomNumber = Math.floor(Math.random() * questions.length) ;
+    const question=questions[randomNumber].question;
+    const genreId = req.params.genreId;
+
+    const id=questions[randomNumber].id;
+    //get genre text and use that to display meme images 
+    const isGenreMemes = await isGenreMeme(genreId);
+    const loggedIn = req.session.loggedIn;
+    res.render('question', {question, answers, id, genreId, isGenreMemes, loggedIn});
+  } catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 
 router.get('/scores/:id', withAuth, async(req, res)=>{
   const dbAnswerData = await Answer.findAll({
