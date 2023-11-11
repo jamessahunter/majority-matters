@@ -96,6 +96,44 @@ router.get('/', async (req,res)=>{
   res.status(200).json(req.session.userId)
 })
 
+
+router.get('/:roomCode', async (req,res)=>{
+  const roomCode = req.params.roomCode;
+  console.log(roomCode);
+    const dbRoomData = await Room.findOne({
+      where: {
+        room_code: roomCode,
+      }
+    })
+    console.log(dbRoomData);
+    const room = dbRoomData.get({plain:true})
+    const dbTeamData = await Team.findAll({
+      where: {
+        room_id: room.id,
+      }
+    })
+    const teams=dbTeamData.map((team)=>team.get({plain:true}));
+    //getting all users from teams and adding sending to web page
+    let username;
+    let usernames=[]
+    for(let i=0;i<teams.length;i++){
+      console.log(teams);
+      let dbUserData= await User.findAll({
+        where: {
+          team_id: teams[i].id,
+        }
+      })
+        username = dbUserData.map((user)=>user.get({plain:true}));
+        console.log(username);
+        usernames.push(username);
+  
+    }
+    console.log('usernames');
+    usernames=usernames.flat();
+    res.json(usernames);
+})
+
+
 router.put('/:roomCode', async (req,res)=>{
   console.log('***************************' +JSON.stringify(req.body));
   console.log('***************************' +JSON.stringify(req.body[1]));

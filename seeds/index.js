@@ -3,6 +3,7 @@ const seedAnswer = require('./answerData');
 const seedRank = require('./rankData');
 const seedQuestion =require('./questionData');
 const seedGenres = require('./genreData');
+const seedPeople = require('./peopleData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -16,8 +17,11 @@ const seedAll = async () => {
   await seedAnswer();
   console.log('\n----- Answer SEEDED -----\n');
 
-  await seedRank();
-  console.log('\n----- Rank SEEDED -----\n');
+  await seedPeople();
+  console.log('\n----- People SEEDED -----\n');
+
+  // await seedRank();
+  // console.log('\n----- Rank SEEDED -----\n');
 
   process.exit(0);
 };

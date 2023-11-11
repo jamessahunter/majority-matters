@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 
-const { Question, Answer, UserAnswer, Genre, Room, Team} = require('../models');
+const { Question, Answer, UserAnswer, Genre, Room, Team, People} = require('../models');
 const { User } = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
@@ -56,6 +56,61 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
   }
 })
 
+router.get('/people', async(req,res)=>{
+  let dbPeopleData = await People.findAll();
+  const people = dbPeopleData.map((person)=>person.get({plain:true}));
+  res.json(people);
+})
+
+router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
+  console.log(JSON.stringify(req.body.answers[0].answers));
+  for(let i=0; i<req.body.answers.length;i++){
+    await Answer.create({
+      answers: req.body.answers[i].answers,
+      total: 0,
+      question_id: req.params.qId,
+    })
+    }
+    res.json('created')
+});
+
+router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
+  // console.log(JSON.stringify(req.body.answers[0].answers));
+    await Answer.destroy({
+      where: {
+      question_id: req.params.qId,
+      },
+    })
+    res.json('destroyed')
+});
+
+router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
+  try{
+    const dbQuestionData = await Question.findByPk(req.params.qId);
+    const questions = dbQuestionData.get({plain:true});
+    console.log(questions);
+    const question=questions.question;
+    const genreId = 11;
+    const dbAnswerData = await Answer.findAll({
+      where: {
+        question_id: req.params.qId,
+      }
+      });
+      const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
+      console.log("answers for page")
+      console.log(answers);
+    const id=req.params.qId;
+    //get genre text and use that to display meme images 
+    const isGenreMemes = await isGenreMeme(genreId);
+    const loggedIn = req.session.loggedIn;
+    res.render('question', {question, answers, id, genreId, isGenreMemes, loggedIn});
+  } catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+
 router.get('/scores/:id', withAuth, async(req, res)=>{
   const dbAnswerData = await Answer.findAll({
     where: {
@@ -67,12 +122,12 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         question_id: req.params.id,
     }
     });
-    const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
+    const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
-
+    console.log('answers before sort', answers);
     answers.sort((a,b)=>b.total-a.total);
-    //console.log("answers sorted leat to most popular",answers);
+    console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       if(answers[i].id==userAnswers[i].answer_id){

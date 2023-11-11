@@ -121,6 +121,18 @@ const questiondata=[
         question: 'Which of is the most popular fantasy location?',
         genre_id: 6, //fantasy
     },
+    {
+        question: "Who's most likely to survive on a desert island?",
+        genre_id: 11, //fantasy
+    },
+    {
+        question: "Who's most likely to pull a prank on April Fools' Day?",
+        genre_id: 11, //fantasy
+    },
+    {
+        question: "Who's most likely to binge-watch an entire TV series in one weekend?",
+        genre_id: 11, //fantasy
+    },
 ]
 
 const seedQuestion = () => Question.bulkCreate(questiondata);

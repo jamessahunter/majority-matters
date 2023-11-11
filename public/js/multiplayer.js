@@ -1,7 +1,11 @@
+// const { response } = require("express");
 
 const socket = io();
 const userIds=[];
-
+let code = window.location.toString().split('/')[
+  window.location.toString().split('/').length-1
+];
+code.toUpperCase();
 socket.on('user joined', (message) => {
   console.log(message);
   userCheck();
@@ -46,6 +50,8 @@ for (let i = 0; i < sortableLists.length; i++) {
   });
 };
 
+let randomNumber = Math.floor(Math.random() * 3) +30;
+
 const answerHandler= async()=>{
     const sort1 =document.getElementById('list1');
     const sort2 =document.getElementById('list2');
@@ -70,22 +76,75 @@ const answerHandler= async()=>{
     console.log(listItem1)
     console.log(listItem2)
 
-    const code = window.location.toString().split('/')[
-      window.location.toString().split('/').length-1
-    ];
+
     const updateResponse = await fetch(`/api/users/${code}`,{
       method: 'PUT',
       body: JSON.stringify([listItem1,listItem2]),
       headers: { 'Content-Type': 'application/json' },
   })
   if(updateResponse.ok){
+    
+  }
+
+  
+  const userResponse= await fetch(`/api/users/${code}`,{
+  method: 'GET'})
+  const usernames= await userResponse.json();
+  console.log(usernames);
+  const peopleResponse= await fetch(`/people`,{
+    method: 'GET'})
+  const people = await peopleResponse.json();
+  console.log(people);
+  if(usernames.length<8){
+      
+    console.log(people);
+    console.log(8-usernames.length)
+    const length=usernames.length
+    for(let i=0;i<8-length;i++){
+      // console.log(i);
+      let randomPeople = Math.floor(Math.random() * people.length);
+      // console.log(randomNumber);
+      let temp=people[randomPeople];
+      console.log(usernames.includes(temp))
+      while(usernames.includes(temp)){
+        temp=people[randomPeople];
+        randomPeople = Math.floor(Math.random() * people.length);
+      }
+      usernames.push(temp);
+    }
+  }
+  console.log(usernames)
+  const answers=usernames;
+
+  for(let i=0; i<answers.length;i++){
+    if(answers[i].username){
+      answers[i].answers=answers[i].username;
+    }else{
+      answers[i].answers=answers[i].name;
+    }
+  }
+  console.log(answers)
+  
+
+  const deleteResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  })
+
+  const createResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+    method: 'POST',
+    body: JSON.stringify({answers}),
+    headers: { 'Content-Type': 'application/json' },
+  })
+  // Redirect to a different page
+  console.log(randomNumber);
+  if (createResponse.ok){
     socket.emit('relocateUsers');
   }
 }
-
-socket.on('usersRelocated', () => {
-  // Redirect to a different page
-  window.location.href = '/genre/1';
+  socket.on('usersRelocated', () => {
+    console.log('relocating');
+  window.location.href = `/genre/11/${randomNumber}`;
 });
 
 document

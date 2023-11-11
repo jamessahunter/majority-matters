@@ -30,6 +30,9 @@ const genreData = [
     },
     {
         name: 'Super Heroes'
+    },
+    {
+        name: 'Multiplayer'
     }
 ];
 
