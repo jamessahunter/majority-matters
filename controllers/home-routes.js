@@ -194,6 +194,7 @@ router.post('/room/:roomCode',async (req,res)=>{
      for(let i=0; i<2;i++){
        dbTeamData[i]= await Team.create({
          number: i+1,
+         score: 0,
          room_id: room.id,
        })
      }

@@ -50,7 +50,7 @@ for (let i = 0; i < sortableLists.length; i++) {
   });
 };
 
-let randomNumber = Math.floor(Math.random() * 3) +30;
+let randomNumber = Math.floor(Math.random() * 3) +31;
 
 const answerHandler= async()=>{
     const sort1 =document.getElementById('list1');
@@ -67,7 +67,7 @@ const answerHandler= async()=>{
         listItem2[i]=(listItems2[i].textContent);
     }
     if(listItem1.length+listItem2.length<4){
-      alert("Must have atleast 4 players");
+      alert("Must have at least 4 players");
     }
     if(listItem1.length-listItem2.length>1 || listItem1.length-listItem2.length<-1){
         alert('Teams must be similar size');
