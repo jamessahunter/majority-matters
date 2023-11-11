@@ -56,7 +56,25 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
   }
 })
 
-router.get('/genre/11/:roomCode', withAuth,  async( req,res)=>{
+router.get('/people', async(req,res)=>{
+  let dbPeopleData = await People.findAll();
+  const people = dbPeopleData.map((person)=>person.get({plain:true}));
+  res.json(people);
+})
+
+router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
+  console.log(JSON.stringify(req.body.answers[0].answers));
+  for(let i=0; i<req.body.answers.length;i++){
+    await Answer.create({
+      answers: req.body.answers[i].answers,
+      total: 0,
+      question_id: req.params.qId,
+    })
+    }
+    res.json('created')
+});
+
+router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findAll({
       where:{
@@ -65,77 +83,12 @@ router.get('/genre/11/:roomCode', withAuth,  async( req,res)=>{
     });
     const questions = dbQuestionData.map((question)=>question.get({plain:true}));
     console.log(questions);
-    let randomNumber = Math.floor(Math.random() * questions.length) ;
-    console.log(randomNumber);
-    console.log(questions[randomNumber].id);
+    console.log(questions[req.params.qId].id);
 
-    const roomCode = req.params.roomCode;
-    const dbRoomData = await Room.findOne({
-      where: {
-        room_code: roomCode,
-      }
-    })
-    const room = dbRoomData.get({plain:true})
-    const dbTeamData = await Team.findAll({
-      where: {
-        room_id: room.id,
-      }
-    })
-    const teams=dbTeamData.map((team)=>team.get({plain:true}));
-    //getting all users from teams and adding sending to web page
-    let username;
-    let usernames=[]
-    for(let i=0;i<teams.length;i++){
-      console.log(teams);
-      let dbUserData= await User.findAll({
-        where: {
-          team_id: teams[i].id,
-        }
-      })
-        username = dbUserData.map((user)=>user.get({plain:true}));
-        console.log(username);
-        usernames.push(username);
-  
-    }
-    console.log('usernames');
-    usernames=usernames.flat();
-    console.log(usernames);
-    console.log(usernames.length)
-    if(usernames.length<8){
-      let dbPeopleData = await People.findAll();
-      const people = dbPeopleData.map((person)=>person.get({plain:true}));
-      console.log(people);
-      console.log(8-usernames.length)
-      const length=usernames.length
-      for(i=0;i<8-length;i++){
-        // console.log(i);
-        randomNumber = Math.floor(Math.random() * people.length);
-        // console.log(randomNumber);
-        let temp=people[randomNumber];
-        console.log(usernames.includes(temp))
-        while(usernames.includes(temp)){
-          temp=people[randomNumber];
-          randomNumber = Math.floor(Math.random() * people.length);
-        }
-        usernames.push(temp);
-      }
-    }
-
-    const answers=usernames;
-
-    for(let i=0; i<answers.length;i++){
-      if(answers[i].username){
-        answers[i].answers=answers[i].username;
-      }else{
-        answers[i].answers=answers[i].name;
-      }
-    }
-    console.log(answers)
-    randomNumber = Math.floor(Math.random() * questions.length) ;
-    const question=questions[randomNumber].question;
+    const question=questions[req.params.qId].question;
     const genreId = req.params.genreId;
 
-    const id=questions[randomNumber].id;
+    const id=questions[req.params.qId].id;
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
     const loggedIn = req.session.loggedIn;
@@ -158,12 +111,12 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         question_id: req.params.id,
     }
     });
-    const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
+    const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
-
+    console.log('answers before sort', answers);
     answers.sort((a,b)=>b.total-a.total);
-    //console.log("answers sorted leat to most popular",answers);
+    console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       if(answers[i].id==userAnswers[i].answer_id){

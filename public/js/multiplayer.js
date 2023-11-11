@@ -1,3 +1,4 @@
+// const { response } = require("express");
 
 const socket = io();
 const userIds=[];
@@ -82,10 +83,54 @@ const answerHandler= async()=>{
     socket.emit('relocateUsers');
   }
 }
+let randomNumber;
+socket.on('usersRelocated', async() => {
+  
+  const userResponse= await fetch(`/api/users/${code}`,{
+  method: 'GET'})
+  const usernames= await userResponse.json();
+  console.log(usernames);
+  const peopleResponse= await fetch(`/people`,{
+    method: 'GET'})
+  const people = await peopleResponse.json();
+  console.log(people);
+  if(usernames.length<8){
+      
+    console.log(people);
+    console.log(8-usernames.length)
+    const length=usernames.length
+    for(let i=0;i<8-length;i++){
+      // console.log(i);
+      randomNumber = Math.floor(Math.random() * people.length);
+      // console.log(randomNumber);
+      let temp=people[randomNumber];
+      console.log(usernames.includes(temp))
+      while(usernames.includes(temp)){
+        temp=people[randomNumber];
+        randomNumber = Math.floor(Math.random() * people.length);
+      }
+      usernames.push(temp);
+    }
+  }
+  console.log(usernames)
+  const answers=usernames;
 
-socket.on('usersRelocated', () => {
+  for(let i=0; i<answers.length;i++){
+    if(answers[i].username){
+      answers[i].answers=answers[i].username;
+    }else{
+      answers[i].answers=answers[i].name;
+    }
+  }
+  console.log(answers)
+  randomNumber = Math.floor(Math.random() * 3) +30;
+  const createResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+    method: 'POST',
+    body: JSON.stringify({answers}),
+    headers: { 'Content-Type': 'application/json' },
+  })
   // Redirect to a different page
-  window.location.href = `/genre/11/${code}`;
+  // window.location.href = `/genre/11/${code}/${randomNumber}`;
 });
 
 document
