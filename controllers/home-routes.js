@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 
-const { Question, Answer, UserAnswer, Genre, Room, Team, People} = require('../models');
-const { User } = require('../models');
+const {User, Question, Answer, Rank, Genre, UserAnswer, Room, Team, People} = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 
 router.get('/', withAuth, async (req,res)=> {
@@ -125,7 +124,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
-    console.log('answers before sort', answers);
     answers.sort((a,b)=>b.total-a.total);
     console.log("answers sorted leat to most popular",answers);
     let score=0;
@@ -163,7 +161,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       const isGenreMemes = await isQuestionMeme(req.params.id);
       console.log("isGenreMemes : ", isGenreMemes);
       const loggedIn = req.session.loggedIn;
-      res.render('scorepage', {score, questionTitle, answers, highScores, isGenreMemes, loggedIn})
+      res.render('scorepage', {score: score, questionTitle: questionTitle, answers: answers, highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn})
     } catch(error) {
       console.log("error : ", error);
     }
