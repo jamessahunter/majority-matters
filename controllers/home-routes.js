@@ -111,6 +111,10 @@ router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
 
 
 router.get('/scores/:id', withAuth, async(req, res)=>{
+    //get the question title to display on score page !!
+    const question = await getQuestionText(req.params.id);
+    const questionTitle =  question.question;
+    const genreId = question.genre_id;
   const dbAnswerData = await Answer.findAll({
     where: {
       question_id: req.params.id,
@@ -124,6 +128,9 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
+    console.log('user answers')
+    console.log(userAnswers);
+
     answers.sort((a,b)=>b.total-a.total);
     console.log("answers sorted leat to most popular",answers);
     let score=0;
@@ -135,11 +142,25 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
+
+
+
+    if(genreId==11){
+      console.log('****************');
+      const dbUserData = await User.findByPk(req.session.userId);
+      const user = dbUserData.get({plain:true});
+      await Team.update({score: score},{
+        where:{
+          id: user.team_id,
+        }
+        })
+    }
+
+
     // sort answer from most popular to least popular
     // answers.sort((a,b)=>b.total-a.total);
 
-    //get the question title to display on score page !!
-    const questionTitle = await getQuestionText(req.params.id);
+
     //get user score from user model
     const storedUserScore = await getUserScore(req.session.userId);
     //console.log("storedUserScore ", storedUserScore);
@@ -300,7 +321,7 @@ const getQuestionText = async (questionId) => {
       const questionDb = await Question.findByPk(questionId);
       const  question = questionDb.get({plain: true});
       //console.log("Question title:  : ", question.question);
-      return question.question;
+      return question;
     }
   } catch(error){
    console.log(error);
