@@ -8,8 +8,28 @@
 
 #memes {
     background-image: url('../images/memes-btn.png');
-    background-size: 30px;
-    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: right center;
+}
+
+#superheroes {
+    background-image: url('../images/superhero-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
+}
+
+#books {
+    background-image: url('../images/book-btn.png');
+    background-size: 400px;
+    color: transparent;
+}
+
+#fantasy {
+    background-image: url('../images/fantasy-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
 }
 
 #movies {
@@ -17,6 +37,20 @@
     background-size: 400px;
     color: yellow;
     background-position: right center;
+}
+
+#history {
+    background-image: url('../images/history-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
+}
+
+#video-games {
+    background-image: url('../images/games-btn.png');
+    background-size: 400px;
+    background-position: right center;
+    color: transparent;
 }
 
 #books {
@@ -97,7 +131,7 @@ padding: 1rem;
 }
 
 .bg-4 h2 {
-    color: #f8f8f8;
+    background-color: rgb(188, 237, 237);
 }
 
 .bg-10 button {
@@ -185,9 +219,9 @@ padding: 1rem;
 .bg-2 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
-      background-color: rgb(0, 205, 0);
+      background-color: rgb(205, 109, 0);
       color: #ffffff;
-      border: 1px solid rgb(0, 49, 12);
+      border: 1px solid rgb(49, 18, 0);
       border-radius: 0.25rem;
 }
 
@@ -223,9 +257,9 @@ padding: 1rem;
 .bg-3 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
-      background-color: #b5853e;
+      background-color: #3e56b5;
       color: #000000;
-      border: 1px solid #4f3811;
+      border: 1px solid #11164f;
       border-radius: 0.25rem;
 }
 
@@ -242,9 +276,9 @@ padding: 1rem;
 .bg-4 li{
 padding: 1rem;
       margin-bottom: 0.5rem;
-      background-color: rgb(0, 230, 184);
-      color: rgb(0, 0, 0);
-      border: 1px solid #114f24;
+      background-color: rgb(65, 65, 65);
+      color: rgb(255, 255, 255);
+      border: 1px solid #303030;
       border-radius: 0.25rem;
 }
 
