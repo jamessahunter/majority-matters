@@ -10,10 +10,11 @@ console.log(genreId);
 const h2Element = document.querySelector('h2');
 const id = h2Element.getAttribute('data-qID');
 console.log(id);
-
+let submit=true;
 
 if(genreId==11){
     setTimeout(  async function(){
+        submit=false;
         await answerHandler();
         socket.emit('relocateUsers');
     },10000)
@@ -25,6 +26,9 @@ socket.on('usersRelocated', () => {
 });
 
 const answerHandler= async()=>{
+    if(submit){
+        return;
+    }
     const sortableList = document.getElementById('items');
     const listItems = sortableList.getElementsByTagName('li')
     const arr=[];
