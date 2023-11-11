@@ -1,5 +1,6 @@
+<div id="home-background" class="rounded">
 <div class="col-12 text-center mt-5">
-    <h1 class="align-self-center">Pick a Genre</h1>
+    <h1 class="align-self-center" id="pick">Pick a Genre</h1>
 </div>
 <div class="container">
     <div class="row text-center" id="genre-btns">
@@ -43,6 +44,7 @@
             </button>
             </a>
             <a href="/genre/5">
+            
             <button id="books" class="col-6 btn btn-primary btn-lg m-3 p-4">
                 Books
             </button>
@@ -63,6 +65,7 @@
 <button id="multiplayer" class="btn btn-primary">Create a room</button>
     <form class="form room-form">
       <div class="form-group">
+        <p>or enter code</p>
         <label for="room-code">Room Code:</label>
         <input class="form-input" type="text" id="room-code" />
       </div>
@@ -70,5 +73,6 @@
         <button class="btn btn-primary" type="submit">Enter</button>
       </div>
     </form>
+</div>
 
 <script src="./js/genre.js"></script>
