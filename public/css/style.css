@@ -360,3 +360,8 @@ padding: 1rem;
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+/* Customize bootsrap classes */
+.nav-link {
+    font-size: 20px;
+}
