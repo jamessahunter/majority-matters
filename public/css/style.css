@@ -1,3 +1,7 @@
+
+:root {
+    --main-logo-color: #3900ff;
+}
 body {
     font-family: 'Titillium Web', sans-serif;
 }
@@ -376,6 +380,10 @@ padding: 1rem;
 }
 .nav-link {
     font-size: 20px;
+}
+
+.btn-primary {
+    background-color: var(--main-logo-color);
 }
 /* Customize bootstrap classes */
 
