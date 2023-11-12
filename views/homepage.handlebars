@@ -1,78 +1,83 @@
 <div id="home-background" class="rounded">
-<div class="col-12 text-center mt-5">
-    <h1 class="align-self-center" id="pick">Pick a Genre</h1>
-</div>
-<div class="container">
-    <div class="row text-center" id="genre-btns">
-        <div class="col-6">
-            <a href="/genre/1">
-            <button id="food" class="col-6 btn btn-danger btn-lg m-3 p-4">
-                Food
-            </button>
-            </a>
-            <a href="/genre/7">
-            <button id="movies" class="col-6 btn btn-secondary btn-lg m-3 p-4">
-                Movies
-            </button>
-            </a>
-            <a href="/genre/2">
-            <button id="sports" class="col-6 btn btn-primary btn-lg m-3 p-4">
-                Sports
-            </button>
-            </a>
-            <a href="/genre/8">
-            <button id="music" class="col-6 btn btn-dark btn-lg m-3 p-4">
-                Music
-            </button>
-            </a>
-            <a href="/genre/9">
-            <button id="memes" class="col-6 btn btn-light btn-lg m-3 p-4">
-                Memes
-            </button>
-            </a>
-        </div>
-    
-        <div class="col-6">
-            <a href="/genre/4">
-            <button id="video-games" class="col-6 btn btn-success btn-lg m-3 p-4">
-                Video Games
-            </button>
-            </a>
-            <a href="/genre/3">
-            <button id="history" class="col-6 btn btn-primary btn-lg m-3 p-4">
-                History
-            </button>
-            </a>
-            <a href="/genre/5">
-            
-            <button id="books" class="col-6 btn btn-primary btn-lg m-3 p-4">
-                Books
-            </button>
-            </a>
-            <a href="/genre/10">
-            <button id="superheroes" class="col-6 btn btn-warning btn-lg m-3 p-4">
-                Superheroes
-            </button>
-            </a>
-            <a href="/genre/6">
-            <button id="fantasy" class="col-6 btn btn-info btn-lg m-3 p-4">
-                Fantasy
-            </button>
-            </a>
+    <div class="col-12 text-center mt-5">
+        <h1 class="align-self-center" id="pick">Pick a Genre</h1>
+    </div>
+    <div class="container">
+        <div class="row text-center" id="genre-btns">
+            <div class="col-6">
+                <a href="/genre/1">
+                    <button id="food" class="col-6 btn btn-danger btn-lg m-3 p-4">
+                        Food
+                    </button>
+                </a>
+                <a href="/genre/7">
+                    <button id="movies" class="col-6 btn btn-secondary btn-lg m-3 p-4">
+                        Movies
+                    </button>
+                </a>
+                <a href="/genre/2">
+                    <button id="sports" class="col-6 btn btn-primary btn-lg m-3 p-4">
+                        Sports
+                    </button>
+                </a>
+                <a href="/genre/8">
+                    <button id="music" class="col-6 btn btn-dark btn-lg m-3 p-4">
+                        Music
+                    </button>
+                </a>
+                <a href="/genre/9">
+                    <button id="memes" class="col-6 btn btn-light btn-lg m-3 p-4">
+                        Memes
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-6">
+                <a href="/genre/4">
+                    <button id="video-games" class="col-6 btn btn-success btn-lg m-3 p-4">
+                        Video Games
+                    </button>
+                </a>
+                <a href="/genre/3">
+                    <button id="history" class="col-6 btn btn-primary btn-lg m-3 p-4">
+                        History
+                    </button>
+                </a>
+                <a href="/genre/5">
+
+                    <button id="books" class="col-6 btn btn-primary btn-lg m-3 p-4">
+                        Books
+                    </button>
+                </a>
+                <a href="/genre/10">
+                    <button id="superheroes" class="col-6 btn btn-warning btn-lg m-3 p-4">
+                        Superheroes
+                    </button>
+                </a>
+                <a href="/genre/6">
+                    <button id="fantasy" class="col-6 btn btn-info btn-lg m-3 p-4">
+                        Fantasy
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<button id="multiplayer" class="btn btn-primary">Create a room</button>
-    <form class="form room-form">
-      <div class="form-group">
-        <p>or enter code</p>
-        <label for="room-code">Room Code:</label>
-        <input class="form-input" type="text" id="room-code" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Enter</button>
-      </div>
+    <div id="room" class="row">
+        <div class="col-6 align-self-center" style="height: 80px;">
+        <button id="multiplayer" class="btn btn-primary w-100 h-100">Create a room</button>
+        </div>
+        <div class="col-6 align-self-center" id="room-container">
+    <form class="form room-form d-flex">
+        <div class="form-group mr-2">
+            <label for="room-code" id="room-code-title">Room Code:</label>
+            <input class="form-input" type="text" id="room-code" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" id="enter-btn" type="submit">Enter Code</button>
+        </div>
     </form>
+</div>
+    </div>
 </div>
 
 <script src="./js/genre.js"></script>

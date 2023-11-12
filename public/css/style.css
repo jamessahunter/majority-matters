@@ -1,8 +1,14 @@
+:root {
+    --main-logo-color: #3900ff;
+}
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
 #logo {
     background-image: url("../images/logo.png");
 }
 
-#pick {
+#pick, #room {
     font-family: Impact, fantasy;
     color: #000000;
 }
@@ -25,70 +31,80 @@
 
 #memes {
     background-image: url('../images/memes-btn.png');
-    background-size: 400px;
+    background-size: cover;
     background-position: right center;
+    min-width: 300px;
 }
 
 #superheroes {
     background-image: url('../images/superhero-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #food {
     background-image: url('../images/food-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #books {
     background-image: url('../images/book-btn.png');
-    background-size: 400px;
+    background-size: cover;
     color: transparent;
+    min-width: 300px;
 }
 
 #fantasy {
     background-image: url('../images/fantasy-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #sports {
     background-image: url('../images/sports-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #movies {
     background-image: url('../images/movies-btn.jpg');
-    background-size: 400px;
+    background-size: cover;
     color: transparent;
-    background-position: right center;
+    background-position: center;
+    min-width: 300px;
 }
 
 #history {
     background-image: url('../images/history-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #video-games {
     background-image: url('../images/games-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #music {
     background-image: url('../images/music-btn.jpg');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #books {
@@ -344,6 +360,70 @@ padding: 1rem;
       border-radius: 0.25rem;
 }
 
+#room-code, #room-code-title {
+    color: white;
+    font-size: x-large;
+}
+
+#enter-btn {
+    font-size: large;
+    background-color: #0008ff;
+}
+
+#room-code {
+    background-color: #0008ff;
+}
+
+#multiplayer {
+    font-size: xx-large;
+    background-color: #007bff;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#room-container {
+    width: 49%;
+    height: 80px;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#team-page {
+    font-family:  Impact, fantasy;
+}
+
+#room-code-page {
+    color: white;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#team-page li {
+    color: white;
+    margin: 5px;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#list1, #list2 {
+    background-color: #37ddfe;
+    max-width: 300px;
+    border-color: #007bff;
+    border: 5px solid #007bff;
+    margin: 10px;
+}
+
 /* memes */
 .memes {
     margin: 10px 0;
@@ -354,7 +434,7 @@ padding: 1rem;
     background-color: white;
 }
 .memes div {
-    height: 300px;
+    height: 150px;
     width: auto;
     background-size: contain;
     background-position: center center;
@@ -375,5 +455,63 @@ padding: 1rem;
     font-size: 20px;
 }
 
-
+.btn-primary {
+    background-color: var(--main-logo-color);
+}
 /* Customize bootstrap classes */
+
+header {
+    border-bottom: 1px solid #b9b8b8;
+    margin-bottom: 25px;
+}
+.hide-display {
+    display: none;
+}
+.card {
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 175px);
+    /* overflow: auto; */
+    border: none;
+}
+
+.card .card-content {
+    width: 600px;
+    padding: 15px 25px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 1px solid #b9b8b8;
+}
+
+.card-content .form-group {
+    margin: 5px 0;
+}
+/* score page */
+.score-page .card {
+    height: auto;
+    width: 100%;
+    margin: 15px 0;
+}
+.score-page .card-content {
+    width: 100%;
+    padding: 15px;
+}
+.score {
+    font-size: 25px;
+}
+.score-page .memes {
+    width: 300px;
+    padding: 15px;
+}
+.score span{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+.replay-button a {
+    width: 100%;
+    display: inline-block;
+}
+.replay-button a .btn-block{
+    width: 100%;
+}
