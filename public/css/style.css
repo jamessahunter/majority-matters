@@ -1,4 +1,3 @@
-
 :root {
     --main-logo-color: #3900ff;
 }
@@ -9,7 +8,7 @@ body {
     background-image: url("../images/logo.png");
 }
 
-#pick {
+#pick, #room {
     font-family: Impact, fantasy;
     color: #000000;
 }
@@ -32,70 +31,80 @@ body {
 
 #memes {
     background-image: url('../images/memes-btn.png');
-    background-size: 400px;
+    background-size: cover;
     background-position: right center;
+    min-width: 300px;
 }
 
 #superheroes {
     background-image: url('../images/superhero-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #food {
     background-image: url('../images/food-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #books {
     background-image: url('../images/book-btn.png');
-    background-size: 400px;
+    background-size: cover;
     color: transparent;
+    min-width: 300px;
 }
 
 #fantasy {
     background-image: url('../images/fantasy-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #sports {
     background-image: url('../images/sports-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #movies {
     background-image: url('../images/movies-btn.jpg');
-    background-size: 400px;
+    background-size: cover;
     color: transparent;
-    background-position: right center;
+    background-position: center;
+    min-width: 300px;
 }
 
 #history {
     background-image: url('../images/history-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #video-games {
     background-image: url('../images/games-btn.png');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #music {
     background-image: url('../images/music-btn.jpg');
-    background-size: 400px;
-    background-position: right center;
+    background-size: cover;
+    background-position: center;
     color: transparent;
+    min-width: 300px;
 }
 
 #books {
@@ -349,6 +358,37 @@ padding: 1rem;
       color: rgb(255, 255, 255);
       border: 1px solid #303030;
       border-radius: 0.25rem;
+}
+
+#room-code, #room-code-title {
+    color: white;
+    font-size: x-large;
+}
+
+#enter-btn {
+    font-size: large;
+    background-color: #0008ff;
+}
+
+#room-code {
+    background-color: #0008ff;
+}
+
+#multiplayer {
+    font-size: xx-large;
+    background-color: #007bff;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#room-container {
+    width: 49%;
+    height: 80px;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
 }
 
 /* memes */
