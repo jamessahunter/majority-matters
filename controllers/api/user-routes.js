@@ -80,6 +80,7 @@ router.post('/answer/:id', async (req, res)=>{
       const dbUserAnswer = await UserAnswer.create({
         answer_id: req.body.arr[i],
         question_id: req.body.id,
+        user_id: req.session.userId,
       })
       ansArr.push(dbUserAnswer)
     }
@@ -97,6 +98,7 @@ router.delete('/answer/:id', async (req,res)=>{
     UserAnswer.destroy({
       where: {
         question_id: req.params.id,
+        user_id: req.session.userId,
       }
     })
     res.json('deleted');

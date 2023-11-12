@@ -3,14 +3,27 @@
         <div class="card">
             <div class="card-content">
                 {{#if team1}}
-                    {{#if (compare team1.score team2.score)}}
+                {{!-- {{#with user1}}
+        {{json this}}
+        {{/with}}
+        {{#with user2}}
+        {{json this}}
+        {{/with}} --}}
+        {{!-- {{teamScore user1}} --}}
+        {{!-- {{teamScore user2}} --}}
+        {{!-- {{equal user1 user2}} --}}
+            {{#if (equal user1 user2)}}
+            <h1> Teams Tied </h1>
+            <h2> Team 1 Score: {{teamScore user1}}</h2>
+            <h2> Team 2 score: {{teamScore user2}}</h2>
+            {{else if (compare user1 user2)}}
                     <h1> Team 1 Wins</h1>
-                    <h2> Team 1 Score: {{team1.score}}</h2>
-                    <h2> Team 2 score: {{team2.score}}</h2>
+                    <h2> Team 1 Score: {{teamScore user1}}</h2>
+                    <h2> Team 2 Score: {{teamScore user2}}</h2>
                     {{else}}
                     <h1> Team 2 Wins</h1>
-                    <h2> Team 1 Score: {{team1.score}}</h2>
-                    <h2> Team 2 Score: {{team2.score}}</h2>
+                    <h2> Team 1 Score: {{teamScore user1}}</h2>
+                    <h2> Team 2 Score: {{teamScore user2}}</h2>
                     {{/if}}
                 {{else}}
                 <p class="score"> Your Score : <span>{{score}}</span> </p>

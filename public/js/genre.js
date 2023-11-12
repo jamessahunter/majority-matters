@@ -29,15 +29,20 @@ const roomHandler = async(event)=> {
 
     if(roomCode){
         const response = await fetch(`/room/${roomCode}`,{
+            method: 'GET'
+        });
+        if (response.ok) {
+          const response = await fetch(`/room/${roomCode}`,{
             method: 'POST',
             body: JSON.stringify({roomCode}),
             headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.ok) {
-            document.location.replace(`/room/${roomCode}`)
-          } else {
+          });
+            if(response.ok){
+                document.location.replace(`/room/${roomCode}`)
+            }
+        } else {
             alert('Failed to Find Room.');
-          }
+        }
     }
 }
 
