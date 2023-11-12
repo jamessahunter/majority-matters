@@ -375,6 +375,25 @@ padding: 1rem;
     font-size: 20px;
 }
 /* Customize bootstrap classes */
+
+header {
+    border-bottom: 1px solid #b9b8b8;
+}
 .hide-display {
     display: none;
+}
+.card {
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    overflow: auto;
+    border: none;
+}
+
+.card .card-content {
+    width: 600px;
+    padding: 15px 25px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: 1px solid #b9b8b8;
 }
