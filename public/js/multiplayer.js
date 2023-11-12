@@ -37,7 +37,7 @@ async function userCheck(){
   console.log(listItemTexts)
   console.log('length '+ length)
   console.log('listlength '+ listItemTexts.length);
-  //remove when deployed
+  //remove +4 when deployed
   if(length!=usernames.length+4){
     console.log('stuck');
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
@@ -65,6 +65,11 @@ socket.on('getNum',(num)=>{
 
 
 const answerHandler= async()=>{
+    let start= confirm(`Please note this will start the game for all players and the teams will be set as on your screen.
+    Hit OK to start or cancel to wait`);
+    if(!start){
+      return;
+    }
     socket.emit('passNum',(randomNumber));
     const sort1 =document.getElementById('list1');
     const sort2 =document.getElementById('list2');
