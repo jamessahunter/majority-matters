@@ -391,6 +391,39 @@ padding: 1rem;
     border: rgb(0, 0, 118) 2px solid;
 }
 
+#team-page {
+    font-family:  Impact, fantasy;
+}
+
+#room-code-page {
+    color: white;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#team-page li {
+    color: white;
+    margin: 5px;
+    background-color: #007bff;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: rgb(0, 0, 118) 2px solid;
+}
+
+#list1, #list2 {
+    background-color: #37ddfe;
+    max-width: 300px;
+    border-color: #007bff;
+    border: 5px solid #007bff;
+    margin: 10px;
+}
+
 /* memes */
 .memes {
     margin: 10px 0;
