@@ -159,6 +159,7 @@ padding: 1rem;
       color: #000000;
       border: 1px solid #6b5f4b;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-6 {
@@ -180,6 +181,7 @@ padding: 1rem;
       color: #fff;
       border: 1px solid #007bff;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-10 {
@@ -196,7 +198,7 @@ padding: 1rem;
 }
 
 .bg-5 h2 {
-    background-color: #90794e;
+    background-color: #ae935f;
     padding: 5px;
     border-radius: 5px;
 }
@@ -213,6 +215,7 @@ padding: 1rem;
       color: #f8f8f8;
       border: 1px solid #4f1211;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-1 {
@@ -234,6 +237,7 @@ padding: 1rem;
       color: #000000;
       border: 1px solid #6e1816;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-7 {
@@ -269,6 +273,7 @@ padding: 1rem;
       color: #000000;
       border: 1px solid #000000;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-9 button {
@@ -314,6 +319,7 @@ padding: 1rem;
       color: #ffffff;
       border: 1px solid rgb(49, 18, 0);
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-8 {
@@ -334,6 +340,7 @@ padding: 1rem;
       color: rgb(6, 241, 245);
       border: 1px solid rgb(45, 45, 45);
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-3 {
@@ -361,6 +368,7 @@ padding: 1rem;
       color: #ffffff;
       border: 1px solid #114f1c;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bg-4 {
@@ -381,6 +389,7 @@ padding: 1rem;
       color: rgb(255, 255, 255);
       border: 1px solid #303030;
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 #room-code, #room-code-title {
@@ -451,6 +460,7 @@ padding: 1rem;
     justify-content: center;
     align-items: center;
     border: rgb(0, 0, 118) 2px solid;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 #list1, #list2 {
@@ -487,6 +497,7 @@ padding: 1rem;
       color: #000000;
       border: 1px solid rgb(255, 234, 0);
       border-radius: 0.25rem;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 #timer {
