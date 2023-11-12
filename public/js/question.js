@@ -41,7 +41,7 @@ function startTimer(duration,display){
         console.log('answered')
         setTimeout(function(){
             socket.emit('relocateUsers');
-        },500)
+        },1000)
     }
     },1000)
 };
