@@ -1,22 +1,28 @@
-<h1>{{roomCode}}</h1>
+<div id="team-page">
+<div class="row"><h1 class="col-auto">Room Code:</h1><h1 id="room-code-page" class="col-auto">{{roomCode}}</h1></div>
 <div id="usernames">
+  <div id="list1" class="rounded">
       <h3>Team 1</h3>
-  <ul id="list1" class="sortable-list">
+  <ul class="sortable-list list-unstyled">
     {{#each usernames}}
         {{>username-odd-details}}
     {{/each}}
     <li>Item 2</li>
     <li>Item 3</li>
   </ul>
+</div>
+  <div id="list2" class="rounded">
     <h3>Team 2</h3>
-    <ul id="list2" class="sortable-list">
+    <ul class="sortable-list list-unstyled">
     {{#each usernames}}
         {{>username-even-details}}
     {{/each}}
     <li>Item 5</li>
     <li>Item 6</li>
     </ul>
+    </div>
 </div>
 <button id="start" class="btn btn-primary">Start Game</button>
+</div>
 
 <script type="module" src="/js/multiplayer.js"></script>
