@@ -15,6 +15,9 @@ UserAnswer.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    user_id:{
+      type: DataTypes.INTEGER,
+    },
     question_id: {
         type: DataTypes.INTEGER,
         references: {
