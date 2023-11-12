@@ -86,7 +86,7 @@ router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     res.json('destroyed')
 });
 
-router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
+router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findByPk(req.params.qId);
     const questions = dbQuestionData.get({plain:true});
@@ -96,6 +96,7 @@ router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
     const dbAnswerData = await Answer.findAll({
       where: {
         question_id: req.params.qId,
+        room_code: req.params.roomCode,
       }
       });
       const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));

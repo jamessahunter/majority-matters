@@ -6,7 +6,7 @@ var sortable = Sortable.create(el);
 localStorage.clear();
 
 let genreId = window.location.toString().split('/')[
-    window.location.toString().split('/').length-2
+    window.location.toString().split('/').length-3
   ];
 console.log(genreId);
 const h2Element = document.querySelector('h2');
@@ -14,7 +14,7 @@ const id = h2Element.getAttribute('data-qID');
 console.log(id);
 
 function startTimer(duration,display){
-    let timer = duration, minutes, seconds;
+    let timer = duration, seconds;
       // Create a new text node for the "Time Remaining: " text
     let timeRemainingTextNode = document.createTextNode("Time Remaining: ");
 
