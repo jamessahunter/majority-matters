@@ -397,3 +397,7 @@ header {
     border-radius: 5px;
     border: 1px solid #b9b8b8;
 }
+
+.card-content .form-group {
+    margin: 5px 0;
+}
