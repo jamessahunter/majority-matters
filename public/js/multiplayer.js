@@ -23,7 +23,9 @@ async function userCheck(){
     method: 'GET'})
     const usernames= await userResponse.json();
     console.log(usernames);
-  const listItems = document.querySelectorAll('li');
+    const usernamesEl =document.getElementById('usernames');
+    const listItems = usernamesEl.getElementsByTagName('li')
+  // const listItems = document.querySelectorAll('li');
   const listItemTexts = [];
   for (let i = 0; i < listItems.length; i++) {
     const text = listItems[i].textContent;
@@ -32,7 +34,7 @@ async function userCheck(){
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     length = localStorage.getItem('length');
 
-
+  console.log(listItemTexts)
   console.log('length '+ length)
   console.log('listlength '+ listItemTexts.length);
   //remove when deployed
