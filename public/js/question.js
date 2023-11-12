@@ -1,8 +1,36 @@
+const socket = io();
+
 var el = document.getElementById('items');
 var sortable = Sortable.create(el);
 
+let genreId = window.location.toString().split('/')[
+    window.location.toString().split('/').length-2
+  ];
+console.log(genreId);
+const h2Element = document.querySelector('h2');
+const id = h2Element.getAttribute('data-qID');
+console.log(id);
+let submit=false;
+
+if(genreId==11){
+    submit=true;
+    setTimeout(  async function(){
+        submit=false;
+        await answerHandler();
+        socket.emit('relocateUsers');
+    },10000)
+}
+
+socket.on('usersRelocated', () => {
+    console.log('relocating');
+  window.location.href = `/scores/${id}`;
+});
 
 const answerHandler= async()=>{
+    if(submit){
+        return;
+    }
+    console.log('submit');
     const sortableList = document.getElementById('items');
     const listItems = sortableList.getElementsByTagName('li')
     const arr=[];
@@ -12,9 +40,11 @@ const answerHandler= async()=>{
         arr.push(parseInt(answerId));
     }    
     // console.log(typeof arr[0]);
-    const h2Element = document.querySelector('h2');
-    const id = h2Element.getAttribute('data-qID');
-    console.log(id);
+    const deleteResponse = await fetch(`/api/users/answer/${id}`,{
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
     const createResponse = await fetch(`/api/users/answer/${id}`,{
         method: 'POST',
         body: JSON.stringify({arr, id}),
@@ -47,7 +77,12 @@ const answerHandler= async()=>{
     })
     // console.log(updateResponse);
     if (updateResponse.ok) {
-        document.location.replace(`/scores/${id}`)
+        if(genreId==11){
+            return;
+        }else{
+            console.log('redirect')
+            document.location.replace(`/scores/${id}`)
+        }
       } else {
         alert('Failed to Update.');
       }

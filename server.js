@@ -57,8 +57,13 @@ io.on('connection', (socket) => {
     // Handle Socket.IO events here
   });
 
+  socket.on('passNum',(num)=>{
+    io.emit('getNum',num);
+  })
+
+
     // Handle button press event
-    socket.on('relocateUsers', () => {
+  socket.on('relocateUsers', () => {
       // Emit a custom event to all connected clients
       io.emit('usersRelocated');
     });
