@@ -361,7 +361,19 @@ padding: 1rem;
     background-repeat: no-repeat;
 }
 
-/* Customize bootsrap classes */
+/* Customize bootstrap classes */
+.navbar-brand {
+    background: url('../images/logo.png');
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100px;
+    margin: 10px 0;
+}
 .nav-link {
     font-size: 20px;
 }
+
+
+/* Customize bootstrap classes */
