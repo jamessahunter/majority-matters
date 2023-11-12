@@ -194,10 +194,10 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const correct=[];
 
     // console.log('user answers')
-    console.log(req.session.userId);
+    // console.log(req.session.userId);
     // console.log(userAnswers);
-    // console.log('unsorted');
-    // console.log(answers);
+    console.log('unsorted');
+    console.log(answers);
     answers.sort((a,b)=>b.total-a.total);
     // console.log("answers sorted leat to most popular",answers);
     let score=0;
