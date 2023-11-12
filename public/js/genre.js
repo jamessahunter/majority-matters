@@ -8,7 +8,7 @@ const multiHandler= async()=> {
     let randomLetter = String.fromCharCode(65 + randomIndex);
     roomCode=roomCode+randomLetter;
     }
-    console.log(roomCode);
+    // console.log(roomCode);
 
     const response = await fetch(`/room/${roomCode}`,{
         method: 'POST',

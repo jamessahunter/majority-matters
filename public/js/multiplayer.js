@@ -22,7 +22,6 @@ async function userCheck(){
   const userResponse= await fetch(`/api/users/${code}`,{
     method: 'GET'})
     const usernames= await userResponse.json();
-    console.log(usernames);
     const usernamesEl =document.getElementById('usernames');
     const listItems = usernamesEl.getElementsByTagName('li')
   // const listItems = document.querySelectorAll('li');
@@ -33,10 +32,6 @@ async function userCheck(){
   }
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     length = localStorage.getItem('length');
-
-  console.log(listItemTexts)
-  console.log('length '+ length)
-  console.log('listlength '+ listItemTexts.length);
   //remove +4 when deployed
   if(length!=usernames.length+4){
     console.log('stuck');
@@ -91,10 +86,6 @@ const answerHandler= async()=>{
         alert('Teams must be similar size');
         return;
     }
-    console.log(listItem1)
-    console.log(listItem2)
-
-
     const updateResponse = await fetch(`/api/users/${code}`,{
       method: 'PUT',
       body: JSON.stringify([listItem1,listItem2]),
@@ -104,26 +95,19 @@ const answerHandler= async()=>{
     
   }
 
-  
   const userResponse= await fetch(`/api/users/${code}`,{
   method: 'GET'})
   const usernames= await userResponse.json();
-  console.log(usernames);
   const peopleResponse= await fetch(`/people`,{
     method: 'GET'})
   const people = await peopleResponse.json();
-  console.log(people);
   if(usernames.length<8){
-      
-    console.log(people);
-    console.log(8-usernames.length)
     const length=usernames.length
     for(let i=0;i<8-length;i++){
       // console.log(i);
       let randomPeople = Math.floor(Math.random() * people.length);
       // console.log(randomNumber);
       let temp=people[randomPeople];
-      console.log(usernames.includes(temp))
       while(usernames.includes(temp)){
         temp=people[randomPeople];
         randomPeople = Math.floor(Math.random() * people.length);
@@ -131,7 +115,6 @@ const answerHandler= async()=>{
       usernames.push(temp);
     }
   }
-  console.log(usernames)
   const answers=usernames;
 
   for(let i=0; i<answers.length;i++){
@@ -141,9 +124,7 @@ const answerHandler= async()=>{
       answers[i].answers=answers[i].name;
     }
   }
-  console.log(answers)
   
-
   const deleteResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
@@ -155,7 +136,6 @@ const answerHandler= async()=>{
     headers: { 'Content-Type': 'application/json' },
   })
   // Redirect to a different page
-  console.log(randomNumber);
   if (createResponse.ok){
     socket.emit('relocateUsers');
   }

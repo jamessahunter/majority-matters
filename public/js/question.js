@@ -12,7 +12,7 @@ console.log(genreId);
 const h2Element = document.querySelector('h2');
 const id = h2Element.getAttribute('data-qID');
 console.log(id);
-
+let answered;
 function startTimer(duration,display){
     let timer = duration, seconds;
       // Create a new text node for the "Time Remaining: " text
@@ -36,10 +36,12 @@ function startTimer(duration,display){
             // Append the "Time Remaining: " text node and the time text node to the display element
             display.appendChild(timeRemainingTextNode);
             display.appendChild(timeTextNode);
-        if(--timer<0){  
+        if(--timer<0 && !answered){  
         await answerHandler();
+        answered=true;
         console.log('answered')
         setTimeout(function(){
+
             socket.emit('relocateUsers');
         },1000)
     }
@@ -97,7 +99,7 @@ const answerHandler= async()=>{
           data[foundIndex].total += ((10 - index) * 2);
         }
     });
-    
+    // console.log(data);
 
     const updateResponse = await fetch(`/api/answer/${id}`,{
         method: 'PUT',
