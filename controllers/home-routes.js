@@ -96,8 +96,8 @@ router.get('/genre/11/:qId', withAuth,  async( req,res)=>{
       }
       });
       const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
-      console.log("answers for page")
-      console.log(answers);
+      // console.log("answers for page")
+      // console.log(answers);
     const id=req.params.qId;
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
@@ -128,12 +128,14 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
+
     console.log('user answers')
+    console.log(req.session.userId);
     console.log(userAnswers);
-    console.log('unsorted');
-    console.log(answers);
+    // console.log('unsorted');
+    // console.log(answers);
     answers.sort((a,b)=>b.total-a.total);
-    console.log("answers sorted leat to most popular",answers);
+    // console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       if(answers[i].id==userAnswers[i].answer_id){
@@ -148,7 +150,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     let team1;
     let team2;
     if(genreId==11){
-      console.log('****************');
+      // console.log('****************');
       const dbUserData = await User.findByPk(req.session.userId);
       const user = dbUserData.get({plain:true});
       await Team.update({score: score},{

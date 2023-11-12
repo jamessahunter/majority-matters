@@ -1,4 +1,3 @@
-// const { response } = require("express");
 
 const socket = io();
 const userIds=[];
@@ -18,27 +17,32 @@ function joinChat(username) {
 const username = 'JohnDoe';
 joinChat(username);
 
+let length;
 async function userCheck(){
-  const getResponse = await fetch(`/api/users/`,{
-    method: 'GET',
-  })
-  const data = await getResponse.json();
-  let userIds = localStorage.getItem('userIds');
-  if (!userIds) {
-    userIds = [];
-  } else {
-    userIds = JSON.parse(userIds);
+  const userResponse= await fetch(`/api/users/${code}`,{
+    method: 'GET'})
+    const usernames= await userResponse.json();
+    console.log(usernames);
+  const listItems = document.querySelectorAll('li');
+  const listItemTexts = [];
+  for (let i = 0; i < listItems.length; i++) {
+    const text = listItems[i].textContent;
+    listItemTexts.push(text);
   }
+    localStorage.setItem('length',JSON.stringify(listItemTexts.length))
+    length = localStorage.getItem('length');
 
-  if (!userIds.includes(data)) {
-    userIds.push(data);
-    localStorage.setItem('userIds', JSON.stringify(userIds));
+
+  console.log('length '+ length)
+  console.log('listlength '+ listItemTexts.length);
+  //remove when deployed
+  if(length!=usernames.length+4){
+    console.log('stuck');
+    localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     location.reload();
   }
-  console.log(data);
-  console.log(userIds)
 
-  }
+}
 
 
 

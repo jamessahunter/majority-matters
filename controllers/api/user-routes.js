@@ -83,6 +83,9 @@ router.post('/answer/:id', async (req, res)=>{
       })
       ansArr.push(dbUserAnswer)
     }
+    console.log('user answers')
+    console.log(req.session.userId);
+    console.log(ansArr.map(ans=>ans.get({plain:true})));
     res.status(200).json(ansArr);
   }catch(err) {
     console.log(err);
@@ -103,7 +106,10 @@ router.delete('/answer/:id', async (req,res)=>{
 
 router.get('/', async (req,res)=>{
   console.log(req.session.userId)
-  res.status(200).json(req.session.userId)
+  const dbUserData = await User.findByPk(req.session.userId);
+  // const users = dbUserData.map(user=>(user.get({plain:true})))
+  const user = dbUserData.get({plain:true});
+  res.status(200).json([user, req.session.userId]);
 })
 
 

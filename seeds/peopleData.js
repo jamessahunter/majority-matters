@@ -29,7 +29,7 @@ const peopleData=[
         name: 'Iron Man'
     },
     {
-        name: 'BatMan'
+        name: 'Batman'
     },
 ]
 
