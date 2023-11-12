@@ -3,6 +3,7 @@ const { Op } = require('sequelize');
 
 const {User, Question, Answer, Rank, Genre, UserAnswer, Room, Team, People} = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
+const { findAll } = require('../models/User');
 
 router.get('/', withAuth, async (req,res)=> {
   try {
@@ -123,21 +124,23 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const dbUserAnswerData = await UserAnswer.findAll({
       where: {
         question_id: req.params.id,
+        user_id: req.session.userId,
     }
     });
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
 
-    console.log('user answers')
+    // console.log('user answers')
     console.log(req.session.userId);
-    console.log(userAnswers);
+    // console.log(userAnswers);
     // console.log('unsorted');
     // console.log(answers);
     answers.sort((a,b)=>b.total-a.total);
     // console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
+      console.log(req.session.userId);
       if(answers[i].id==userAnswers[i].answer_id){
         correct[i]=true;
         score +=10;
@@ -145,19 +148,44 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
-
+    console.log('score '+ score);
+    // console.log(correct);
+    await User.update({user_score: score},{
+      where:{
+        id: req.session.userId,
+      }
+      })
 
     let team1;
     let team2;
+    let user1;
+    let user2;
     if(genreId==11){
       // console.log('****************');
       const dbUserData = await User.findByPk(req.session.userId);
       const user = dbUserData.get({plain:true});
-      await Team.update({score: score},{
+      
+      const dbTeamdata = await Team.findByPk(user.team_id);
+      const team = dbTeamdata.get({plain:true});
+      const dbUsersdata = await User.findAll({
+        where: {
+          team_id: user.team_id,
+        }
+      })
+      console.log(dbUsersdata.length);
+      // console.log(user.team_id);
+      console.log(req.session.userId);
+      console.log(user.user_score);
+      let teamScore= team.score;
+      teamScore += user.user_score/dbUsersdata.length;
+      console.log('team score '+teamScore);
+      await Team.update({score: teamScore},{
         where:{
           id: user.team_id,
         }
         })
+        let dbTeam1data;
+        let dbTeam2data;
       if(user.team_id%2===0){
         dbTeam1data = await Team.findByPk(user.team_id-1);
         dbTeam2data = await Team.findByPk(user.team_id);
@@ -167,11 +195,24 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       }
       team1 = dbTeam1data.get({plain:true});
       team2 = dbTeam2data.get({plain:true});
-      console.log(team1);
-      console.log(team2);
+
+      const dbUser1Data = await User.findAll({
+        where:{
+          team_id:team1.id,
+        }
+      })
+        const dbUser2Data = await User.findAll({
+          where:{
+            team_id:team2.id,
+          }
+      })
+      user1=dbUser1Data.map(user => user.get({plain: true}));
+      user2=dbUser2Data.map(user => user.get({plain: true}));
+      // console.log(team1);
+      // console.log(team2);
     }
-    console.log(team1);
-    console.log(team2);
+    console.log(user1);
+    console.log(user2);
 
     // sort answer from most popular to least popular
     // answers.sort((a,b)=>b.total-a.total);
@@ -196,10 +237,10 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       });
       const highScores = dbHighScores.map(score => score.get({plain: true}));
       const isGenreMemes = await isQuestionMeme(req.params.id);
-      console.log("isGenreMemes : ", isGenreMemes);
+      // console.log("isGenreMemes : ", isGenreMemes);
       const loggedIn = req.session.loggedIn;
       res.render('scorepage', {score: score, questionTitle: questionTitle, answers: answers, 
-        highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn, team1, team2})
+        highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn, team1, team2, user1, user2})
     } catch(error) {
       console.log("error : ", error);
     }
@@ -269,6 +310,11 @@ router.get('/room/:roomCode', async (req,res)=>{
       room_code: roomCode,
     }
   })
+  if(!dbRoomData){
+    console.log('not found');
+    res.status(404).json('room not found');
+    return;
+  }
   const room = dbRoomData.get({plain:true})
   const dbTeamData = await Team.findAll({
     where: {

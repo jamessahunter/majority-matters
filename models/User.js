@@ -27,6 +27,10 @@ User.init(
         len: [6],
       },
     },
+    user_score:{
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
     high_score: {
       type: DataTypes.INTEGER,
       allowNull: true,
