@@ -489,6 +489,13 @@ padding: 1rem;
       border-radius: 0.25rem;
 }
 
+#timer {
+    color: red;
+    background-color: #000b5f;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 /* memes */
 .memes {
     margin: 10px 0;
