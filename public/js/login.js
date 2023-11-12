@@ -38,6 +38,13 @@ const loginFormHandler = async (event) => {
       }
     }
   };
+
+  const toggleLoginSignupForms = () => {
+    const signupEl = document.querySelector('.signup-form');
+    const loginEl = document.querySelector('.login-form');
+    signupEl.classList.toggle('hide-display');
+    loginEl.classList.toggle('hide-display');
+  }
   
   document
     .querySelector('.login-form')
@@ -47,3 +54,8 @@ const loginFormHandler = async (event) => {
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
   
+  toggleElements = document.getElementsByClassName('login-link');
+  const LinksArray = Array.from(toggleElements);
+  LinksArray.forEach(element => {
+    element.addEventListener('click', toggleLoginSignupForms);
+  });
