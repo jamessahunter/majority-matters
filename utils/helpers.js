@@ -34,6 +34,9 @@ module.exports={
         }
         return score/user.length;
     },
+    genre11: (genre)=>{
+        return genre!==11
+    },
     json: (context)=> {
         return JSON.stringify(context);
     },

@@ -14,7 +14,11 @@
             {{/if}}
             </ul>
             <div class="text-center">
+            {{#if (genre11 genreId)}}
                 <button class="btn btn-primary" type="button">Submit</button>
+            {{else}}
+                <div id="timer"></div>
+            {{/if}}
             </div>
         </div>
     </div>

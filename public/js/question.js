@@ -12,19 +12,47 @@ console.log(genreId);
 const h2Element = document.querySelector('h2');
 const id = h2Element.getAttribute('data-qID');
 console.log(id);
-let submit=false;
 
-if(genreId==11){
-    submit=true;
-    setTimeout(  async function(){
-        submit=false;
+function startTimer(duration,display){
+    let timer = duration, minutes, seconds;
+      // Create a new text node for the "Time Remaining: " text
+    let timeRemainingTextNode = document.createTextNode("Time Remaining: ");
+
+    // Append the "Time Remaining: " text node to the display element
+    display.appendChild(timeRemainingTextNode);
+        setInterval(async function () {
+            // minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            // minutes
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            // Create a new text node for the time
+            let timeTextNode = document.createTextNode(seconds);
+
+            // Remove any existing content from the display element
+            while (display.firstChild) {
+                display.removeChild(display.firstChild);
+            }
+        
+            // Append the "Time Remaining: " text node and the time text node to the display element
+            display.appendChild(timeRemainingTextNode);
+            display.appendChild(timeTextNode);
+        if(--timer<0){  
         await answerHandler();
         console.log('answered')
         setTimeout(function(){
             socket.emit('relocateUsers');
-        },1000)
-    },10000)
-}
+        },500)
+    }
+    },1000)
+};
+
+window.addEventListener("load", function() {
+    if(genreId==11){
+        startTimer(10, timerDisplay);
+    }
+})
+// Assuming you have a timer duration of 60 seconds
+const timerDisplay = document.getElementById("timer");
 
 socket.on('usersRelocated', () => {
     console.log('relocating');
@@ -32,10 +60,6 @@ socket.on('usersRelocated', () => {
 });
 
 const answerHandler= async()=>{
-    if(submit){
-        return;
-    }
-    console.log('submit');
     const sortableList = document.getElementById('items');
     const listItems = sortableList.getElementsByTagName('li')
     const arr=[];
@@ -95,6 +119,8 @@ const answerHandler= async()=>{
 }
 
 
+
 document
 .querySelector('.btn')
 .addEventListener('click', answerHandler);
+

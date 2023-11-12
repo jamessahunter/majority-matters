@@ -176,14 +176,14 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       // console.log(user.team_id);
       console.log(req.session.userId);
       console.log(user.user_score);
-      let teamScore= team.score;
-      teamScore += user.user_score/dbUsersdata.length;
-      console.log('team score '+teamScore);
-      await Team.update({score: teamScore},{
-        where:{
-          id: user.team_id,
-        }
-        })
+      // let teamScore= team.score;
+      // teamScore += user.user_score/dbUsersdata.length;
+      // console.log('team score '+teamScore);
+      // await Team.update({score: teamScore},{
+      //   where:{
+      //     id: user.team_id,
+      //   }
+      //   })
         let dbTeam1data;
         let dbTeam2data;
       if(user.team_id%2===0){
