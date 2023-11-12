@@ -3,6 +3,8 @@ const socket = io();
 var el = document.getElementById('items');
 var sortable = Sortable.create(el);
 
+localStorage.clear();
+
 let genreId = window.location.toString().split('/')[
     window.location.toString().split('/').length-2
   ];
@@ -17,7 +19,10 @@ if(genreId==11){
     setTimeout(  async function(){
         submit=false;
         await answerHandler();
-        socket.emit('relocateUsers');
+        console.log('answered')
+        setTimeout(function(){
+            socket.emit('relocateUsers');
+        },1000)
     },10000)
 }
 
