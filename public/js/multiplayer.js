@@ -162,7 +162,7 @@ const answerHandler= async()=>{
 }
   socket.on('usersRelocated', () => {
     console.log('relocating');
-  window.location.href = `/genre/11/${qID}`;
+  window.location.href = `/genre/11/${code}/${qID}`;
 });
 
 document
