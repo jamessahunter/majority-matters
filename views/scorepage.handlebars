@@ -1,43 +1,57 @@
-<div class="container m-2 col-3">
+<div class="container score-page">
     <div class="row">
-        <h1>High Scores</h1>
-        {{#each highScores as |score|}}
-            {{> display-high-score}}
-        {{/each}}
+        <div class="card">
+            <div class="card-content">
+                {{#if team1}}
+                    {{#if (compare team1.score team2.score)}}
+                    <h1> Team 1 Wins</h1>
+                    <h2> Team 1 Score: {{team1.score}}</h2>
+                    <h2> Team 2 score: {{team2.score}}</h2>
+                    {{else}}
+                    <h1> Team 2 Wins</h1>
+                    <h2> Team 1 Score: {{team1.score}}</h2>
+                    <h2> Team 2 Score: {{team2.score}}</h2>
+                    {{/if}}
+                {{else}}
+                <p class="score"> Your Score : <span>{{score}}</span> </p>
+                {{/if}}
+                <div class="replay-button">
+                    <a href="/"><button type="button" class="btn btn-primary btn-lg btn-block">Play Again</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h1>Question: {{questionTitle}}</h1>
+                <h1>Answers : </h1>
+                {{#if isGenreMemes}}
+                    {{#each answers as |answer|}}
+                        {{> display-memes}}
+                        <p>Total: {{total}}</p>
+                        <br/><br/>
+                    {{/each}}
+                {{else}}
+                    {{#each answers as |answer|}}
+                        {{> display-answer}}
+                    {{/each}}
+                {{/if}}
+            </div>               
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-content">
+                <h1>High Scores</h1>
+                {{#each highScores as |score|}}
+                    {{> display-high-score}}
+                {{/each}}
+            </div>    
+        </div>
     </div>
 </div>
 
-<div class="position-absolute" style="bottom: 20px; right: 20px;">
-    <a href="/"><button type="button" class="btn btn-dark btn-lg">Play Again</button></a>
-</div>
-
-<div class="container m-2 col-4">
+{{!-- <div class="container">
     <div class="row">
-        {{#if team1}}
-            {{#if (compare team1.score team2.score)}}
-            <h1> Team 1 Wins</h1>
-            <h2> Team 1 Score: {{team1.score}}</h2>
-            <h2> Team 2 score: {{team2.score}}</h2>
-            {{else}}
-            <h1> Team 2 Wins</h1>
-            <h2> Team 1 Score: {{team1.score}}</h2>
-            <h2> Team 2 Score: {{team2.score}}</h2>
-            {{/if}}
-        {{else}}
-        <h1>Score: {{score}} </h1>
-        {{/if}}
-        <h1>Question: {{questionTitle}}</h1>
-        <h1>Answers : </h1>
-        {{#if isGenreMemes}}
-            {{#each answers as |answer|}}
-                {{> display-memes}}
-                <p>Total: {{total}}</p>
-                <br/><br/>
-            {{/each}}
-        {{else}}
-            {{#each answers as |answer|}}
-                {{> display-answer}}
-            {{/each}}
-        {{/if}}                  
-        </div>
-</div>
+
+    </div>
+</div> --}}

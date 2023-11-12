@@ -401,7 +401,7 @@ padding: 1rem;
     background-color: white;
 }
 .memes div {
-    height: 300px;
+    height: 150px;
     width: auto;
     background-size: contain;
     background-position: center center;
@@ -429,6 +429,7 @@ padding: 1rem;
 
 header {
     border-bottom: 1px solid #b9b8b8;
+    margin-bottom: 25px;
 }
 .hide-display {
     display: none;
@@ -436,8 +437,8 @@ header {
 .card {
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 150px);
-    overflow: auto;
+    height: calc(100vh - 175px);
+    /* overflow: auto; */
     border: none;
 }
 
@@ -451,4 +452,33 @@ header {
 
 .card-content .form-group {
     margin: 5px 0;
+}
+/* score page */
+.score-page .card {
+    height: auto;
+    width: 100%;
+    margin: 15px 0;
+}
+.score-page .card-content {
+    width: 100%;
+    padding: 15px;
+}
+.score {
+    font-size: 25px;
+}
+.score-page .memes {
+    width: 300px;
+    padding: 15px;
+}
+.score span{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+.replay-button a {
+    width: 100%;
+    display: inline-block;
+}
+.replay-button a .btn-block{
+    width: 100%;
 }
