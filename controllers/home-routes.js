@@ -68,6 +68,7 @@ router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     await Answer.create({
       answers: req.body.answers[i].answers,
       total: 0,
+      room_code: req.params.roomCode,
       question_id: req.params.qId,
     })
     }
@@ -79,6 +80,7 @@ router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     await Answer.destroy({
       where: {
       question_id: req.params.qId,
+      room_code: req.params.roomCode,
       },
     })
     res.json('destroyed')
@@ -116,11 +118,70 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const question = await getQuestionText(req.params.id);
     const questionTitle =  question.question;
     const genreId = question.genre_id;
-  const dbAnswerData = await Answer.findAll({
+    let dbAnswerData;
+    let room_code;
+    let team1;
+    let team2;
+    let user1;
+    let user2;
+    if(genreId==11){
+      // console.log('****************');
+      const dbUserData = await User.findByPk(req.session.userId);
+      const user = dbUserData.get({plain:true});
+      
+      const dbTeamdata = await Team.findByPk(user.team_id);
+      const team = dbTeamdata.get({plain:true});
+      const dbRoomData = await Room.findByPk(team.room_id);
+      const room = dbRoomData.get({plain:true});
+      room_code = room.room_code;
+      const dbUsersdata = await User.findAll({
+        where: {
+          team_id: user.team_id,
+        }
+      })
+      console.log(dbUsersdata.length);
+      // console.log(user.team_id);
+      console.log(req.session.userId);
+      console.log(user.user_score);
+        let dbTeam1data;
+        let dbTeam2data;
+      if(user.team_id%2===0){
+        dbTeam1data = await Team.findByPk(user.team_id-1);
+        dbTeam2data = await Team.findByPk(user.team_id);
+      } else {
+        dbTeam1data = await Team.findByPk(user.team_id);
+        dbTeam2data = await Team.findByPk(user.team_id+1);
+      }
+      team1 = dbTeam1data.get({plain:true});
+      team2 = dbTeam2data.get({plain:true});
+
+      const dbUser1Data = await User.findAll({
+        where:{
+          team_id:team1.id,
+        }
+      })
+        const dbUser2Data = await User.findAll({
+          where:{
+            team_id:team2.id,
+          }
+      })
+      user1=dbUser1Data.map(user => user.get({plain: true}));
+      user2=dbUser2Data.map(user => user.get({plain: true}));
+      // console.log(team1);
+      // console.log(team2);
+      dbAnswerData = await Answer.findAll({
+        where: {
+          question_id: req.params.id,
+          room_code: room_code,
+        }
+        });
+    } else{
+    dbAnswerData = await Answer.findAll({
     where: {
       question_id: req.params.id,
     }
     });
+  }
     const dbUserAnswerData = await UserAnswer.findAll({
       where: {
         question_id: req.params.id,
@@ -156,61 +217,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       }
       })
 
-    let team1;
-    let team2;
-    let user1;
-    let user2;
-    if(genreId==11){
-      // console.log('****************');
-      const dbUserData = await User.findByPk(req.session.userId);
-      const user = dbUserData.get({plain:true});
-      
-      const dbTeamdata = await Team.findByPk(user.team_id);
-      const team = dbTeamdata.get({plain:true});
-      const dbUsersdata = await User.findAll({
-        where: {
-          team_id: user.team_id,
-        }
-      })
-      console.log(dbUsersdata.length);
-      // console.log(user.team_id);
-      console.log(req.session.userId);
-      console.log(user.user_score);
-      // let teamScore= team.score;
-      // teamScore += user.user_score/dbUsersdata.length;
-      // console.log('team score '+teamScore);
-      // await Team.update({score: teamScore},{
-      //   where:{
-      //     id: user.team_id,
-      //   }
-      //   })
-        let dbTeam1data;
-        let dbTeam2data;
-      if(user.team_id%2===0){
-        dbTeam1data = await Team.findByPk(user.team_id-1);
-        dbTeam2data = await Team.findByPk(user.team_id);
-      } else {
-        dbTeam1data = await Team.findByPk(user.team_id);
-        dbTeam2data = await Team.findByPk(user.team_id+1);
-      }
-      team1 = dbTeam1data.get({plain:true});
-      team2 = dbTeam2data.get({plain:true});
 
-      const dbUser1Data = await User.findAll({
-        where:{
-          team_id:team1.id,
-        }
-      })
-        const dbUser2Data = await User.findAll({
-          where:{
-            team_id:team2.id,
-          }
-      })
-      user1=dbUser1Data.map(user => user.get({plain: true}));
-      user2=dbUser2Data.map(user => user.get({plain: true}));
-      // console.log(team1);
-      // console.log(team2);
-    }
+    
     console.log(user1);
     console.log(user2);
 

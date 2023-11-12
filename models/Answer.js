@@ -19,6 +19,10 @@ Answer.init(
         type: DataTypes.INTEGER,
         allowNull:false,
     },
+    room_code:{
+      type:DataTypes.STRING,
+      allowNull:true,
+    },
     question_id: {
         type: DataTypes.INTEGER,
         references: {
