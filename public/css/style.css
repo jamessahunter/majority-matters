@@ -23,10 +23,20 @@ body {
 
 #home-background {
     background-color: #37ddfe;
-    max-width: 90%;
-    margin: 0 auto;
+    margin: 2px;
     border-color: #007bff;
     border: 5px solid #007bff;
+}
+
+#room {
+    background-color: #37ddfe;
+    margin: 2px;
+    border-color: #007bff;
+    border: 5px solid #007bff;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #memes {
@@ -127,10 +137,6 @@ body {
     background-color: rgb(81, 39, 81);
 }
 
-.bg-1 #height, .bg-2 #height, .bg-3 #height, .bg-4 #height, .bg-5 #height, .bg-6 #height, .bg-7 #height, .bg-8 #height, .bg-10 #height {
-    height: 90vh;
-}
-
 .bg-2, .bg-4 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -185,6 +191,12 @@ padding: 1rem;
 .bg-10 h2 {
     background-color: #007bff;
     color: #f8f8f8;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.bg-5 h2 {
+    background-color: #90794e;
     padding: 5px;
     border-radius: 5px;
 }
@@ -376,8 +388,18 @@ padding: 1rem;
     font-size: x-large;
 }
 
-#enter-btn {
+#room-code {
+    color: white;
     font-size: large;
+}
+
+#enter-btn {
+    width: 95px;
+    height: 40px;
+    position: relative;
+    top: 30px;
+    right: 7px;
+    font-size: medium;
     background-color: #0008ff;
 }
 
@@ -386,20 +408,24 @@ padding: 1rem;
 }
 
 #multiplayer {
+    width: 300px;
+    height: 70px;
     font-size: xx-large;
     background-color: #007bff;
     border: rgb(0, 0, 118) 2px solid;
+    margin-top: 10px;
 }
 
 #room-container {
-    width: 49%;
-    height: 80px;
+    width: 300px;
+    height: 70px;
     background-color: #007bff;
     border-radius: 0.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border: rgb(0, 0, 118) 2px solid;
+    margin-bottom: 10px;
 }
 
 #team-page {
@@ -461,6 +487,13 @@ padding: 1rem;
       color: #000000;
       border: 1px solid rgb(255, 234, 0);
       border-radius: 0.25rem;
+}
+
+#timer {
+    color: red;
+    background-color: #000b5f;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 /* memes */
