@@ -13,7 +13,7 @@ body {
     color: #000000;
 }
 
-.bg-5, .bg-6, .bg-8, .bg-3 {
+.bg-5, .bg-6, .bg-8, .bg-3, .bg-2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -43,7 +43,15 @@ body {
     background-image: url('../images/memes-btn.png');
     background-size: cover;
     background-position: right center;
-    min-width: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 #superheroes {
@@ -51,7 +59,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #food {
@@ -59,14 +67,14 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #books {
     background-image: url('../images/book-btn.png');
     background-size: cover;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #fantasy {
@@ -74,7 +82,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #sports {
@@ -82,7 +90,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #movies {
@@ -90,7 +98,7 @@ body {
     background-size: cover;
     color: transparent;
     background-position: center;
-    min-width: 300px;
+    width: 300px;
 }
 
 #history {
@@ -98,7 +106,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #video-games {
@@ -106,7 +114,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #music {
@@ -114,7 +122,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #books {
@@ -137,7 +145,7 @@ body {
     background-color: rgb(81, 39, 81);
 }
 
-.bg-2, .bg-4 {
+.bg-4 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -145,6 +153,7 @@ body {
     background-image: url('../images/book.png');
     background-size: cover;
     background-position: center right;
+    border-radius: 0.25rem;
 }
 
 .bg-5 button {
@@ -166,6 +175,7 @@ padding: 1rem;
     background-image: url('../images/fantasy.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
 .bg-6 button {
@@ -188,17 +198,12 @@ padding: 1rem;
     background-image: url('../images/superhero.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
-.bg-10 h2 {
-    background-color: #007bff;
-    color: #f8f8f8;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.bg-5 h2 {
-    background-color: #ae935f;
+.bg-1 h2, .bg-2 h2, .bg-3 h2, .bg-4 h2, .bg-5 h2, .bg-6 h2, .bg-7 h2, .bg-8 h2, .bg-9 h2, .bg-10 h2, .bg-11 h2 {
+    background-color: #ffffff;
+    color: #000000;
     padding: 5px;
     border-radius: 5px;
 }
@@ -222,6 +227,7 @@ padding: 1rem;
     background-image: url('../images/food.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
 .bg-1 button {
@@ -244,26 +250,13 @@ padding: 1rem;
     background-image: url('../images/movies.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
 .bg-7 button {
     background-color: rgb(50, 50, 50);
     border-color: rgb(83, 83, 83);
     color: rgb(255, 255, 255)
-}
-
-.bg-7 h2 {
-    background-color: #6e163f;
-    color: rgb(255, 255, 255);
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.bg-8 h2 {
-    background-color: darkslateblue;
-    color: rgb(255, 255, 255);
-    padding: 5px;
-    border-radius: 5px;
 }
 
 .bg-7 li{
@@ -285,26 +278,14 @@ padding: 1rem;
 .bg-9 {
     background-image: url('../images/memes.png');
     background-size: 90px;
-}
-
-.bg-9 h2 {
-    background-color: #ff0000;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
+    border-radius: 0.25rem;
 }
 
 .bg-2 {
     background-image: url('../images/sports.png');
     background-size: cover;
     background-position: center;
-}
-
-.bg-2 h2 {
-    color: rgb(0, 0, 0);
-    background-color: #00c73c;
-    padding: 5px;
-    border-radius: 5px;
+    border-radius: 0.25rem;
 }
 
 .bg-2 button {
@@ -326,6 +307,7 @@ padding: 1rem;
     background-image: url('../images/music.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
 .bg-8 button {
@@ -346,19 +328,13 @@ padding: 1rem;
 .bg-3 {
     background-image: url('../images/history.png');
     background-size: cover;
+    border-radius: 0.25rem;
 }
 
 .bg-3 button {
     background-color: rgb(126, 161, 124);
     border-color: rgb(92, 132, 90);
     color: rgb(255, 255, 255)
-}
-
-.bg-3 h2 {
-    background-color: rgb(244, 211, 166);
-    color: rgb(0, 0, 0);
-    padding: 5px;
-    border-radius: 5px;
 }
 
 .bg-3 li{
@@ -375,6 +351,7 @@ padding: 1rem;
     background-image: url('../images/games.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.25rem;
 }
 
 .bg-4 button {
@@ -412,6 +389,10 @@ padding: 1rem;
     background-color: #0008ff;
 }
 
+#enter-btn:hover {
+    background-color: #262dff;
+}
+
 #room-code {
     background-color: #0008ff;
 }
@@ -423,6 +404,11 @@ padding: 1rem;
     background-color: #007bff;
     border: rgb(0, 0, 118) 2px solid;
     margin-top: 10px;
+}
+
+#multiplayer:hover {
+    background-color: #3c9aff;
+    border: rgb(31, 31, 121) 2px solid;
 }
 
 #room-container {
@@ -476,13 +462,7 @@ padding: 1rem;
     background-size: cover;
     background-position: center;
     font-family:  Impact, fantasy;
-}
-
-.bg-11 h2 {
-    background-color: #000b5f;
-    color: #f8f8f8;
-    padding: 5px;
-    border-radius: 5px;
+    border-radius: 0.25rem;
 }
 
 .bg-11 button {
@@ -566,6 +546,32 @@ header {
     border: 1px solid #b9b8b8;
 }
 
+.card.questions .card-content{
+    width: 100%;
+}
+
+.card.questions {
+    padding: 25px 0;
+    height: auto;
+}
+
+.card.questions button, .card.questions h2 {
+    margin: 20px 0;
+}
+
+.card.questions h2 {
+    font-size: 30px;
+    padding: 20px;
+}
+
+.card.genre .card-content {
+    width: 800px;
+}
+
+.card.room .card-content {
+    width: 400px;
+}
+
 .card-content .form-group {
     margin: 5px 0;
 }
@@ -585,6 +591,7 @@ header {
 .score-page .memes {
     width: 300px;
     padding: 15px;
+    box-shadow: none;
 }
 .score span{
     font-size: 30px;
@@ -597,4 +604,78 @@ header {
 }
 .replay-button a .btn-block{
     width: 100%;
+}
+
+.question-ul li {
+    font-size: 20px;
+}
+
+/* results  */
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.answer-text, .total {
+    min-width: 500px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #181818;
+    font-size: 18px;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.total {
+    min-width: 75px;
+    font-weight: bold;
+    text-align: center;
+}
+.meme-container {
+    min-width: 325px;
+}
+
+.answer-text:hover, .total:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 25px 1px #000000e8;
+}
+
+.question-ul li:hover, #usernames li:hover {
+    box-shadow: 0px 0px 25px 1px #000227e8;
+    scale: 1.1;
+}
+/*Score page  */
+.question-label-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.question-text {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#genre-btns button:hover { 
+    box-shadow: 0px 0px 25px 1px #000227e8;
+    scale: 1.1;
+}
+/* Media queries */
+@media (max-width: 767px) {
+    #genre-box, .card-content.room-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    #genre-btns button {
+        width: 170px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .card.room {
+        height: 70px;
+    }
 }
