@@ -70,7 +70,6 @@ const answerHandler= async()=>{
         const answerId = listItem.getAttribute('data-id');
         arr.push(parseInt(answerId));
     }    
-    // console.log(typeof arr[0]);
     const deleteResponse = await fetch(`/api/users/answer/${id}`,{
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
@@ -87,7 +86,6 @@ const answerHandler= async()=>{
         alert('Failed to add user answers');
     }
 
-    
     const getResponse = await fetch(`/api/answer/${id}`,{
         method: 'GET',
     })
@@ -99,14 +97,11 @@ const answerHandler= async()=>{
           data[foundIndex].total += ((10 - index) * 2);
         }
     });
-    // console.log(data);
-
     const updateResponse = await fetch(`/api/answer/${id}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
     })
-    // console.log(updateResponse);
     if (updateResponse.ok) {
         if(genreId==11){
             return;

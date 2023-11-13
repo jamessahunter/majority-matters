@@ -112,8 +112,6 @@ router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
       }
       });
       const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
-      // console.log("answers for page")
-      // console.log(answers);
     const id=req.params.qId;
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
@@ -152,10 +150,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
           team_id: user.team_id,
         }
       })
-      console.log(dbUsersdata.length);
-      // console.log(user.team_id);
-      console.log(req.session.userId);
-      console.log(user.user_score);
         let dbTeam1data;
         let dbTeam2data;
       if(user.team_id%2===0){
@@ -180,8 +174,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       })
       user1=dbUser1Data.map(user => user.get({plain: true}));
       user2=dbUser2Data.map(user => user.get({plain: true}));
-      // console.log(team1);
-      // console.log(team2);
       dbAnswerData = await Answer.findAll({
         where: {
           question_id: req.params.id,
@@ -204,14 +196,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
-
-    // console.log('user answers')
-    // console.log(req.session.userId);
-    // console.log(userAnswers);
-    console.log('unsorted');
-    console.log(answers);
     answers.sort((a,b)=>b.total-a.total);
-    // console.log("answers sorted leat to most popular",answers);
     let score=0;
     for(let i=0; i<answers.length;i++){
       console.log(req.session.userId);
@@ -229,15 +214,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         id: req.session.userId,
       }
       })
-
-
-    
-    console.log(user1);
-    console.log(user2);
-
-    // sort answer from most popular to least popular
-    // answers.sort((a,b)=>b.total-a.total);
-
 
     //get user score from user model
     const storedUserScore = await getUserScore(req.session.userId);
@@ -267,22 +243,17 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     }
 })
 
-
-
 router.post('/room/:roomCode',async (req,res)=>{
   try{
     const roomCode = req.params.roomCode;
-    console.log('************ room code '+ roomCode);
     let room
     let exists= await Room.findOne({
       where: {
         room_code: roomCode,
       }
     })
-    console.log(exists);
     let dbTeamData;
     if(exists===null){
-      console.log('**********create**********')
      dbRoomData = await Room.create({
       room_code: roomCode,
     })
@@ -304,8 +275,6 @@ router.post('/room/:roomCode',async (req,res)=>{
         }
       })
     }
-    console.log(room);
-
 
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
     console.log(teams)
@@ -355,18 +324,12 @@ router.get('/room/:roomCode', async (req,res)=>{
     })
 
     if(dbUserData[0]!==undefined){
-      // console.log('********************')
-      // console.log(dbUserData)
-      // console.log(dbUserData[0])
       username = dbUserData.map((user)=>user.get({plain:true}));
       console.log(username);
       usernames.push(username);
     }
   }
-  console.log('usernames');
-  console.log(usernames);
   usernames=usernames.flat();
-  console.log(usernames);
   res.render('multiplayer',{roomCode,usernames});
 })
 //get User score
