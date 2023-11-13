@@ -3,15 +3,6 @@
         <div class="card">
             <div class="card-content">
                 {{#if team1}}
-                {{!-- {{#with user1}}
-        {{json this}}
-        {{/with}}
-        {{#with user2}}
-        {{json this}}
-        {{/with}} --}}
-        {{!-- {{teamScore user1}} --}}
-        {{!-- {{teamScore user2}} --}}
-        {{!-- {{equal user1 user2}} --}}
             {{#if (equal user1 user2)}}
             <h1> Teams Tied </h1>
             <h2> Team 1 Score: {{teamScore user1}}</h2>
