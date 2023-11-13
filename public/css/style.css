@@ -44,10 +44,10 @@ body {
     background-size: cover;
     background-position: right center;
     width: 300px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; */
 }
 
 a {
@@ -574,6 +574,26 @@ header {
 
 .card-content .form-group {
     margin: 5px 0;
+}
+/* Genre - room */
+.card.genre {
+    /* border: 1px solid red; */
+    height: auto;
+}
+.card.genre .card-content{
+    /* border: 1px solid yellow; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card.multi-player {
+    height: auto;
+}
+.card.multi-player .card-content{
+    width: 100%;
 }
 /* score page */
 .score-page .card {
