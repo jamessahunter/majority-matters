@@ -389,6 +389,10 @@ padding: 1rem;
     background-color: #0008ff;
 }
 
+#enter-btn:hover {
+    background-color: #262dff;
+}
+
 #room-code {
     background-color: #0008ff;
 }
@@ -400,6 +404,11 @@ padding: 1rem;
     background-color: #007bff;
     border: rgb(0, 0, 118) 2px solid;
     margin-top: 10px;
+}
+
+#multiplayer:hover {
+    background-color: #3c9aff;
+    border: rgb(31, 31, 121) 2px solid;
 }
 
 #room-container {
@@ -633,7 +642,7 @@ header {
     box-shadow: 0px 0px 25px 1px #000000e8;
 }
 
-.question-ul li:hover {
+.question-ul li:hover, #usernames li:hover {
     box-shadow: 0px 0px 25px 1px #000227e8;
     scale: 1.1;
 }
