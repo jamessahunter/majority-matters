@@ -43,7 +43,15 @@ body {
     background-image: url('../images/memes-btn.png');
     background-size: cover;
     background-position: right center;
-    min-width: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 #superheroes {
@@ -51,7 +59,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #food {
@@ -59,14 +67,14 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #books {
     background-image: url('../images/book-btn.png');
     background-size: cover;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #fantasy {
@@ -74,7 +82,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #sports {
@@ -82,7 +90,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #movies {
@@ -90,7 +98,7 @@ body {
     background-size: cover;
     color: transparent;
     background-position: center;
-    min-width: 300px;
+    width: 300px;
 }
 
 #history {
@@ -98,7 +106,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #video-games {
@@ -106,7 +114,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #music {
@@ -114,7 +122,7 @@ body {
     background-size: cover;
     background-position: center;
     color: transparent;
-    min-width: 300px;
+    width: 300px;
 }
 
 #books {
@@ -590,4 +598,23 @@ header {
 
 .question-ul li {
     font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    #genre-box, .card-content.room-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    #genre-btns button {
+        width: 170px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .card.room {
+        height: 70px;
+    }
 }
