@@ -41,6 +41,7 @@ body {
     background-size: cover;
     background-position: right center;
     width: 300px;
+    color: transparent;
 }
 
 a {
