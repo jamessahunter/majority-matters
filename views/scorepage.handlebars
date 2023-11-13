@@ -35,13 +35,19 @@
         </div>
         <div class="card">
             <div class="card-content">
-                <h1>Question: {{questionTitle}}</h1>
-                <h1>Answers : </h1>
+                <div class="question-label-text"> Your question was </div>
+                <div class="question-text">{{questionTitle}}</div>
+                <div class="question-label-text">Answers </div>
                 {{#if isGenreMemes}}
                     {{#each answers as |answer|}}
-                        {{> display-memes}}
-                        <p>Total: {{total}}</p>
-                        <br/><br/>
+                        <div class="result-container">
+                            <div class="answer-text">
+                                {{> display-memes}}
+                            </div>
+                            <div class="total">
+                                {{total}}
+                            </div>                            
+                        </div>
                     {{/each}}
                 {{else}}
                     {{#each answers as |answer|}}
