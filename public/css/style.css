@@ -661,8 +661,21 @@ header {
     scale: 1.1;
 }
 /* Media queries */
+
+@media (max-width: 1400px) {
+    #genre-box {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .card.room {
+        height: 250px;
+    }
+}
+
 @media (max-width: 767px) {
-    #genre-box, .card-content.room-box {
+    #genre-box, .card-content.room-box  {
         width: 100%;
     }
 }
