@@ -595,6 +595,12 @@ header {
 .card.multi-player .card-content{
     width: 100%;
 }
+.card.room-box {
+    height: auto;
+}
+.card.room-box .card-content {
+    width: 100%;
+}
 /* score page */
 .score-page .card {
     height: auto;
