@@ -58,10 +58,14 @@
     </div>
 </div>
 <br/>
+<br/>
 <div class="row">
     <div class="card multi-player">
         <div class="card-content">
-            <div id="room" class="rounded">
+            <div class="col-12 text-center mt-5">
+                <h1 class="align-self-center" id="pick">Multi player mode</h1>
+            </div>
+            <div id="room1" class="rounded">
                 <div class="align-self-center" style="height: 80px;">
                     <button id="multiplayer" class="btn btn-primary">Create a room</button>
                 </div>
@@ -69,7 +73,7 @@
                     <form class="form room-form d-flex">
                         <div class="form-group mr-2">
                             <label for="room-code" id="room-code-title">Room Code:</label>
-                            <input class="form-input" type="text" id="room-code" />
+                            <input class="form-input" type="text" id="room-code" placeholder="Room Code"/>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" id="enter-btn" type="submit">Enter</button>
