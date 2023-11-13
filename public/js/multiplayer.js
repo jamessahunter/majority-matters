@@ -30,7 +30,7 @@ async function userCheck(){
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     length = localStorage.getItem('length');
   //remove +4 when deployed
-  if(length!=usernames.length+4){
+  if(length!=usernames.length){
     console.log('stuck');
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     location.reload();
@@ -75,6 +75,7 @@ const answerHandler= async()=>{
     }
     if(listItem1.length+listItem2.length<4){
       alert("Must have at least 4 players");
+      return;
     }
     if(listItem1.length-listItem2.length>1 || listItem1.length-listItem2.length<-1){
         alert('Teams must be similar size');
