@@ -26,7 +26,7 @@
                     <h2> Team 2 Score: {{teamScore user2}}</h2>
                     {{/if}}
                 {{else}}
-                <p class="score"> Your Score : <span>{{score}}</span> </p>
+                <p class="score"> You Scored : <span>{{score}}</span> </p>
                 {{/if}}
                 <div class="replay-button">
                     <a href="/"><button type="button" class="btn btn-primary btn-lg btn-block">Play Again</button></a>
@@ -35,17 +35,25 @@
         </div>
         <div class="card">
             <div class="card-content">
-                <h1>Question: {{questionTitle}}</h1>
-                <h1>Answers : </h1>
+                <div class="question-label-text"> Your question was </div>
+                <div class="question-text">{{questionTitle}}</div>
+                <div class="question-label-text">Answers </div>
                 {{#if isGenreMemes}}
                     {{#each answers as |answer|}}
-                        {{> display-memes}}
-                        <p>Total: {{total}}</p>
-                        <br/><br/>
+                        <div class="result-container">
+                            <div class="answer-text meme-container">
+                                {{> display-memes}}
+                            </div>
+                            <div class="total">
+                                {{total}}
+                            </div>                            
+                        </div>
                     {{/each}}
                 {{else}}
                     {{#each answers as |answer|}}
-                        {{> display-answer}}
+                        <div class="result-container">
+                            {{> display-answer}}
+                        </div>
                     {{/each}}
                 {{/if}}
             </div>               

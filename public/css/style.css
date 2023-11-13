@@ -582,6 +582,7 @@ header {
 .score-page .memes {
     width: 300px;
     padding: 15px;
+    box-shadow: none;
 }
 .score span{
     font-size: 30px;
@@ -600,6 +601,57 @@ header {
     font-size: 20px;
 }
 
+/* results  */
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.answer-text, .total {
+    min-width: 500px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #181818;
+    font-size: 18px;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.total {
+    min-width: 75px;
+    font-weight: bold;
+    text-align: center;
+}
+.meme-container {
+    min-width: 325px;
+}
+
+.answer-text:hover, .total:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 25px 1px #000000e8;
+}
+
+.question-ul li:hover {
+    box-shadow: 0px 0px 25px 1px #000227e8;
+    scale: 1.1;
+}
+/*Score page  */
+.question-label-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.question-text {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#genre-btns button:hover { 
+    box-shadow: 0px 0px 25px 1px #000227e8;
+    scale: 1.1;
+}
+/* Media queries */
 @media (max-width: 767px) {
     #genre-box, .card-content.room-box {
         width: 100%;
