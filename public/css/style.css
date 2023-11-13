@@ -515,3 +515,20 @@ header {
 .replay-button a .btn-block{
     width: 100%;
 }
+
+/* #chartContainer {
+    height: 500px;
+    border: 1px solid #d7d1d1;
+} */
+
+#chartContainer canvas {
+    /* height: 500px;
+    border: 1px solid #d7d1d1; */
+}
+
+.chart-block {
+    position: relative;
+    border: 1px solid red;
+    height: 500px;
+    width: 100%;
+}

@@ -49,3 +49,73 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div class="chart-block">
+    <div id="chartContainer"></div>
+    <canvas id="chartCanvas" height="500" width="500"></canvas>
+</div>
+{{!-- </script> --}}
+{{!-- <script type="text/javascript" src="/js/display-charts.js"></script> --}}
+<script>
+  // This script runs on the client side in the browser
+  document.addEventListener('DOMContentLoaded', function() {
+    // Access an element by ID and manipulate it
+    //const myElement = document.getElementById('chart-container');
+    //myElement.innerHTML = 'Changed by client-side JavaScript!';
+    //if(customData) {
+        //console.log('Checking if custom dayta is present : ', customData);
+    //}
+
+
+// Data for the chart
+const chartData = [
+  { label: 'Label 1', value: 10 },
+  { label: 'Label 2', value: 20 },
+  { label: 'Label 3', value: 15 },
+  // Add more data objects as needed
+];
+
+// Handlebars template
+const chartTemplate = Handlebars.compile(`
+{{#each chartData}}
+    <div class="bar">
+      <div class="label">{{label}}</div>
+      <div class="bar-value" style="width: {{value}}%"></div>
+    </div>
+  {{/each}}
+`);
+
+// Render the chart
+const chartContainer = document.getElementById('chartContainer');
+console.log("chartContainer ", chartContainer);
+chartContainer.innerHTML = chartTemplate({ chartData });
+console.log("chartContainer.innerHTML ", chartContainer.innerHTML);
+ //const ctxEL = document.getElementById('chartCanvas');
+ //console.log("ctxEL ", ctxEL);
+
+ const ctx = document.getElementById('chartCanvas')?.getContext('2d');
+ console.log("ctx ", ctx);
+
+// Initialize the chart
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: chartData.map(data => data.label),
+    datasets: [{
+      data: chartData.map(data => data.value),
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+  }
+});
+
+
+  });
+</script>
