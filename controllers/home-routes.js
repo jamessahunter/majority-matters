@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 
-const {User, Question, Answer, Rank, Genre, UserAnswer, Room, Team, People} = require('../models');
+const {User, Question, Answer, Genre, UserAnswer, Room, Team, People} = require('../models');
 const {withAuth, areAuth } = require('../utils/auth');
 const { findAll } = require('../models/User');
 
@@ -88,7 +88,6 @@ router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
 });
 
 router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
-  // console.log(JSON.stringify(req.body.answers[0].answers));
     await Answer.destroy({
       where: {
       question_id: req.params.qId,
@@ -207,8 +206,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
-    console.log('score '+ score);
-    // console.log(correct);
     await User.update({user_score: score},{
       where:{
         id: req.session.userId,
@@ -217,7 +214,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
 
     //get user score from user model
     const storedUserScore = await getUserScore(req.session.userId);
-    //console.log("storedUserScore ", storedUserScore);
 
     // update users score if its null or more than saved score.
     if ( !storedUserScore || storedUserScore < score) {
@@ -234,7 +230,6 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
       });
       const highScores = dbHighScores.map(score => score.get({plain: true}));
       const isGenreMemes = await isQuestionMeme(req.params.id);
-      // console.log("isGenreMemes : ", isGenreMemes);
       const loggedIn = req.session.loggedIn;
       res.render('scorepage', {score: score, questionTitle: questionTitle, answers: answers, 
         highScores: highScores, isGenreMemes: isGenreMemes, loggedIn: loggedIn, team1, team2, user1, user2})
@@ -277,7 +272,6 @@ router.post('/room/:roomCode',async (req,res)=>{
     }
 
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
-    console.log(teams)
     const randomNum = Math.floor(Math.random() * 2);
 
     await User.update({team_id: teams[randomNum].id},{
@@ -316,7 +310,6 @@ router.get('/room/:roomCode', async (req,res)=>{
   let username;
   let usernames=[]
   for(let i=0;i<teams.length;i++){
-    console.log(teams);
     let dbUserData= await User.findAll({
       where: {
         team_id: teams[i].id,
@@ -325,7 +318,6 @@ router.get('/room/:roomCode', async (req,res)=>{
 
     if(dbUserData[0]!==undefined){
       username = dbUserData.map((user)=>user.get({plain:true}));
-      console.log(username);
       usernames.push(username);
     }
   }
@@ -339,7 +331,6 @@ const getUserScore = async (userId) => {
     try {
       const dbUserScore = await User.findByPk(userId);
       const userScore = dbUserScore.get({plain: true});
-      //console.log("user score from DB : ", userScore.high_score);
       return userScore.high_score;
      } catch(error){
       console.log(error);
@@ -355,7 +346,6 @@ const saveUserScore = async (userId, score) => {
         { high_score: score},
         { where: { id: userId}}
       );
-      //console.log("updatedUser : ", updatedUser);
     }
   } catch(error){
    console.log(error);
@@ -368,7 +358,6 @@ const getQuestionText = async (questionId) => {
     if(questionId )  {
       const questionDb = await Question.findByPk(questionId);
       const  question = questionDb.get({plain: true});
-      //console.log("Question title:  : ", question.question);
       return question;
     }
   } catch(error){
