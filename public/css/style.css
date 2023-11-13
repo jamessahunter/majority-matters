@@ -644,7 +644,10 @@ header {
     font-weight: bold;
     margin-bottom: 15px;
 }
-
+#genre-btns button:hover { 
+    box-shadow: 0px 0px 25px 1px #000227e8;
+    scale: 1.1;
+}
 /* Media queries */
 @media (max-width: 767px) {
     #genre-box, .card-content.room-box {
