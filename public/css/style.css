@@ -701,7 +701,7 @@ header {
 }
 
 @media (max-width: 767px) {
-    #genre-box, .card-content.room-box  {
+    #genre-box, .card-content.room-box, .card-content.log, .card-content.sign  {
         width: 100%;
     }
 }

@@ -330,7 +330,8 @@ router.get('/room/:roomCode', async (req,res)=>{
     }
   }
   usernames=usernames.flat();
-  res.render('multiplayer',{roomCode,usernames});
+  const loggedIn = req.session.loggedIn;
+  res.render('multiplayer',{roomCode,usernames,loggedIn});
 })
 //get User score
 const getUserScore = async (userId) => {
