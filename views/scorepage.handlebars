@@ -26,7 +26,7 @@
                     <h2> Team 2 Score: {{teamScore user2}}</h2>
                     {{/if}}
                 {{else}}
-                <p class="score"> Your Score : <span>{{score}}</span> </p>
+                <p class="score"> You Scored : <span>{{score}}</span> </p>
                 {{/if}}
                 <div class="replay-button">
                     <a href="/"><button type="button" class="btn btn-primary btn-lg btn-block">Play Again</button></a>
@@ -45,7 +45,9 @@
                     {{/each}}
                 {{else}}
                     {{#each answers as |answer|}}
-                        {{> display-answer}}
+                        <div class="result-container">
+                            {{> display-answer}}
+                        </div>
                     {{/each}}
                 {{/if}}
             </div>               
