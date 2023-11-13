@@ -146,19 +146,14 @@ router.get('/:roomCode', async (req,res)=>{
         usernames.push(username);
   
     }
-    console.log('usernames');
     usernames=usernames.flat();
     res.json(usernames);
 })
 
 
 router.put('/:roomCode', async (req,res)=>{
-  console.log('***************************' +JSON.stringify(req.body));
-  console.log('***************************' +JSON.stringify(req.body[1]));
-
   try{
     const roomCode = req.params.roomCode;
-    console.log('************ room code '+ roomCode);
     const dbRoomData= await Room.findOne({
       where: {
         room_code: roomCode,
@@ -171,26 +166,17 @@ router.put('/:roomCode', async (req,res)=>{
       }
     })
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
-    console.log(teams);
     let username;
   let usernames=[];
   for(let i=0;i<teams.length;i++){
-    // console.log(teams);
     let dbUserData= await User.findAll({
       where: {
         team_id: teams[i].id,
       }
     }),
       username = dbUserData.map((user)=>user.get({plain:true}));
-      // console.log(username);
       usernames.push(username);
   }
-  console.log('*********************** usernames');
-  console.log(usernames)
-  console.log(JSON.stringify(req.body));
-  // console.log(usernames[1])
-
-
     for (let i = 0; i < usernames[0].length; i++) {
       const username = usernames[0][i].username;
       

@@ -9,14 +9,11 @@ socket.on('user joined', (message) => {
   console.log(message);
   userCheck();
 });
-
 function joinChat(username) {
   socket.emit('join', username);
 }
-
 const username = 'JohnDoe';
 joinChat(username);
-
 let length;
 async function userCheck(){
   const userResponse= await fetch(`/api/users/${code}`,{
@@ -40,8 +37,6 @@ async function userCheck(){
   }
 
 }
-
-
 
 let sortableLists = document.getElementsByClassName('sortable-list');
 for (let i = 0; i < sortableLists.length; i++) {
@@ -74,7 +69,6 @@ const answerHandler= async()=>{
     let listItem2=[];
     for (let i = 0; i < listItems1.length; i++) {
         listItem1[i]=(listItems1[i].textContent);
-        // console.log(listItem1.textContent);
     }
     for (let i = 0; i < listItems2.length; i++) {
         listItem2[i]=(listItems2[i].textContent);
@@ -104,9 +98,7 @@ const answerHandler= async()=>{
   if(usernames.length<8){
     const length=usernames.length
     for(let i=0;i<8-length;i++){
-      // console.log(i);
       let randomPeople = Math.floor(Math.random() * people.length);
-      // console.log(randomNumber);
       let temp=people[randomPeople];
       while(usernames.includes(temp)){
         temp=people[randomPeople];
@@ -116,7 +108,6 @@ const answerHandler= async()=>{
     }
   }
   const answers=usernames;
-
   for(let i=0; i<answers.length;i++){
     if(answers[i].username){
       answers[i].answers=answers[i].username;
@@ -124,12 +115,10 @@ const answerHandler= async()=>{
       answers[i].answers=answers[i].name;
     }
   }
-  
   const deleteResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   })
-
   const createResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
     method: 'POST',
     body: JSON.stringify({answers}),
