@@ -50,7 +50,7 @@ function startTimer(duration,display){
 
 window.addEventListener("load", function() {
     if(genreId==11){
-        startTimer(10, timerDisplay);
+        startTimer(60, timerDisplay);
     }
 })
 // Assuming you have a timer duration of 60 seconds
