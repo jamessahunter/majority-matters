@@ -872,7 +872,7 @@ const answerdata =[
         total: 0,
     },
     {
-        answers: 'RaciThe Chronicles of Narnia by C.S. Lewis',
+        answers: 'The Chronicles of Narnia by C.S. Lewis',
         question_id: 22,
         total: 0,
     },
