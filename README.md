@@ -3,7 +3,7 @@
 
 ## Description 
 
-This group project was to build a full stack applciation using MVC paradigm.
+This group project was to build a full stack application using MVC paradigm.
 It uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Technology Used 
