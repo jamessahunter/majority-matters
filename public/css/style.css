@@ -609,7 +609,7 @@ header {
 }
 
 .answer-text, .total {
-    min-width: 200px;
+    min-width: 500px;
     background-color: #f0f0f0;
     padding: 15px;
     box-sizing: border-box;
@@ -623,6 +623,9 @@ header {
     min-width: 75px;
     font-weight: bold;
     text-align: center;
+}
+.meme-container {
+    min-width: 325px;
 }
 
 .answer-text:hover, .total:hover {
