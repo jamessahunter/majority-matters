@@ -8,11 +8,6 @@ body {
     background-image: url("../images/logo.png");
 }
 
-#pick, #room {
-    font-family: Impact, fantasy;
-    color: #000000;
-}
-
 .bg-5, .bg-6, .bg-8, .bg-3, .bg-2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -380,11 +375,7 @@ padding: 1rem;
 }
 
 #enter-btn {
-    width: 95px;
-    height: 40px;
-    position: relative;
-    top: 30px;
-    right: 7px;
+    margin: 1px;
     font-size: medium;
     background-color: #0008ff;
 }
@@ -397,8 +388,12 @@ padding: 1rem;
     background-color: #0008ff;
 }
 
+#room-code::placeholder {
+    color: #6068a7; 
+}
+
 #multiplayer {
-    width: 300px;
+    width: 100%;
     height: 70px;
     font-size: xx-large;
     background-color: #007bff;
@@ -412,7 +407,7 @@ padding: 1rem;
 }
 
 #room-container {
-    width: 300px;
+    width: 100%;
     height: 70px;
     background-color: #007bff;
     border-radius: 0.25rem;
@@ -420,10 +415,10 @@ padding: 1rem;
     justify-content: center;
     align-items: center;
     border: rgb(0, 0, 118) 2px solid;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-#team-page {
+#team-page, #room1 {
     font-family:  Impact, fantasy;
 }
 
@@ -700,6 +695,17 @@ header {
     }
 }
 
+@media (max-width: 992px) {
+    #room-container {
+        position: relative;
+    }
+    #room-container #enter-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
 @media (max-width: 767px) {
     #genre-box, .card-content.room-box, .card-content.log, .card-content.sign  {
         width: 100%;
@@ -718,3 +724,21 @@ header {
         height: 70px;
     }
 }
+
+@media (max-width: 767px) {
+    #room1 #multiplayer {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    #room-code-title {
+        margin-left: 2px;
+    }
+    #room-container .form-input {
+        width: 65%;
+        box-sizing: border-box;
+    } 
+}
+
+
