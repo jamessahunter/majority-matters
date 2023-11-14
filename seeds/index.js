@@ -1,6 +1,5 @@
 const sequelize = require('../config/connection');
 const seedAnswer = require('./answerData');
-const seedRank = require('./rankData');
 const seedQuestion =require('./questionData');
 const seedGenres = require('./genreData');
 const seedPeople = require('./peopleData');
@@ -19,9 +18,6 @@ const seedAll = async () => {
 
   await seedPeople();
   console.log('\n----- People SEEDED -----\n');
-
-  // await seedRank();
-  // console.log('\n----- Rank SEEDED -----\n');
 
   process.exit(0);
 };
