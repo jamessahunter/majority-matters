@@ -33,6 +33,7 @@ router.get('/login', areAuth, (req, res) => {
     res.render('login');
   });
 
+//gets a random question for the multiplayer room
 router.get('/question', async (req,res)=>{
   const dbQuestionData = await Question.findAll({
     where:{
@@ -41,12 +42,12 @@ router.get('/question', async (req,res)=>{
   });
   const questions = dbQuestionData.map((question)=>question.get({plain:true}));
   let randomNumber = Math.floor(Math.random() * questions.length) ;
-  const question=questions[randomNumber].question;
   const id=questions[randomNumber].id;
-  console.log(question);
   res.json(id);
 }) 
 
+//getst the a random question and its associated answers for a specific genre
+//it also redirects the user to the question page
 router.get('/genre/:genreId', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findAll({
@@ -65,8 +66,6 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     const question=questions[randomNumber].question;
     const genreId = req.params.genreId;
     const id=questions[randomNumber].id;
-    console.log('***************');
-    console.log(question)
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
     const loggedIn = req.session.loggedIn;
@@ -76,13 +75,14 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     res.status(500).json(err);
   }
 })
-
+//gets all people from the db and responds with all of them
 router.get('/people', async(req,res)=>{
   let dbPeopleData = await People.findAll();
   const people = dbPeopleData.map((person)=>person.get({plain:true}));
   res.json(people);
 })
 
+//creates the answers for a specific room and question
 router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
   console.log(JSON.stringify(req.body.answers[0].answers));
   for(let i=0; i<req.body.answers.length;i++){
@@ -96,6 +96,7 @@ router.post('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     res.json('created')
 });
 
+//deletes the answers for that room and question
 router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     await Answer.destroy({
       where: {
@@ -105,7 +106,7 @@ router.delete('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
     })
     res.json('destroyed')
 });
-
+//gets the question and answers and sends to question page
 router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findByPk(req.params.qId);
@@ -131,7 +132,7 @@ router.get('/genre/11/:roomCode/:qId', withAuth,  async( req,res)=>{
   }
 })
 
-
+//displays how the user scored
 router.get('/scores/:id', withAuth, async(req, res)=>{
     //get the question title to display on score page !!
     const question = await getQuestionText(req.params.id);
@@ -144,20 +145,14 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     let user1;
     let user2;
     if(genreId==11){
-      // console.log('****************');
+      //gets all the users for each team
       const dbUserData = await User.findByPk(req.session.userId);
       const user = dbUserData.get({plain:true});
-      
       const dbTeamdata = await Team.findByPk(user.team_id);
       const team = dbTeamdata.get({plain:true});
       const dbRoomData = await Room.findByPk(team.room_id);
       const room = dbRoomData.get({plain:true});
       room_code = room.room_code;
-      const dbUsersdata = await User.findAll({
-        where: {
-          team_id: user.team_id,
-        }
-      })
         let dbTeam1data;
         let dbTeam2data;
       if(user.team_id%2===0){
@@ -189,6 +184,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         }
         });
     } else{
+    //gets the question answer and the user answers
     dbAnswerData = await Answer.findAll({
     where: {
       question_id: req.params.id,
@@ -204,7 +200,9 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     const answers= dbAnswerData.map((answer)=>answer.get({plain:true}));
     const userAnswers=dbUserAnswerData.map((answer)=>answer.get({plain:true}));
     const correct=[];
+    //sorts the user answers based of its total
     answers.sort((a,b)=>b.total-a.total);
+    //gives the user 10 points for each answer matched correctly
     let score=0;
     for(let i=0; i<answers.length;i++){
       console.log(req.session.userId);
@@ -215,6 +213,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
         correct[i]=false;
       }
     }
+    //updates the user score
     await User.update({user_score: score},{
       where:{
         id: req.session.userId,
@@ -248,6 +247,7 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
     }
 })
 
+//checks that a room exists if it does add the user to a team
 router.post('/room/:roomCode',async (req,res)=>{
   try{
     const roomCode = req.params.roomCode;
@@ -280,7 +280,6 @@ router.post('/room/:roomCode',async (req,res)=>{
         }
       })
     }
-
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
     const randomNum = Math.floor(Math.random() * 2);
 
@@ -296,7 +295,7 @@ router.post('/room/:roomCode',async (req,res)=>{
   }
 } )
 
-
+//gets the room and its users and sends to the multiplayer page
 router.get('/room/:roomCode', async (req,res)=>{
   const roomCode = req.params.roomCode;
   const dbRoomData = await Room.findOne({

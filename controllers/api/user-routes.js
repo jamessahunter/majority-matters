@@ -70,7 +70,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-
+//creates the user answer for a specifc question tied to that user
 router.post('/answer/:id', async (req, res)=>{
 
   try{
@@ -84,16 +84,13 @@ router.post('/answer/:id', async (req, res)=>{
       })
       ansArr.push(dbUserAnswer)
     }
-    console.log('user answers')
-    console.log(req.session.userId);
-    console.log(ansArr.map(ans=>ans.get({plain:true})));
     res.status(200).json(ansArr);
   }catch(err) {
     console.log(err);
     res.status(500).json(err);
   }
 })
-
+//delets the user answer for a specific question
 router.delete('/answer/:id', async (req,res)=>{
     UserAnswer.destroy({
       where: {
@@ -104,20 +101,16 @@ router.delete('/answer/:id', async (req,res)=>{
     res.json('deleted');
 })
 
-
-
+//gets a specific user
 router.get('/', async (req,res)=>{
-  console.log(req.session.userId)
   const dbUserData = await User.findByPk(req.session.userId);
-  // const users = dbUserData.map(user=>(user.get({plain:true})))
   const user = dbUserData.get({plain:true});
   res.status(200).json([user, req.session.userId]);
 })
 
-
+//gets all the users for a specific room code
 router.get('/:roomCode', async (req,res)=>{
   const roomCode = req.params.roomCode;
-  console.log(roomCode);
     const dbRoomData = await Room.findOne({
       where: {
         room_code: roomCode,
@@ -142,15 +135,13 @@ router.get('/:roomCode', async (req,res)=>{
         }
       })
         username = dbUserData.map((user)=>user.get({plain:true}));
-        console.log(username);
         usernames.push(username);
-  
     }
     usernames=usernames.flat();
     res.json(usernames);
 })
 
-
+//updates the teams for a specific room
 router.put('/:roomCode', async (req,res)=>{
   try{
     const roomCode = req.params.roomCode;
@@ -166,7 +157,6 @@ router.put('/:roomCode', async (req,res)=>{
       }
     })
     const teams=dbTeamData.map((team)=>team.get({plain:true}));
-    let username;
   let usernames=[];
   for(let i=0;i<teams.length;i++){
     let dbUserData= await User.findAll({
@@ -182,7 +172,6 @@ router.put('/:roomCode', async (req,res)=>{
       
       for (let j = 0; j < req.body.length; j++) {
         if (req.body[j].includes(username)) {
-          console.log('match');
           if(j===0){
             console.log(req.body[j]);
             await User.update({team_id: teams[0].id},{
@@ -205,7 +194,6 @@ router.put('/:roomCode', async (req,res)=>{
       
       for (let j = 0; j < req.body.length; j++) {
         if (req.body[j].includes(username)) {
-          console.log('match');
           if(j===0){
             await User.update({team_id: teams[0].id},{
               where:{

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Answer } = require('../../models');
 const { withAuth } = require('../../utils/auth');
-
+//finds all the answers for a specific question and returns with just the attributes of total and id
 router.get('/:id', withAuth, async (req,res)=>{
     try {
         const dbAnswerData = await Answer.findAll({
@@ -12,7 +12,6 @@ router.get('/:id', withAuth, async (req,res)=>{
             });
             const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
 
-            // console.log(answers);
             res.send(answers);
     }catch{
         console.log(err);
@@ -23,7 +22,6 @@ router.get('/:id', withAuth, async (req,res)=>{
 
 
 router.put('/:id', withAuth, async (req,res)=>{
-    // console.log(JSON.stringify(req.body));
     for(let i=0; i<req.body.length; i++){
         Answer.update({total: req.body[i].total},{
             where:{
