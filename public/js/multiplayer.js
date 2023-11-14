@@ -21,7 +21,6 @@ async function userCheck(){
     const usernames= await userResponse.json();
     const usernamesEl =document.getElementById('usernames');
     const listItems = usernamesEl.getElementsByTagName('li')
-  // const listItems = document.querySelectorAll('li');
   const listItemTexts = [];
   for (let i = 0; i < listItems.length; i++) {
     const text = listItems[i].textContent;
@@ -29,13 +28,10 @@ async function userCheck(){
   }
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     length = localStorage.getItem('length');
-  //remove +4 when deployed
   if(length!=usernames.length){
-    console.log('stuck');
     localStorage.setItem('length',JSON.stringify(listItemTexts.length))
     location.reload();
   }
-
 }
 
 let sortableLists = document.getElementsByClassName('sortable-list');
