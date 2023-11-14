@@ -57,8 +57,11 @@ io.on('connection', (socket) => {
     // Handle Socket.IO events here
   });
 
-  socket.on('passNum',(num)=>{
-    io.emit('getNum',num);
+  socket.on('passNum',(data)=>{
+    console.log('**********************');
+    console.log(data);
+    // console.log(num);
+    io.emit('getNum',(data));
   })
 
 
