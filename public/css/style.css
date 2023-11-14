@@ -1,19 +1,21 @@
 :root {
     --main-logo-color: #3900ff;
 }
+
 body {
     font-family: 'Titillium Web', sans-serif;
 }
+
 #logo {
     background-image: url("../images/logo.png");
 }
 
-.bg-5, .bg-6, .bg-8, .bg-3, .bg-2 {
+.bg-5,
+.bg-6,
+.bg-8,
+.bg-3,
+.bg-2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.bg-1, .bg-10, .bg-7, #movies, .bg-9 {
-    font-family: fantasy;
 }
 
 #home-background {
@@ -40,10 +42,6 @@ body {
     background-position: right center;
     width: 300px;
     color: transparent;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; */
 }
 
 a {
@@ -157,13 +155,14 @@ a {
     border-color: rgb(41, 41, 41);
     color: rgb(214, 214, 214)
 }
-.bg-5 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: #cdbca4;
-      color: #000000;
-      border: 1px solid #6b5f4b;
-      border-radius: 0.25rem;
+
+.bg-5 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #cdbca4;
+    color: #000000;
+    border: 1px solid #6b5f4b;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -180,13 +179,13 @@ padding: 1rem;
     color: aliceblue;
 }
 
-.bg-6 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: #24cae4;
-      color: #fff;
-      border: 1px solid #007bff;
-      border-radius: 0.25rem;
+.bg-6 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #24cae4;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -197,7 +196,17 @@ padding: 1rem;
     border-radius: 0.25rem;
 }
 
-.bg-1 h2, .bg-2 h2, .bg-3 h2, .bg-4 h2, .bg-5 h2, .bg-6 h2, .bg-7 h2, .bg-8 h2, .bg-9 h2, .bg-10 h2, .bg-11 h2 {
+.bg-1 h2,
+.bg-2 h2,
+.bg-3 h2,
+.bg-4 h2,
+.bg-5 h2,
+.bg-6 h2,
+.bg-7 h2,
+.bg-8 h2,
+.bg-9 h2,
+.bg-10 h2,
+.bg-11 h2 {
     background-color: #ffffff;
     color: #000000;
     padding: 5px;
@@ -209,13 +218,14 @@ padding: 1rem;
     border-color: rgb(255, 234, 0);
     color: black
 }
-.bg-10 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(230, 3, 3);
-      color: #f8f8f8;
-      border: 1px solid #4f1211;
-      border-radius: 0.25rem;
+
+.bg-10 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(230, 3, 3);
+    color: #f8f8f8;
+    border: 1px solid #4f1211;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -232,13 +242,13 @@ padding: 1rem;
     color: black
 }
 
-.bg-1 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(230, 79, 3);
-      color: #000000;
-      border: 1px solid #6e1816;
-      border-radius: 0.25rem;
+.bg-1 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(230, 79, 3);
+    color: #000000;
+    border: 1px solid #6e1816;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -255,13 +265,13 @@ padding: 1rem;
     color: rgb(255, 255, 255)
 }
 
-.bg-7 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(255, 230, 0);
-      color: #000000;
-      border: 1px solid #000000;
-      border-radius: 0.25rem;
+.bg-7 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(255, 230, 0);
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -289,13 +299,14 @@ padding: 1rem;
     border-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0)
 }
-.bg-2 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(205, 109, 0);
-      color: #ffffff;
-      border: 1px solid rgb(49, 18, 0);
-      border-radius: 0.25rem;
+
+.bg-2 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(205, 109, 0);
+    color: #ffffff;
+    border: 1px solid rgb(49, 18, 0);
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -311,13 +322,14 @@ padding: 1rem;
     border-color: rgb(74, 0, 186);
     color: rgb(252, 1, 252)
 }
-.bg-8 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(53, 30, 76);
-      color: rgb(6, 241, 245);
-      border: 1px solid rgb(45, 45, 45);
-      border-radius: 0.25rem;
+
+.bg-8 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(53, 30, 76);
+    color: rgb(6, 241, 245);
+    border: 1px solid rgb(45, 45, 45);
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -333,13 +345,13 @@ padding: 1rem;
     color: rgb(255, 255, 255)
 }
 
-.bg-3 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: #335832;
-      color: #ffffff;
-      border: 1px solid #114f1c;
-      border-radius: 0.25rem;
+.bg-3 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #335832;
+    color: #ffffff;
+    border: 1px solid #114f1c;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -355,17 +367,19 @@ padding: 1rem;
     border-color: rgb(255, 183, 0);
     color: rgb(255, 232, 201)
 }
-.bg-4 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(65, 65, 65);
-      color: rgb(255, 255, 255);
-      border: 1px solid #303030;
-      border-radius: 0.25rem;
+
+.bg-4 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(65, 65, 65);
+    color: rgb(255, 255, 255);
+    border: 1px solid #303030;
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-#room-code, #room-code-title {
+#room-code,
+#room-code-title {
     color: white;
     font-size: x-large;
 }
@@ -390,7 +404,7 @@ padding: 1rem;
 }
 
 #room-code::placeholder {
-    color: #6068a7; 
+    color: #6068a7;
 }
 
 #multiplayer {
@@ -419,10 +433,6 @@ padding: 1rem;
     margin-top: 10px;
 }
 
-#team-page, #room1 {
-    font-family:  Impact, fantasy;
-}
-
 #room-code-page {
     color: white;
     background-color: #007bff;
@@ -445,19 +455,38 @@ padding: 1rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-#list1, #list2 {
-    background-color: #37ddfe;
+#list2, #list1 {
+    background-color: #fe6363;
     max-width: 300px;
+    border-color: #6d0f0f;
+    border: 3px solid #8e0e0e;
+    margin: 10px;
+    padding: 10px;
+}
+
+#list2 li, #list1 li {
+    background-color: #fe6363;
+    border-color: #6d0f0f;
+    border: 3px solid #8e0e0e;
+    padding: 5px;
+}
+
+#list1 li {
+    background-color: #37dafe;
+    border-color: #007bff;
+    padding: 5px;
+}
+
+#list1 {
+    background-color: #37dafe;
     border-color: #007bff;
     border: 3px solid #007bff;
-    margin: 10px;
 }
 
 .bg-11 {
     background-image: url('../images/multiplayer.png');
     background-size: cover;
     background-position: center;
-    font-family:  Impact, fantasy;
     border-radius: 0.25rem;
 }
 
@@ -466,13 +495,14 @@ padding: 1rem;
     border-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255)
 }
-.bg-11 li{
-padding: 1rem;
-      margin-bottom: 0.5rem;
-      background-color: rgb(255, 204, 0);
-      color: #000000;
-      border: 1px solid rgb(255, 234, 0);
-      border-radius: 0.25rem;
+
+.bg-11 li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(255, 204, 0);
+    color: #000000;
+    border: 1px solid rgb(255, 234, 0);
+    border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -492,8 +522,9 @@ padding: 1rem;
     display: block;
     background-color: white;
 }
+
 .memes div {
-    height: 150px;
+    height: 200px;
     width: auto;
     background-size: contain;
     background-position: center center;
@@ -510,6 +541,7 @@ padding: 1rem;
     min-height: 100px;
     margin: 10px 0;
 }
+
 .nav-link {
     font-size: 20px;
 }
@@ -517,20 +549,22 @@ padding: 1rem;
 .btn-primary {
     background-color: var(--main-logo-color);
 }
+
 /* Customize bootstrap classes */
 
 header {
     border-bottom: 1px solid #b9b8b8;
     margin-bottom: 25px;
 }
+
 .hide-display {
     display: none;
 }
+
 .card {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 175px);
-    /* overflow: auto; */
     border: none;
 }
 
@@ -542,7 +576,7 @@ header {
     border: 1px solid #b9b8b8;
 }
 
-.card.questions .card-content{
+.card.questions .card-content {
     width: 100%;
 }
 
@@ -551,7 +585,8 @@ header {
     height: auto;
 }
 
-.card.questions button, .card.questions h2 {
+.card.questions button,
+.card.questions h2 {
     margin: 20px 0;
 }
 
@@ -571,13 +606,13 @@ header {
 .card-content .form-group {
     margin: 5px 0;
 }
+
 /* Genre - room */
 .card.genre {
-    /* border: 1px solid red; */
     height: auto;
 }
-.card.genre .card-content{
-    /* border: 1px solid yellow; */
+
+.card.genre .card-content {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -588,44 +623,54 @@ header {
 .card.multi-player {
     height: auto;
 }
-.card.multi-player .card-content{
+
+.card.multi-player .card-content {
     width: 100%;
 }
+
 .card.room-box {
     height: auto;
 }
+
 .card.room-box .card-content {
     width: 100%;
 }
+
 /* score page */
 .score-page .card {
     height: auto;
     width: 100%;
     margin: 15px 0;
 }
+
 .score-page .card-content {
     width: 100%;
     padding: 15px;
     min-width: fit-content;
 }
+
 .score {
     font-size: 25px;
 }
+
 .score-page .memes {
     width: 300px;
     padding: 15px;
     box-shadow: none;
 }
-.score span{
+
+.score span {
     font-size: 30px;
     font-weight: bold;
     margin-left: 50px;
 }
+
 .replay-button a {
     width: 100%;
     display: inline-block;
 }
-.replay-button a .btn-block{
+
+.replay-button a .btn-block {
     width: 100%;
 }
 
@@ -640,7 +685,8 @@ header {
     gap: 5px;
 }
 
-.answer-text, .total {
+.answer-text,
+.total {
     min-width: 500px;
     background-color: #f0f0f0;
     padding: 15px;
@@ -651,38 +697,46 @@ header {
     margin-bottom: 10px;
     border-radius: 5px;
 }
+
 .total {
     min-width: 75px;
     font-weight: bold;
     text-align: center;
 }
+
 .meme-container {
     min-width: 325px;
 }
 
-.answer-text:hover, .total:hover {
+.answer-text:hover,
+.total:hover {
     background-color: #fff;
     box-shadow: 0px 0px 25px 1px #000000e8;
 }
 
-.question-ul li:hover, #usernames li:hover {
+.question-ul li:hover,
+#usernames li:hover {
     box-shadow: 0px 0px 25px 1px #000227e8;
     scale: 1.1;
 }
+
 /*Score page  */
 .question-label-text {
     font-size: 20px;
     margin-bottom: 5px;
 }
+
 .question-text {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 15px;
 }
-#genre-btns button:hover { 
+
+#genre-btns button:hover {
     box-shadow: 0px 0px 25px 1px #000227e8;
     scale: 1.1;
 }
+
 /* Media queries */
 
 @media (max-width: 1400px) {
@@ -701,6 +755,7 @@ header {
     #room-container {
         position: relative;
     }
+
     #room-container #enter-btn {
         position: absolute;
         bottom: 0;
@@ -709,38 +764,38 @@ header {
 }
 
 @media (max-width: 767px) {
-    #genre-box, .card-content.room-box, .card-content.log, .card-content.sign  {
+
+    #genre-box,
+    .card-content.room-box,
+    .card-content.log,
+    .card-content.sign {
         width: 100%;
     }
-}
 
-@media (max-width: 767px) {
     #genre-btns button {
         width: 170px;
         height: 20px;
     }
-}
 
-@media (max-width: 767px) {
     .card.room {
         height: 70px;
     }
-}
 
-@media (max-width: 767px) {
     #room1 #multiplayer {
         font-size: 25px;
     }
-}
 
-@media (max-width: 767px) {
     #room-code-title {
         margin-left: 2px;
     }
+
     #room-container .form-input {
         width: 65%;
         box-sizing: border-box;
-    } 
+    }
+
+    .answer-text {
+        min-width: 200px;
+    }
+
 }
-
-
