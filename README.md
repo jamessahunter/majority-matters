@@ -35,9 +35,9 @@ Ezekiel Jamolin
 * [Questions ](mailto:ezekieljamolin186@gmail.com)
 
 James Hunter
-* [Portfolio](/)
-* [Github](/)
-* [Questions ](mailto:/)
+* [Portfolio](https://jamessahunter.github.io/portfolio/)
+* [Github](https://github.com/jamessahunter)
+* [Questions ](mailto:jamessahunter@gmail.com)
 
 ## License
 ![License Badge](https://img.shields.io/badge/License-MIT-yellow.svg)  
