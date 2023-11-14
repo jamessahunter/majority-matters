@@ -10,6 +10,8 @@ body {
     background-image: url("../images/logo.png");
 }
 
+/* fonts for questions page */
+
 .bg-5,
 .bg-6,
 .bg-8,
@@ -18,23 +20,11 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#home-background {
-    background-color: #37ddfe;
-    margin: 2px;
-    border-color: #007bff;
-    border: 5px solid #007bff;
+.bg-4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#room {
-    background-color: #37ddfe;
-    margin: 2px;
-    border-color: #007bff;
-    border: 5px solid #007bff;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+/* styling for genre buttons in homepage */
 
 #memes {
     background-image: url('../images/memes-btn.png');
@@ -42,10 +32,6 @@ body {
     background-position: right center;
     width: 300px;
     color: transparent;
-}
-
-a {
-    text-decoration: none;
 }
 
 #superheroes {
@@ -139,9 +125,26 @@ a {
     background-color: rgb(81, 39, 81);
 }
 
-.bg-4 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* styling for question text on questions page */
+
+.bg-1 h2,
+.bg-2 h2,
+.bg-3 h2,
+.bg-4 h2,
+.bg-5 h2,
+.bg-6 h2,
+.bg-7 h2,
+.bg-8 h2,
+.bg-9 h2,
+.bg-10 h2,
+.bg-11 h2 {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+    border-radius: 5px;
 }
+
+/* books questions page styling */
 
 .bg-5 {
     background-image: url('../images/book.png');
@@ -166,6 +169,8 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* fantasy questions page styling */
+
 .bg-6 {
     background-image: url('../images/fantasy.png');
     background-size: cover;
@@ -189,28 +194,13 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* superhero questions page styling */
+
 .bg-10 {
     background-image: url('../images/superhero.png');
     background-size: cover;
     background-position: center;
     border-radius: 0.25rem;
-}
-
-.bg-1 h2,
-.bg-2 h2,
-.bg-3 h2,
-.bg-4 h2,
-.bg-5 h2,
-.bg-6 h2,
-.bg-7 h2,
-.bg-8 h2,
-.bg-9 h2,
-.bg-10 h2,
-.bg-11 h2 {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-    border-radius: 5px;
 }
 
 .bg-10 button {
@@ -228,6 +218,8 @@ a {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
+
+/* food questions page styling */
 
 .bg-1 {
     background-image: url('../images/food.png');
@@ -252,6 +244,8 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* movies questions page styling */
+
 .bg-7 {
     background-image: url('../images/movies.png');
     background-size: cover;
@@ -275,6 +269,8 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* memes questions page styling */
+
 .bg-9 button {
     background-color: rgb(255, 0, 0);
     border-color: rgb(255, 0, 0);
@@ -286,6 +282,8 @@ a {
     background-size: 90px;
     border-radius: 0.25rem;
 }
+
+/* sports questions page styling */
 
 .bg-2 {
     background-image: url('../images/sports.png');
@@ -310,6 +308,8 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* music questions page styling */
+
 .bg-8 {
     background-image: url('../images/music.png');
     background-size: cover;
@@ -333,6 +333,8 @@ a {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* history questions page styling */
+
 .bg-3 {
     background-image: url('../images/history.png');
     background-size: cover;
@@ -354,6 +356,8 @@ a {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
+
+/* games queestions page styling */
 
 .bg-4 {
     background-image: url('../images/games.png');
@@ -377,6 +381,8 @@ a {
     border-radius: 0.25rem;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
 }
+
+/* multiplayer section of homepage styling */
 
 #room-code,
 #room-code-title {
@@ -443,6 +449,8 @@ a {
     border: rgb(0, 0, 118) 2px solid;
 }
 
+/* rooms page styling */
+
 #team-page li {
     color: white;
     margin: 5px;
@@ -482,6 +490,8 @@ a {
     border-color: #007bff;
     border: 3px solid #007bff;
 }
+
+/* multiplayer questions page styiling */
 
 .bg-11 {
     background-image: url('../images/multiplayer.png');
