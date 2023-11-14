@@ -123,16 +123,121 @@ const questiondata=[
     },
     {
         question: "Who's most likely to survive on a desert island?",
-        genre_id: 11, //fantasy
+        genre_id: 11, //multiplayer
     },
     {
         question: "Who's most likely to pull a prank on April Fools' Day?",
-        genre_id: 11, //fantasy
+        genre_id: 11, //multiplayer
     },
     {
         question: "Who's most likely to binge-watch an entire TV series in one weekend?",
-        genre_id: 11, //fantasy
+        genre_id: 11, //multiplayer
     },
+    {
+        question: "Who's most likely to be the first one to arrive at a party?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who's most likely to be caught laughing at the wrong moment?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who's most likely to become a stand-up comedian?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to cheat on a test?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to drop something on the floor and still eat it?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to eat cereal for dinner?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to get lost in their own city?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to join a cult?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to tell a bad joke?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to get scared by an inanimate object?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to be late?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to become vegan?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to win at trivia?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to start a podcast?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to live the longest?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to rage quit a game?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to become internet famous?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to lose their keys?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to win in a drinking contest?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to win a limbo competition?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to make dad jokes / puns?",
+        genre_id: 11, //multiplayer
+    },
+    // Who is most likely to be able to bake something from scratch without a recipe?
+    // Who is most likely to wear a vest?
+    // Who is most likely to be secretly good at a random skill they don’t talk about?
+    // Who is most likely to go bald first?
+    // Who is most likely to become a hoarder?
+    // Who is most likely to be able to juggle?
+    // Who is most likely to call it an early night?
+    // Who is most likely to order the spiciest thing on the menu?
+    // Who is most likely to win in a foot race?
+    // Who is most likely to (not) read the instructions?
+    // Who is most likely to have the most pairs of shoes?
+    // Who is most likely to be the best bank robber?
+    // Who's most likely to disappear for a year, only to return with newfound skills and a mysterious background?
+    // Who is most likely to finish their meal first?
+    // Who is most likely to get way too competitive?
+    // Who is most likely to have the worst coordination?
+    // Who is most likely to wear toe shoes?
+    // Who is most likely to ask for fork at an Asian restaurant?
+    // Who is most likely to believe in ghosts?
+    // Who is most likely to have the (cleanest/dirtiest) house?
+    // Who is most likely to take up rock climbing?
 ]
 
 const seedQuestion = () => Question.bulkCreate(questiondata);
