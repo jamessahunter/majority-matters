@@ -3,37 +3,29 @@ const socket = io();
 var el = document.getElementById('items');
 var sortable = Sortable.create(el);
 
-localStorage.clear();
-
 let genreId = window.location.toString().split('/')[
     window.location.toString().split('/').length-3
   ];
-console.log(genreId);
+
 const h2Element = document.querySelector('h2');
 const id = h2Element.getAttribute('data-qID');
-console.log(id);
+
 let answered;
 function startTimer(duration,display){
     let timer = duration, seconds;
       // Create a new text node for the "Time Remaining: " text
     let timeRemainingTextNode = document.createTextNode("Time Remaining: ");
-
     // Append the "Time Remaining: " text node to the display element
     display.appendChild(timeRemainingTextNode);
         setInterval(async function () {
-            // minutes = parseInt(timer / 60, 10);
             seconds = parseInt(timer % 60, 10);
-            // minutes
             seconds = seconds < 10 ? "0" + seconds : seconds;
             // Create a new text node for the time
             let timeTextNode = document.createTextNode(seconds);
-
             // Remove any existing content from the display element
             while (display.firstChild) {
                 display.removeChild(display.firstChild);
             }
-        
-            // Append the "Time Remaining: " text node and the time text node to the display element
             display.appendChild(timeRemainingTextNode);
             display.appendChild(timeTextNode);
         if(--timer<0 && !answered){  
@@ -41,7 +33,7 @@ function startTimer(duration,display){
         answered=true;
         console.log('answered')
         setTimeout(function(){
-
+            localStorage.setItem('load',true);
             socket.emit('relocateUsers');
         },1000)
     }
@@ -57,8 +49,14 @@ window.addEventListener("load", function() {
 const timerDisplay = document.getElementById("timer");
 
 socket.on('usersRelocated', () => {
-    console.log('relocating');
-  window.location.href = `/scores/${id}`;
+    let load = localStorage.getItem('load');
+    if(load=='false'){
+        return
+    }else{
+        console.log('relocating');
+        window.location.href = `/scores/${id}`;
+    }
+ 
 });
 
 const answerHandler= async()=>{

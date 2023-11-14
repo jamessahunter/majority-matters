@@ -32,7 +32,21 @@ router.get('/about', async (req,res)=> {
 router.get('/login', areAuth, (req, res) => {
     res.render('login');
   });
-  
+
+router.get('/question', async (req,res)=>{
+  const dbQuestionData = await Question.findAll({
+    where:{
+      genre_id: 11,
+    }
+  });
+  const questions = dbQuestionData.map((question)=>question.get({plain:true}));
+  let randomNumber = Math.floor(Math.random() * questions.length) ;
+  const question=questions[randomNumber].question;
+  const id=questions[randomNumber].id;
+  console.log(question);
+  res.json(id);
+}) 
+
 router.get('/genre/:genreId', withAuth,  async( req,res)=>{
   try{
     const dbQuestionData = await Question.findAll({
@@ -41,23 +55,16 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
       }
     });
     const questions = dbQuestionData.map((question)=>question.get({plain:true}));
-    console.log(questions);
     let randomNumber = Math.floor(Math.random() * questions.length) ;
-    console.log(randomNumber);
-    console.log(questions[randomNumber].id);
-
     const dbAnswerData = await Answer.findAll({
     where: {
       question_id: questions[randomNumber].id,
     }
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
-    console.log("answers for page")
-    console.log(answers);
-    const question=questions[randomNumber].question;
+    const question=questions[randomNumber];
     const genreId = req.params.genreId;
     const id=questions[randomNumber].id;
-
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
     const loggedIn = req.session.loggedIn;

@@ -46,11 +46,15 @@ for (let i = 0; i < sortableLists.length; i++) {
   });
 };
 
-let randomNumber = Math.floor(Math.random() * 3) +31;
+// let randomNumber = Math.floor(Math.random() * 3) +31;
 let qID;
-socket.on('getNum',(num)=>{
-  console.log('got num');
-  qID=num;
+localStorage.setItem('load', true);
+socket.on('getNum',(data)=>{
+  if(code.toUpperCase()!=data[1].toUpperCase()){
+    console.log('return')
+    localStorage.setItem('load',false);
+  }
+  qID=data[0];
 })
 
 
@@ -60,7 +64,14 @@ const answerHandler= async()=>{
     if(!start){
       return;
     }
-    socket.emit('passNum',(randomNumber));
+    localStorage.setItem('load', true);
+    const getResponse = await fetch(`/question`,{method: 'GET',})
+    if(getResponse.ok){
+      qID= await getResponse.json();
+      console.log(qID);
+    }
+    console.log('room code ' +code);
+    socket.emit('passNum',[qID, code]);
     const sort1 =document.getElementById('list1');
     const sort2 =document.getElementById('list2');
     const listItems1 = sort1.getElementsByTagName('li')
@@ -116,11 +127,11 @@ const answerHandler= async()=>{
       answers[i].answers=answers[i].name;
     }
   }
-  const deleteResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+  const deleteResponse = await fetch(`/genre/11/${code}/${qID}`,{
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   })
-  const createResponse = await fetch(`/genre/11/${code}/${randomNumber}`,{
+  const createResponse = await fetch(`/genre/11/${code}/${qID}`,{
     method: 'POST',
     body: JSON.stringify({answers}),
     headers: { 'Content-Type': 'application/json' },
@@ -131,8 +142,17 @@ const answerHandler= async()=>{
   }
 }
   socket.on('usersRelocated', () => {
-    console.log('relocating');
-  window.location.href = `/genre/11/${code}/${qID}`;
+    let load = localStorage.getItem('load');
+    console.log(load);
+    console.log(!load);
+    if(load=='false'){
+      console.log('no load');
+      return;
+    }else{
+      localStorage.setItem('load', false);
+      console.log('relocating');
+      window.location.href = `/genre/11/${code}/${qID}`;
+    }
 });
 
 document

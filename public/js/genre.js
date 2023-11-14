@@ -1,3 +1,5 @@
+localStorage.clear();
+
 const multiHandler= async()=> {
         
     let roomCode='';
