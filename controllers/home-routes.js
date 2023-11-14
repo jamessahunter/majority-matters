@@ -62,9 +62,11 @@ router.get('/genre/:genreId', withAuth,  async( req,res)=>{
     }
     });
     const answers=dbAnswerData.map((answer)=>answer.get({plain:true}));
-    const question=questions[randomNumber];
+    const question=questions[randomNumber].question;
     const genreId = req.params.genreId;
     const id=questions[randomNumber].id;
+    console.log('***************');
+    console.log(question)
     //get genre text and use that to display meme images 
     const isGenreMemes = await isGenreMeme(genreId);
     const loggedIn = req.session.loggedIn;
