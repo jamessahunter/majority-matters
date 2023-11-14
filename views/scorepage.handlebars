@@ -55,7 +55,9 @@
             <div class="card-content">
                 <h1>High Scores</h1>
                 {{#each highScores as |score|}}
-                    {{> display-high-score}}
+                    <div class="result-container">
+                        {{> display-high-score}}
+                    </div>    
                 {{/each}}
             </div>    
         </div>
