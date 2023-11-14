@@ -47,27 +47,22 @@ sequelize.sync({ force: false }).then(() => {
 
 
 const io = require('socket.io')(server);
-
+// listens for when a user connects to server
 io.on('connection', (socket) => {
   console.log('A user connected Server');
-  console.log(socket.handshake.headers.referer);
-
+  //listents for join to be emitted from client
   socket.on('join', (username) => {
+    //emits user joined to all connected clients
     io.emit('user joined', `${username} has joined`);
-    // Handle Socket.IO events here
   });
 
   socket.on('passNum',(data)=>{
-    console.log('**********************');
-    console.log(data);
-    // console.log(num);
     io.emit('getNum',(data));
   })
 
-
     // Handle button press event
   socket.on('relocateUsers', () => {
-      // Emit a custom event to all connected clients
+      // Emit a usersRelocated event to all connected clients
       io.emit('usersRelocated');
     });
 });
