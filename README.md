@@ -29,6 +29,16 @@ Deepak Sinha
 * [Github](https://github.com/dee-here)
 * [Questions ](mailto:deepakdilse@gmail.com)
 
+Ezekiel Jamolin
+* [Portfolio](https://ezekiel186.github.io/portfolio/)
+* [Github](https://github.com/Ezekiel186)
+* [Questions ](mailto:ezekieljamolin186@gmail.com)
+
+James Hunter
+* [Portfolio](/)
+* [Github](/)
+* [Questions ](mailto:/)
+
 ## License
 ![License Badge](https://img.shields.io/badge/License-MIT-yellow.svg)  
 

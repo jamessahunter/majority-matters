@@ -235,7 +235,8 @@ router.get('/scores/:id', withAuth, async(req, res)=>{
           high_score: {
             [Op.not]: null,
           }
-        }
+        },
+        order : [['high_score', 'DESC'], ['username', 'ASC']],
       });
       const highScores = dbHighScores.map(score => score.get({plain: true}));
       const isGenreMemes = await isQuestionMeme(req.params.id);
