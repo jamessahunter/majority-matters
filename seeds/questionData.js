@@ -217,27 +217,104 @@ const questiondata=[
         question: "Who is most likely to make dad jokes / puns?",
         genre_id: 11, //multiplayer
     },
-    // Who is most likely to be able to bake something from scratch without a recipe?
-    // Who is most likely to wear a vest?
-    // Who is most likely to be secretly good at a random skill they don’t talk about?
-    // Who is most likely to go bald first?
-    // Who is most likely to become a hoarder?
-    // Who is most likely to be able to juggle?
-    // Who is most likely to call it an early night?
-    // Who is most likely to order the spiciest thing on the menu?
-    // Who is most likely to win in a foot race?
-    // Who is most likely to (not) read the instructions?
-    // Who is most likely to have the most pairs of shoes?
-    // Who is most likely to be the best bank robber?
-    // Who's most likely to disappear for a year, only to return with newfound skills and a mysterious background?
-    // Who is most likely to finish their meal first?
-    // Who is most likely to get way too competitive?
-    // Who is most likely to have the worst coordination?
-    // Who is most likely to wear toe shoes?
-    // Who is most likely to ask for fork at an Asian restaurant?
-    // Who is most likely to believe in ghosts?
-    // Who is most likely to have the (cleanest/dirtiest) house?
-    // Who is most likely to take up rock climbing?
+    {
+        question: "Who is most likely to be able to bake something from scratch without a recipe?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to wear a vest?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: " Who is most likely to be secretly good at a random skill they don’t talk about?",
+        genre_id: 11, //multiplayer
+    },     
+    {
+        question: "Who is most likely to go bald first?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: " Who is most likely to become a hoarder?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to be able to juggle?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to call it an early night?",
+        genre_id: 11, //multiplayer
+    },
+   {
+        question: "Who is most likely to order the spiciest thing on the menu?",
+        genre_id: 11, //multiplayer
+    }, 
+    {
+        question: "Who is most likely to win in a foot race?",
+        genre_id: 11, //multiplayer
+    },  
+    {
+        question: "Who is most likely to (not) read the instructions?",
+        genre_id: 11, //multiplayer
+    },
+    {
+        question: "Who is most likely to have the most pairs of shoes?",
+        genre_id: 11, //multiplayer
+    },               {
+        question: "Who is most likely to be the best bank robber?",
+        genre_id: 11, //multiplayer
+   },   
+   {
+        question: "Who's most likely to disappear for a year, only to return with newfound skills and a mysterious background?",
+        genre_id: 11, //multiplayer
+    },                {
+        question: "Who is most likely to finish their meal first?",
+        genre_id: 11, //multiplayer
+    },                  
+    {
+        question: " Who is most likely to get way too competitive?",
+        genre_id: 11, //multiplayer
+   },                        
+   {
+        question: "Who is most likely to have the worst coordination?",
+        genre_id: 11, //multiplayer
+   },                         
+   {
+        question: "Who is most likely to wear toe shoes?",
+        genre_id: 11, //multiplayer
+   },                            
+   {
+        question: "Who is most likely to ask for fork at an Asian restaurant?",
+        genre_id: 11, //multiplayer
+   },                               
+    {
+        question: "Who is most likely to believe in ghosts?",
+        genre_id: 11, //multiplayer
+    },                                   
+    {
+        question: "Who is most likely to have the (cleanest/dirtiest) house?",
+        genre_id: 11, //multiplayer
+    },                                        
+    {
+        question: "Who is most likely to take up rock climbing?",
+        genre_id: 11, //multiplayer
+    },                                            
+    {
+        question: "Who is most likely to be the first in line for karaoke?",
+        genre_id: 11, //multiplayer
+    },                                           
+    {
+        question: "Who is most likely to be the best at cooking?",
+        genre_id: 11, //multiplayer
+    },                                                  
+    {
+        question: "Who is most likely to dye their hair?",
+        genre_id: 11, //multiplayer
+   },                                                   
+   {
+        question: "Who is most likely to make the best teacher?",
+        genre_id: 11, //multiplayer
+    },
 ]
 
 const seedQuestion = () => Question.bulkCreate(questiondata);
