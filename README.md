@@ -3,6 +3,8 @@
 
 [Majority Matters](https://majority-matters-080972dae02f.herokuapp.com/)
 
+![Alt text](<public/images/Majority Matters Playthrough.gif>)
+
 ## Description 
 
 "Majority Matters" is a full stack application that lets users rank answers to a question and presents them with a score on how their answers matched with the overall popularity of the answer.
@@ -23,13 +25,12 @@ The last section on the score page displays all the users and their high scores 
 
 The FAQ page provides details on how to play and how scores work. This link is available from the navigation and is available to the user without needing to sign in.  For everything else, they need to signup or login.
 
-![Alt text](<public/images/Majority Matters Playthrough.gif>)
 
 ### Multi player mode [Bonus]
 
-To play multiplayer the user must sign up or log in. Once logged in users can either create a room or join a room by entering the room code on the home page. Users are randomly added to either Team 1 or Team 2. Users can also be dragged from one team into another.
+To play multiplayer the user must sign up or log in. Once logged in users can either create a room or join a room by entering the room code on the home page. Everytime a new user enters the room the page refreshes to see that new user. Users are randomly added to either Team 1 or Team 2. Users can also be dragged from one team into another.
 
-Once the game starts, all the team players are presented with the same question that they get to rank.  Scores are based on how all the players ranked the answers. The score page also displays the team scores and which team won.
+Once the game starts, all the team players are presented with the same question that they get to rank. Scores are based on how all the players ranked the answers. The score page also displays the team scores and which team won.
 
 This group project is a full stack application built using MVC paradigm.
 It uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
@@ -45,7 +46,8 @@ It uses Handlebars.js as the templating language, Sequelize as the ORM, and the 
 | Sequelize    | [https://sequelize.org/](https://sequelize.org/) | 
 | Handlebars    | [https://handlebarsjs.com/](https://handlebarsjs.com/) | 
 | Git | [https://git-scm.com/](https://git-scm.com/)     |   
-
+| SortableJS | [https://sortablejs.github.io/Sortable/](https://sortablejs.github.io/Sortable/) |
+| Socket.IO | [https://socket.io/](https://socket.io/) |
 
 ## User Stories
 
@@ -55,15 +57,36 @@ As a user I want to have my session saved so that I can continue using the site 
 
 ![Alt text](<public/images/Majority Matters Login.gif>)
 
-As as user I want to see options to rooms/genres so that I can choose what type of questions I get
+As as user I want to see options to rooms/genres so that I can choose what type of questions I get.
 
-As a user I want to see a question with 8 answers so that I can order my options
+As a user I want to see a question with 8 answers so that I can order my options.
 
-As a user I want to see my score so that I know how well I did
+This is done by making a request to the database to get all the questions for that specific genre and then randomly selecting a random question and displaying the question and its corresponding answers to the page. This done by doing a fetch request to a RESTful routes on the server that then respond with the corresponding information and passes it to the handlebars page that creates the HTML. The answers are able to be drag and dropped thanks to SortableJS. Once the user hits the submit button the users answer are stored into table. The users answer are also used to update the totals for each of the answers.
+
+![Alt text](<public/images/Majority Matters Question Page.gif>)
+
+As a user I want to see my score so that I know how well I did.
 
 As a user I want to see the highest scores on a list so that I know how well my score was compared to others!
 
 ![Alt text](<public/images/Majority Matters Playthrough.gif>)
+
+As a user I want to play with a group of friends.
+
+This is done by creating a room that has two teams associated with that room that users are then added to. The user also has the ability to join a room by entering an already existing code. Both of these use fetch requests to either create the room or to update the users that are in the room. The user is then take to a page that shows the room code and two teams. The multiplayer part means that the answers for the question will be all the users in the room.
+
+As a user I want to split into teams.
+
+Once the user is on the team page they are given the ability again thanks to SortableJS to drag and drop users from one team to another. The page also refreshes when a new user has joined the page. This is done using socket.io which allows the client to push information to the server that server is listening and then responds back to the client. This allows for all clients that are on the server to be given the same command at the same time. The page checks that the number of users for that room is equal to the number of users on the page if not it refreshes the page.
+
+Once the a user hits play then all users are taken to the same question again by using socket to pass the question to each client on the server.
+
+![Alt text](<public/images/Majority Matters Team Page.gif>)
+
+As a user I want to see if my team did better than the other team.
+
+Once on the question page the users are given a set amount of time the answer the question. Once the time is up all the users are redirected to the scores page where it shows which team has one or if they have tied. This is done by using helper functions in handlebars that recivers all users from each team and their scores for the question and then the function calcualtes the team's scores and determine which team one.
+
 
 ## Author Info
 
